@@ -1,0 +1,18 @@
+{
+  "universal": {
+    "skipInstall": false,
+    "directory": ".",
+    "project": "angular6"
+  },
+  "serverless": {
+    "provider": "firebase",
+    "firebaseProject": "phani-demo",
+    "skipInstall": false,
+    "directory": ".",
+    "project": "angular6",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}
