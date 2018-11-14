@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, Inject } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
     selector: 'app-navbar',
@@ -9,8 +10,8 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
-
-    constructor(public location: Location, private element : ElementRef) {
+    fixTop: boolean = false;
+    constructor(@Inject(WINDOW) private window: Window, public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
     }
 
@@ -18,6 +19,16 @@ export class NavbarComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
+
+    @HostListener("window:scroll", [])
+    onWindowScroll() {
+        if (this.window.scrollY > 40) {
+            this.fixTop = true;
+        } else {
+            this.fixTop = false;
+        }
+    }
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
