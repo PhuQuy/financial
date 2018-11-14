@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     fixTop: boolean = false;
+    arrow: any;
     constructor(@Inject(WINDOW) private window: Window, public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
     }

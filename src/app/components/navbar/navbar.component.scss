@@ -1,7 +1,43 @@
 ul li p {
-    color: #212121;
+  color: #212121;
 }
 
 .navbar-header-top {
-    background-color: #323232;
+  background-color: #323232;
+
+  p {
+    color: #ababab;
+  }
+}
+
+.menu-navbar {
+  margin-top: -21px;
+
+  .menu {
+    background-color: #212121;
+    margin-top: -4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 8px;
+    height: 36px;
+    padding-bottom: 5px;
+
+    svg {
+      margin-top: 4px;
+      width: 15px;
+      height: 15px;
+
+      path {
+        fill: white !important;
+      }
+
+      &.rotate {
+        -webkit-animation: spin 0.5s;
+        -moz-animation: spin 0.5s;
+        animation: spin 0.5s;
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
