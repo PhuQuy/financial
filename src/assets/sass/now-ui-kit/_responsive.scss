@@ -295,6 +295,42 @@
     min-height: 70vh;
     height: auto;
   }
+
+  .menu-navbar {
+    ngb-accordion {
+      .card-header {
+        display: none;
+      }
+
+      .card {
+        margin-bottom: 0px !important;
+        box-shadow: none !important;
+
+        .card-body {
+          min-height: 0px;
+          padding-bottom: 0px;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+
+        .list-menu {
+          color: #ababab;
+        }
+
+        .image-content {
+          position: absolute;
+          right: 21px;
+          top: 11px;
+
+          svg {
+            path {
+              fill: #555555;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 576px) {
