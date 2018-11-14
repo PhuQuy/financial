@@ -1,31 +1,46 @@
-<div class="navbar-header-top" style="height:40px">
-
+<div class="navbar-header-top d-none d-sm-block" style="height:40px">
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col-3 my-auto">
+        <p class="mb-0"><i class="fas fa-map-marker-alt pr-2"></i>Brooklyn, NY 10036, United States</p>
+      </div>
+      <div class="col-3 my-auto">
+        <p class="mb-0"><i class="fab fa-telegram-plane pr-2"></i>example@gmail.com</p>
+      </div>
+      <div class="col-3 my-auto">
+        <p class="mb-0"><i class="fas fa-phone pr-2"></i>0909 748414</p>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="menu-navbar d-block d-sm-none">
+  <ngb-accordion #acc="ngbAccordion">
+    <ngb-panel id="toggle-1" title="ahskldjals">
+      <ng-template ngbPanelContent>
+        <div class="list-menu text-center px-3" style="background-color: #212121">
+          <p class="mb-0 py-1 pt-3"><i class="fas fa-map-marker-alt pr-2"></i>Brooklyn, NY 10036, United States</p>
+          <p class="mb-0 py-1"><i class="fab fa-telegram-plane pr-2"></i>example@gmail.com</p>
+          <p class="mb-0 py-1"><i class="fas fa-phone pr-2"></i>0909 748414</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+  <div class="menu" (click)="acc.toggle('toggle-1'); arrow = !arrow">
+    <svg [class.rotate]="!!arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+      <path fill="#555" fill-rule="nonzero" d="M28.734 8.373a1.045 1.045 0 0 0-1.505-.099l-12.307 11.16L2.776 8.279a1.046 1.046 0 0 0-1.506.09 1.121 1.121 0 0 0 .087 1.55l12.85 11.803a1.05 1.05 0 0 0 1.416.004L28.638 9.925a1.125 1.125 0 0 0 .096-1.552z" />
+    </svg>
+  </div>
+</div>
+
 <nav class="navbar navbar-expand-lg bg-primary bg-white" [ngClass]="{'fixed-top': fixTop}" color-on-scroll="500">
   <div class="container" style="height: 67px">
-    <img class="mh-100" src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/06/logo1-2.png" alt="">
-    <!-- <div class="dropdown button-dropdown">
-      <div ngbDropdown>
-        <a class="dropdown-toggle" ngbDropdownToggle>
-          <span class="button-bar"></span>
-          <span class="button-bar"></span>
-          <span class="button-bar"></span>
-        </a>
-        <div ngbDropdownMenu>
-          <a class="dropdown-header">Dropdown header</a>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">One more separated link</a>
-        </div>
-      </div>
-    </div> -->
-    <!-- <div class="navbar-translate">
-      <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Designed by Invision. Coded by Creative Tim">
-        Now Ui Kit
+    <img class="mh-100 d-none d-sm-block" src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/06/logo1-2.png"
+      alt="">
+    <div class="navbar-translate">
+      <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Designed by Invision. Coded by Creative Tim"
+        style="height:69px">
+        <img class="mh-100 d-block d-sm-none" src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/06/logo1-2.png"
+          alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02"
         aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
@@ -33,7 +48,7 @@
         <span class="navbar-toggler-bar bar2"></span>
         <span class="navbar-toggler-bar bar3"></span>
       </button>
-    </div> -->
+    </div>
     <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
