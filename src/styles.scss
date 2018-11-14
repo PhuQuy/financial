@@ -250,5 +250,11 @@ svg.svg-inline--fa {
 }
 
 a.btn-round svg {
-    margin-top: 7px;
+  margin-top: 7px;
+}
+
+.center-vertical {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
 }

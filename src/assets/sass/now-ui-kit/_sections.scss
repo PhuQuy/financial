@@ -29,7 +29,6 @@
     background-size: cover;
 
     .page-header-image{
-        position: absolute;
         background-size: cover;
         background-position: center center;
         width: 100%;
@@ -74,17 +73,17 @@
         max-height: 440px;
     }
 
-    &:after,
-    &:before{
-        position: absolute;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        left: 0;
-        top: 0;
-        content: "";
-    }
+    // &:after,
+    // &:before{
+    //     position: absolute;
+    //     z-index: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     display: block;
+    //     left: 0;
+    //     top: 0;
+    //     content: "";
+    // }
 
     &:before{
         background-color: rgba(0,0,0,.5);
