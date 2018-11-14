@@ -50,9 +50,12 @@ $default-states-color: lighten($default-color, 6%) !default;
 $default-color-opacity: rgba(182, 182, 182, .6) !default;
 
 $primary-color: #3e467b !default;
-$primary-states-color: lighten($primary-color, 6%) !default;
+$primary-states-color: lighten(rgba(205, 220, 57, 0.9), 6%) !default;
 $primary-color-opacity: rgba(205, 220, 57, 0.4) !default;
 $primary-color-alert: rgba(205, 220, 57, 0.8) !default;
+
+$second-color: rgba(205, 220, 57, 0.7) !default;
+$second-states-color: lighten(#3e467b, 6%) !default;
 
 $success-color: #18ce0f !default;
 $success-states-color: lighten($success-color, 6%) !default;
@@ -154,14 +157,14 @@ $font-size-h4: 1.714em !default; // ~ 24px
 $font-size-h5: 1.57em !default; // ~ 22px
 $font-size-h6: 1em !default; // ~ 14px
 
-$font-paragraph:               1em          !default;
-$font-size-navbar:             1em          !default;
-$font-size-mini:               14px     !default;
-$font-size-small:              0.8571em     !default;
-$font-size-base:               14px         !default;
-$font-size-large:              1em          !default;
-$font-size-large-navbar:       20px         !default;
-$font-size-blockquote:         1.1em        !default; // ~ 15px
+$font-paragraph: 1em !default;
+$font-size-navbar: 1em !default;
+$font-size-mini: 14px !default;
+$font-size-small: 0.8571em !default;
+$font-size-base: 14px !default;
+$font-size-large: 1em !default;
+$font-size-large-navbar: 20px !default;
+$font-size-blockquote: 1.1em !default; // ~ 15px
 
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;

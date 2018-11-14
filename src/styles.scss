@@ -258,3 +258,35 @@ a.btn-round svg {
   display: table-cell;
   vertical-align: middle;
 }
+
+.second-color {
+  color: rgba(205, 220, 57, 1);
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+input.form-control {
+
+  &:focus {
+    background-color: rgba(205, 220, 57, 0.40) !important;
+  }
+
+
+  &::placeholder {
+    color: #878787;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #878787;
+  }
+
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #878787;
+  }
+}
