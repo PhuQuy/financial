@@ -50,11 +50,11 @@ $default-states-color: lighten($default-color, 6%) !default;
 $default-color-opacity: rgba(182, 182, 182, .6) !default;
 
 $primary-color: #3e467b !default;
-$primary-states-color: lighten(rgba(205, 220, 57, 0.9), 6%) !default;
+$primary-states-color: lighten(#a6b136, 6%) !default;
 $primary-color-opacity: rgba(205, 220, 57, 0.4) !default;
 $primary-color-alert: rgba(205, 220, 57, 0.8) !default;
 
-$second-color: rgba(205, 220, 57, 0.7) !default;
+$second-color: rgba(205, 220, 57, 0.8) !default;
 $second-states-color: lighten(#3e467b, 6%) !default;
 
 $success-color: #18ce0f !default;

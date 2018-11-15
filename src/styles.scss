@@ -263,6 +263,10 @@ a.btn-round svg {
   color: rgba(205, 220, 57, 1);
 }
 
+.white-color {
+  color: white;
+}
+
 .btn {
   text-transform: uppercase;
 }
@@ -289,4 +293,75 @@ input.form-control {
     /* Microsoft Edge */
     color: #878787;
   }
+}
+
+
+.form-group.form-group-no-border.input-lg .input-group-text,
+.input-group.form-group-no-border.input-lg .input-group-text {
+  padding: 15px 6px 15px 15px !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #828282;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 100%;
+  position: relative;
+
+  &::after {
+    top: auto;
+    bottom: -15px;
+    content: '';
+    background-color: inherit;
+    z-index: 1;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 30px;
+    height: 30px;
+    margin: auto !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+}
+
+.divider {
+  background-color: #393d7d;
+}
+
+.white-divider {
+  background-color: white;
+}
+
+.yellow-divider {
+  background-color: #c1cd4c;
+}
+
+.blue-color {
+  color: #3e467b;
 }

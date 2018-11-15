@@ -11,11 +11,72 @@
 }
 
 .slogan {
-    h1 {
-        margin-bottom: 0px !important;
-    }
+  h1 {
+    margin-bottom: 0px !important;
+  }
 
-    h4 {
-        margin-top: 0px;
-    }
+  h4 {
+    margin-top: 0px;
+  }
+}
+
+.section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.section-get-money {
+  background-image: url(/assets/images/blue-poly-background.jpg);
+}
+
+.section-receive-money {
+  background-image: url(/assets/images/green-poly-background.jpg);
+}
+
+.section-right-choise {
+  background-image: url(/assets/images/how-it-works-background.jpg);
+}
+
+.section-right-decision-content {
+  background-image: url(/assets/images/home-background-1.jpg);
+}
+
+.icon_box_inner::before {
+  font-size: 30px;
+  line-height: 60px;
+  width: 60px;
+  height: 60px;
+  border-width: 0px;
+  color: #cddc39;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
+}
+
+.check-icon {
+  font-size: 30px;
+  color: #cddc39;
+  font-weight: 100;
+}
+
+.why-us-card {
+  border-color: #b6b6b6;
+  box-shadow: none;
+  background-color: #f6f6f6;
+}
+
+.icon-chart {
+  font-size: 25px;
+  line-height: 70px;
+  width: 70px;
+  height: 70px;
+  border-width: 0px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #cddc39;
+}
+
+.section-right-decision {
+  background-color: #c1cd4c;
 }
