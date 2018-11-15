@@ -287,7 +287,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-lg-4 col-sm-6 col-12 mx-auto">
         <div class="row">
           <div class="col-2 my-auto" style="z-index: 1;     margin-right: -20px;">
             <div class="icon-chart text-center">
@@ -309,7 +309,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-lg-4 col-sm-6 col-12 mx-auto">
         <div class="row">
           <div class="col-2 my-auto" style="z-index: 1;     margin-right: -20px;">
             <div class="icon-chart text-center">
@@ -331,7 +331,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-lg-4 col-sm-6 col-12 mx-auto">
         <div class="row">
           <div class="col-2 my-auto" style="z-index: 1;     margin-right: -20px;">
             <div class="icon-chart text-center">
@@ -389,7 +389,7 @@
       </div>
     </div>
 
-    <div class="row white-color">
+    <div class="row white-color mt-0 mt-md-5">
       <div class="col-lg-3 col-sm-6 col-12">
         <h1 class="mb-1">120k</h1>
         <h4 class="mt-0">LOANS TAKEN</h4>
@@ -414,9 +414,73 @@
 </div>
 
 <div class="section section-lastest-news" #lastestnew>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="mb-1">Latest News</h1>
+        <h5 class="blue-color uppercase">stay tuned into the world of finance and business</h5>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-12">
+        <!-- Set up your HTML -->
+        <div class="owl-carousel mt-5 custom-news">
+          <div *ngFor=" let data of [1,2,3,4,5]; let i =index">
+            <news-item></news-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="section section-customer-feedback" #customerfeedback>
+<div class=" divider divider-feedback"></div>
+<div class="section section-customer-feedback" #customerfeedback style="padding-bottom: 0px">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-8">
+        <div class="text-center white-color">
+          <h3 class="mb-0">Get Instant access to our weekly newsletter</h3>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-lg-4">
+        <div class="input-with-button-rounded w-100 px-2">
+          <div class="row">
+            <div class="col-md-10 col-8 px-0">
+              <input type="email" class="form-control" name="email-subscribe" title="Email" value="" placeholder="Email...">
+            </div>
+            <div class="col-4 col-md-2  px-0 py-0">
+              <button class="btn btn-primary w-100">Subscribe!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="customer-feedback" style="margin-top: 70px">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-5 text-center">
+          <h1 class="white-color mb-1">What customers are saying</h1>
+          <h5 class="second-color ">Hear what our customers are saying</h5>
+        </div>
+        <div class="col-12">
+          <h1 class="white-color text-center"><i class="fas fa-quote-left"></i></h1>
+          <p class="white-color px-4" style="font-size: 20px">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+            consequat,
+            vel illum dolore eu
+            feugiat. Lorem ipsum dolor sit amet, cosectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+            ut
+            laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <div class="col-12">
+          <h3 class="second-color text-center mb-0">Jill Sanders</h3>
+          <h6 class="text-center white-color mb-0 pb-5">Manager</h6>
+          <!-- <customer-feedback></customer-feedback> -->
 
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

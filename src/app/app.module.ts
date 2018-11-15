@@ -12,26 +12,28 @@ import { HomeComponent } from './routes/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignUpComponent } from './routes/sign-up/sign-up.component';
 import { LogInComponent } from './routes/log-in/log-in.component';
+import { NewsItemComponent } from './components/news-item/news-item.component';
+import { CustomerFeedbackComponent } from './components/customer-feedback/customer-feedback.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    FooterComponent,
-    SignUpComponent,
-    LogInComponent
-  ],
-  imports:[
- CommonModule,
-NgtUniversalModule,
- 
-    
-    RouterModule,
-    NgbModule.forRoot(),
-    AppRoutingModule
-  ],
-  providers: [],
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomeComponent,
+        FooterComponent,
+        SignUpComponent,
+        LogInComponent,
+        NewsItemComponent,
+        CustomerFeedbackComponent
+    ],
+    imports: [
+        CommonModule,
+        NgtUniversalModule,
+        RouterModule,
+        NgbModule.forRoot(),
+        AppRoutingModule
+    ],
+    providers: [],
 })
 export class AppModule { }

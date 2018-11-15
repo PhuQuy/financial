@@ -42,6 +42,14 @@
   background-image: url(/assets/images/home-background-1.jpg);
 }
 
+.section-customer-feedback {
+  background-color: #3e467b;
+}
+
+.divider-feedback {
+  background-color: #3e467b;
+}
+
 .icon_box_inner::before {
   font-size: 30px;
   line-height: 60px;
@@ -79,4 +87,31 @@
 
 .section-right-decision {
   background-color: #c1cd4c;
+}
+
+.input-with-button-rounded {
+  input {
+    border-radius: 0px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 45px;
+    background-color: white;
+    border: none;
+  }
+
+  button {
+    background-color: #cddc39;
+    font-style: normal;
+    text-transform: uppercase;
+    height: 45px;
+    margin: 0px;
+    border-radius: 0px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border: none;
+  }
+}
+
+.customer-feedback {
+  background-image: url(/assets/images/home-testimonials1.jpg);
 }
