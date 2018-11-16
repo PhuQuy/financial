@@ -4,11 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './routes/home/home.component';
-import { LogInComponent } from './routes/log-in/log-in.component';
+import { ContactUsComponent } from './routes/contact-us/contact-us.component';
+import { NewsComponent } from './routes/news/news.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LogInComponent }
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'news', loadChildren: './routes/news/news.module#NewsModule' },
+  
 ];
 
 @NgModule({
@@ -20,4 +23,5 @@ const routes: Routes = [
   exports: [
   ],
 })
+
 export class AppRoutingModule { }

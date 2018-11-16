@@ -1,0 +1,38 @@
+.send-msg {
+  background-color: #cddc39;
+  border-radius: 30px;
+  height: 49px;
+  width: 170px;
+  font-weight: 600;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #3e467b;
+  }
+}
+
+.contact-us {
+  .title {
+    font-size: 36px;
+    color: #212121;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .sub-title {
+    font-weight: 600;
+    font-style: normal;
+    color: #3e467b;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  label {
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #878787;
+  }
+}
