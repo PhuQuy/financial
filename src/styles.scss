@@ -237,6 +237,20 @@ body {
   color: #c9c9c9;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .navbar .navbar-nav .nav-link:not(.btn) svg.svg-inline--fa,

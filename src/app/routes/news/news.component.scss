@@ -34,4 +34,36 @@
 
 .categories-list {
   list-style-type: none;
+
+  li a {
+    color: #3e467b;
+
+    &:hover {
+      color: #cddc39;
+    }
+  }
+}
+
+.news-content {
+  h4 {
+    color: #212121;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+  .about-us-text {
+    font-size: 13px;
+    color: #878787;
+  }
+}
+
+.news-contact {
+  i {
+    color: #cddc39;
+    font-size: 20px;
+
+  }
 }
