@@ -378,10 +378,7 @@ input.form-control {
     font-size: 24px !important;
     opacity: 0.8;
     outline: none;
-
-
   }
-
 
   .owl-prev {
     left: 0px;
@@ -390,4 +387,8 @@ input.form-control {
   .owl-next {
     right: 0px;
   }
+}
+
+.pointer {
+  cursor: pointer;
 }

@@ -1,0 +1,37 @@
+.news-header {
+  background-color: #3e467b;
+  color: #ffffff;
+}
+
+.news-search {
+  color: #bbbbbb;
+
+  &::placeholder {
+    color: #bbbbbb;
+  }
+}
+
+.input-image {
+  position: relative;
+  width: 100%;
+
+  input {
+    padding-right: 40px;
+    width: 100% !important;
+  }
+
+  .image-content {
+    position: absolute;
+    right: 10px;
+
+    svg {
+      path {
+        fill: #555555;
+      }
+    }
+  }
+}
+
+.categories-list {
+  list-style-type: none;
+}
