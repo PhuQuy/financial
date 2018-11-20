@@ -1,0 +1,112 @@
+.news-list {
+  box-shadow: unset;
+
+  .news-post-day {
+    padding: 22px 25px;
+    height: 100px;
+    width: 100px;
+    background-color: #cddc39;
+
+    label {
+      font-size: 24px;
+      line-height: 30px;
+      display: inline-block;
+      margin-bottom: 0;
+      color: #ffffff;
+      font-weight: normal;
+    }
+  }
+
+  .news-like-comment {
+    background-color: #3e467b;
+    width: 100px;
+    color: #ffffff;
+
+    span {
+      &:hover {
+        color: #cddc39;
+      }
+    }
+  }
+
+  .news-post-by {
+    a {
+      color: #3e467b;
+
+      &:hover {
+        color: #cddc39;
+      }
+    }
+
+    .posted-by {
+      line-height: 21px;
+      font-weight: 600;
+      font-size: 13px;
+      color: #878787;
+    }
+
+    .news-divider {
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+  }
+
+  .news-card-short {
+    color: #878787;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+  }
+
+  .read-more {
+    color: #3e467b;
+    line-height: 21px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    &:hover {
+      color: #cddc39;
+    }
+  }
+
+  .news-card-title {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: normal;
+    font-style: normal;
+    color: #212121;
+    margin-bottom: 5px;
+
+    &:hover {
+      color: #3e467b;
+    }
+  }
+}
+
+.like-share {
+  margin-block-start: 0px;
+  padding-inline-start: 0px;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding-right: 20px;
+
+    label {
+      color: #3e467b;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 21px;
+      font-weight: 600;
+      font-style: normal;
+
+      text-transform: uppercase;
+
+      &:hover {
+        color: #cddc39;
+      }
+    }
+  }
+}

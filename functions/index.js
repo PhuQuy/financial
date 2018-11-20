@@ -13,3 +13,28 @@ return server.app(request, response);
 module.exports = {
     http
 }
+
+exports.sendNotification = functions.firestore
+    .document('/user/{value}').onCreate((event) => {
+    // ... Your code here
+    // const data = event.data.data();
+    const payload = {
+        notification: {
+            title: 'Có người liên hệ',
+            body: 'Vô xem lẹ lẹ',
+            icon: "https://lh6.googleusercontent.com/-3e3ttRJyOJk/AAAAAAAAAAI/AAAAAAAAAUI/i7a1mUx3_Co/photo.jpg",
+            click_action: "https://gocodee.com/"
+        }
+    };
+    var fcmTokens = admin.firestore().collection('fcmTokens');
+    return fcmTokens.get()
+        .then(snapshot => {
+        snapshot.forEach(doc => {
+            admin.messaging().sendToDevice(doc.data().token, payload);
+        });
+        return true;
+    })
+        .catch(err => {
+        console.log('Error getting documents', err);
+    });
+});

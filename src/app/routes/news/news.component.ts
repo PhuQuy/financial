@@ -1,22 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavigationCancel, NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+    selector: 'app-news',
+    templateUrl: './news.component.html',
+    styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  searchText: string = '';
-  constructor() { }
+    searchText: string = '';
+    state;
+    @ViewChild('appOutlet') outlet: RouterOutlet;
 
-  ngOnInit() {
-  }
-  
-  getPage(outlet) {
-    return outlet.activatedRouteData['routing'] == 'detail';
-  }
+    constructor(private router: Router) { }
 
-  search(){
+    ngOnInit() {
+        this.state = this.outlet.activatedRouteData['routing'];
+        console.log(this.state);
 
-  }
+    }
+
+    search() {
+
+    }
+
+    ngAfterViewInit() {
+        this.router.events
+            .subscribe((event) => {
+                if (event instanceof NavigationStart) {
+
+                }
+                else if (
+                    event instanceof NavigationEnd ||
+                    event instanceof NavigationCancel
+                ) {
+                    this.state = this.outlet.activatedRouteData['routing'];
+                    console.log(this.state);
+
+                }
+            });
+    }
 }

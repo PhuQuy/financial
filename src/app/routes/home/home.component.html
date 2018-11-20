@@ -44,32 +44,32 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="text" class="form-control" placeholder="YOUR NAME">
+                          <input type="text" [(ngModel)]="user.name" class="form-control" placeholder="YOUR NAME" name="name">
                         </div>
 
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="text" class="form-control" placeholder="AMOUNT OF MONEY ($)">
+                          <input type="text" [(ngModel)]="user.money" class="form-control" placeholder="AMOUNT OF MONEY ($)" name="money">
                         </div>
 
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="text" class="form-control" placeholder="HOW LONG FOR?">
+                          <input type="text" [(ngModel)]="user.long" class="form-control" placeholder="HOW LONG FOR?" name="long">
                         </div>
 
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="text" class="form-control" placeholder="REPAYMENT">
+                          <input type="text" [(ngModel)]="user.repayment" class="form-control" placeholder="REPAYMENT" name="repayment">
                         </div>
                       </div>
                     </form>
-                    <button type="button" class="btn btn-primary btn-round w-100">Get your loan now!</button>
+                    <button type="button" class="btn btn-primary btn-round w-100" (click)="createUser()">Get your loan now!</button>
                   </div>
                 </div>
               </div>
@@ -425,7 +425,7 @@
     <div class="row">
       <div class="col-12">
         <!-- Set up your HTML -->
-        <div class="owl-carousel mt-5 custom-news">
+        <div class="owl-carousel news-carousel mt-5 custom-news">
           <div *ngFor=" let data of [1,2,3,4,5]; let i =index">
             <news-item></news-item>
           </div>

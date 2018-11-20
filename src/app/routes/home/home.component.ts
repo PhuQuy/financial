@@ -1,16 +1,28 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { SeoService } from '@app/services/seo.service';
+import { BaseService } from '@app/services/base.service';
+import { UserService } from '@app/services/news.service';
 
 declare var $: any;
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    providers: [SeoService]
+    providers: [SeoService, UserService]
 })
 export class HomeComponent implements AfterViewInit {
+    user: any = new Object();
+    constructor(private seoService: SeoService, private userService: UserService) {
+        userService.getAlls().subscribe(data => {
+            console.log(data);
 
-    constructor(private seoService: SeoService) { }
+        })
+    }
+
+    createUser() {
+        console.log(this.user);
+        this.userService.create(this.user);
+    }
 
     ngOnInit() {
         this.seoService.generateTags({
@@ -23,7 +35,7 @@ export class HomeComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        $(".owl-carousel").owlCarousel({
+        $(".news-carousel").owlCarousel({
             loop: true,
             margin: 10,
             responsiveClass: true,
@@ -53,7 +65,7 @@ export class HomeComponent implements AfterViewInit {
                     autoplay: true,
                     autoplayTimeout: 5000,
                     autoplayHoverPause: true,
-                   
+
                 }
             }
         });

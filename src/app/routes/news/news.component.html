@@ -1,4 +1,27 @@
 <div class="news-header">
+  <div class="breadcums" [hidden]="state != 'detail'">
+    <div class="container text-right">
+      <ul class="breadcums-items mb-0">
+        <li>
+          <a [routerLink]="['/']">
+            Home
+          </a>
+        </li>
+        <li>
+          <i class="fas fa-angle-right"></i>
+          <a [routerLink]="['/news']">
+            BAD CREDIT
+          </a>
+        </li>
+        <li>
+          <i class="fas fa-angle-right"></i>
+          <a >
+            BAD CREDIT HISTORY
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div class="container text-center py-5">
     <h1 class="m-0">News</h1>
   </div>
@@ -9,7 +32,7 @@
       <router-outlet #appOutlet="outlet"></router-outlet>
     </div>
     <div class="col-3">
-      <form class="form-inline ml-auto" (ngSubmit)="search()" data-background-color style="width: 250px;">
+      <form class="form-inline ml-0" (ngSubmit)="search()" data-background-color style="width: 250px;">
         <div class="form-group news-search input-image">
           <input type="text" class="form-control news-search search-home" name="searchss" [(ngModel)]="searchText"
             style="height: 49px; background-color:#f6f6f6; color: #bdbdbd" placeholder="Search">
@@ -67,7 +90,7 @@
       <h4>CONTACT</h4>
       <div class="news-contact">
         <div><span><i class="fas fa-map-marker-alt"></i></span>San Francisco, CA 94102, US 1234</div>
-        <div class="pt-3"><span ><i class="far fa-envelope"></i></span>abcxyz@example.com</div>
+        <div class="pt-3"><span><i class="far fa-envelope"></i></span>abcxyz@example.com</div>
         <div class="pt-3"><span><i class="fas fa-mobile-alt"></i></span>+1 000 123 1234</div>
       </div>
 

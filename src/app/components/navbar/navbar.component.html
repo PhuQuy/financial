@@ -50,17 +50,17 @@
     </div>
     <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact: true}">
           <a class="nav-link" [routerLink]="['/']">
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item" [routerLink]="['/contact-us']">
+        <li class="nav-item" [routerLink]="['/contact-us']" [routerLinkActive]="['active']">
           <a class="nav-link">
             <p>Contact</p>
           </a>
         </li>
-        <li class="nav-item" [routerLink]="['/news']">
+        <li class="nav-item" [routerLink]="['/news']" [routerLinkActive]="['active']">
           <a class="nav-link">
             <p>News</p>
           </a>
