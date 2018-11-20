@@ -36,7 +36,7 @@
     "@ng-toolkit/universal": "^1.1.45",
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
-    "angularfire2": "5.0.0-rc.10",
+    "angularfire2": "5.0.0-rc.9",
     "firebase": "5.0.4",
     "bootstrap": "4.0.0",
     "core-js": "^2.5.4",
