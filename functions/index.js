@@ -2,6 +2,8 @@
 'use strict';
 const server = require('./dist/server');
 const functions = require('firebase-functions');
+const admin = require("firebase-admin");
+admin.initializeApp(functions.config().firebase);
 
 const http = functions.https.onRequest((request, response) => {
   if (!request.path) {
