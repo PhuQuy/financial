@@ -47,7 +47,8 @@
     "ts-loader": "4.2.0",
     "webpack-cli": "^2.1.4",
     "xmlhttprequest": "^1.8.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "jsencrypt": "^3.0.0-rc.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.8",

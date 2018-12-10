@@ -6,7 +6,7 @@
   },
   "serverless": {
     "provider": "firebase",
-    "firebaseProject": "phani-demo",
+    "firebaseProject": "financial-manage",
     "skipInstall": false,
     "directory": ".",
     "project": "angular6",

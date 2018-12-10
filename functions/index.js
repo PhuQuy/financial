@@ -4,37 +4,38 @@ const server = require('./dist/server');
 const functions = require('firebase-functions');
 
 const http = functions.https.onRequest((request, response) => {
-    if (!request.path) {
+  if (!request.path) {
     request.url = "/" + request.url;
-}
-return server.app(request, response);
+  }
+  return server.app(request, response);
 });
 
-module.exports = {
-    http
-}
-
-exports.sendNotification = functions.firestore
-    .document('/user/{value}').onCreate((event) => {
+const sendNotification = functions.firestore
+  .document('/user/{value}').onCreate((event) => {
     // ... Your code here
     // const data = event.data.data();
     const payload = {
-        notification: {
-            title: 'Có người liên hệ',
-            body: 'Vô xem lẹ lẹ',
-            icon: "https://lh6.googleusercontent.com/-3e3ttRJyOJk/AAAAAAAAAAI/AAAAAAAAAUI/i7a1mUx3_Co/photo.jpg",
-            click_action: "https://gocodee.com/"
-        }
+      notification: {
+        title: 'Có người liên hệ',
+        body: 'Vô xem lẹ lẹ',
+        icon: "https://lh6.googleusercontent.com/-3e3ttRJyOJk/AAAAAAAAAAI/AAAAAAAAAUI/i7a1mUx3_Co/photo.jpg",
+        click_action: "https://gocodee.com/"
+      }
     };
     var fcmTokens = admin.firestore().collection('fcmTokens');
     return fcmTokens.get()
-        .then(snapshot => {
+      .then(snapshot => {
         snapshot.forEach(doc => {
-            admin.messaging().sendToDevice(doc.data().token, payload);
+          admin.messaging().sendToDevice(doc.data().token, payload);
         });
         return true;
-    })
-        .catch(err => {
+      })
+      .catch(err => {
         console.log('Error getting documents', err);
-    });
-});
+      });
+  });
+
+module.exports = {
+  http,
+  sendNotification
+}
