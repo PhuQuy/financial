@@ -49,6 +49,8 @@ $default-color: #888 !default;
 $default-states-color: lighten($default-color, 6%) !default;
 $default-color-opacity: rgba(182, 182, 182, .6) !default;
 
+$orange-color:               #f96332 !default;
+
 $primary-color: #3e467b !default;
 $primary-states-color: lighten(#a6b136, 6%) !default;
 $primary-color-opacity: rgba(205, 220, 57, 0.4) !default;
@@ -63,6 +65,8 @@ $success-color-opacity: rgba(24, 206, 15, .3) !default;
 $success-color-alert: rgba(24, 206, 15, .8) !default;
 
 $info-color: #2CA8FF !default;
+$sidebar-color: #3e467b !default;
+
 $info-states-color: lighten($info-color, 6%) !default;
 $info-color-opacity: rgba(44, 168, 255, .3) !default;
 $info-color-alert: rgba(44, 168, 255, .8) !default;
@@ -183,6 +187,8 @@ $border-radius-bottom: 0 0 10px 10px !default;
 
 $dropdown-shadow: 1px 2px 3px rgba(0, 0, 0, 0.125);
 $box-shadow-raised: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+$box-shadow:               0 1px 15px 1px rgba(39, 39, 39, 0.1);
+$sidebar-box-shadow:       0px 2px 22px 0 rgba(0, 0, 0,.20), 0px 2px 30px 0 rgba(0, 0, 0,.35);
 
 $general-transition-time: 300ms !default;
 
@@ -258,3 +264,7 @@ $social-google-state-color: darken(#dd4b39, 5%) !default;
 
 $social-linkedin: #0077B5 !default;
 $social-linkedin-state-color: darken(#0077B5, 5%) !default;
+
+
+$sidebar-width:              calc(100% - 260px) !default;
+$sidebar-mini-width:         calc(100% - 80px) !default;

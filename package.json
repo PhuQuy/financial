@@ -38,6 +38,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "angularfire2": "5.0.0-rc.9",
     "bootstrap": "4.0.0",
+    "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
     "cp-cli": "^1.1.0",

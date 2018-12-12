@@ -61,3 +61,16 @@ body{
         background-color: $primary-color;
     }
 }
+
+.nav-pills .nav-link,
+.navbar,
+.nav-tabs .nav-link,
+.sidebar .nav a,
+.sidebar .nav a i,
+.navbar-collapse .navbar-nav .nav-link,
+.animation-transition-general,
+.tag,
+.tag [data-role="remove"],
+.animation-transition-general{
+    @include transition($general-transition-time, $transition-ease);
+}
