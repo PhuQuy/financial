@@ -1,9 +1,44 @@
-<p>
-  admin works!
-</p>
+
+
+<div class="col-md-12">
+    <div class="card mt-3">
+        <div class="card-header border-bottom-0">
+            <h4 class="card-title"> Simple Table</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Term</th>
+                            <th>Phone</th>
+                            <th class="text-right">Money</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dakota Rice</td>
+                            <td>1 year</td>
+                            <td>0374740747</td>
+                            <td class="text-right">$36,738</td>
+                        </tr>
+                        <tr>
+                            <td>Đức Duy</td>
+                            <td>2 year</td>
+                            <td>0374740747</td>
+                            <td class="text-right">$36,738</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-12" *ngFor="let user of users">
         <p>{{user.name}}</p>
     </div>
 </div>
+
