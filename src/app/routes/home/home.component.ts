@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { UserService } from '@app/services/news.service';
+import { UserService } from '@app/services/user.service';
 import { SeoService } from '@app/services/seo.service';
 import * as JsEncryptModule from 'jsencrypt';
 import { environment } from '@env/environment.prod';

@@ -2,4 +2,8 @@
   admin works!
 </p>
 
-{{(message | async)?.notification.title}}
+<div class="row">
+    <div class="col-12" *ngFor="let user of users">
+        <p>{{user.name}}</p>
+    </div>
+</div>

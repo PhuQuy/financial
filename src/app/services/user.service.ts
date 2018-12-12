@@ -4,8 +4,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { BaseService } from './base.service';
 
 @Injectable()
-export class NewsService extends BaseService {
+export class UserService extends BaseService {
   constructor(protected angularFireDatabase: AngularFireDatabase, protected angularFirestore: AngularFirestore) {
-    super(angularFireDatabase, angularFirestore, 'news');
+    super(angularFireDatabase, angularFirestore, 'user');
   }
 }

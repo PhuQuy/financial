@@ -16,9 +16,6 @@ const sendNotification = functions.firestore
   .document('/user/{value}').onCreate((snap, context) => {
     // ... Your code here
     // const data = snap.data();
-    console.log(snap.data);
-    console.log(context);
-    
 
     // let body = data.name ? ('Có khách hàng ' + data.name) : 'Có khách hàng mới';
 
@@ -35,7 +32,7 @@ const sendNotification = functions.firestore
       .then(snapshot => {
         snapshot.forEach(doc => {
           admin.messaging().sendToDevice(doc.data().token, payload).then(response => {
-            console.log("Send success")
+            // console.log("Send success")
           }).catch(function (error) {
             console.log("Error sending message:", error);
           });
