@@ -1,32 +1,93 @@
-import { LOCAL_STORAGE } from '@ng-toolkit/universal';
-import { HttpClient } from '@angular/common/http';
-import { Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { auth } from 'firebase/app';
+
+import { Observable, of } from 'rxjs';
+import { switchMap} from 'rxjs/operators';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+
+interface User {
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+  favoriteColor?: string;
+}
 
 
-
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private BASE_URL = 'http://localhost:1337';
 
-  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private http: HttpClient) {}
+  user: Observable<User>;
 
-  getToken(): string {
-    return this.localStorage.getItem('token');
+  constructor(
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private router: Router
+  ) {
+
+      //// Get auth data, then get firestore user document || null
+      this.user = this.afAuth.authState.pipe(
+        switchMap(user => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user['uid']}`).valueChanges()
+          } else {
+            return of(null)
+          }
+        })
+      )
+    }
+
+  googleLogin() {
+    const provider = new auth.GoogleAuthProvider()
+    return this.oAuthLogin(provider);
   }
 
-  logIn(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/login`;
-    return this.http.post<any>(url, {email, password});
+  private oAuthLogin(provider) {
+    return this.afAuth.auth.signInWithPopup(provider)
+      .then((credential) => {
+        this.updateUserData(credential.user)
+      })
   }
 
-  signUp(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/register`;
-    return this.http.post<any>(url, {email, password});
+  emailLogin(email, password) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            // this.authState = user
+            // this.updateUserData()
+            console.log(user);
+            this.router.navigate(['/']);
+
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+
+
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL
+    }
+
+    return userRef.set(data, { merge: true })
+
   }
 
-  getStatus(): Observable<any> {
-    const url = `${this.BASE_URL}/status`;
-    return this.http.get<any>(url);
+
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+        this.router.navigate(['/']);
+    });
   }
 }

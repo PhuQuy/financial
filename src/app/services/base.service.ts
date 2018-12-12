@@ -9,6 +9,7 @@ export class BaseService {
     protected basePath = '';
     constructor(protected angularFireDatabase: AngularFireDatabase, protected angularFirestore: AngularFirestore, path: string) {
         this.basePath = path;
+        angularFirestore.firestore.settings({ timestampsInSnapshots: true });
     }
 
     public getAlls() {

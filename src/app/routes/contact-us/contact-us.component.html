@@ -14,7 +14,7 @@
                   'has-success': name.valid && (name.dirty || name.touched)
                     }">
                 <label>Name *</label>
-                <input type="text" class="form-control" formControlName="name" [(ngModel)]="contact.name">
+                <input type="text" class="form-control" name="name" [(ngModel)]="contact.name">
               </div>
             </div>
             <div class="col-6">
@@ -23,7 +23,7 @@
                   'has-success': email.valid && (email.dirty || email.touched)
                     }">
                 <label>Email *</label>
-                <input type="text" class="form-control" formControlName="email" [(ngModel)]="contact.email">
+                <input type="text" class="form-control" name="email" [(ngModel)]="contact.email">
               </div>
             </div>
             <div class="col-12">

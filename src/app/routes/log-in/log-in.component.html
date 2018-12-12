@@ -1,3 +1,49 @@
-<p>
-  log-in works!
-</p>
+<div class="wrapper wrapper-full-page " style="  background-image: url('/assets/images/home.jpg');">
+  <div class="full-page login-page section-image" filter-color="black">
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="content">
+      <div class="container">
+        <div class="col-md-6 ml-auto mr-auto">
+          <form class="form" (ngSubmit)="emailLogin()">
+            <div class="card card-login card-plain">
+              <div class="logo-container">
+                <img class="mh-100 d-block d-sm-none d-md-block" src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/06/logo1-2.png" />
+
+              </div>
+              <div class="card-body">
+                <div class="input-group no-border form-control-lg">
+                  <span class="input-group-addon">
+                    <i class="now-ui-icons users_circle-08"></i>
+                  </span>
+                  <input type="text" class="form-control" [(ngModel)]="email" placeholder="User name or Email" name="email"
+                    (change)="validateEmail($event.target.value)">
+                </div>
+                <div class="input-group no-border form-control-lg">
+                  <span class="input-group-addon">
+                    <i class="now-ui-icons text_caps-small"></i>
+                  </span>
+                  <input type="password" [(ngModel)]="password" placeholder="Password" class="form-control" name="password">
+                </div>
+              </div>
+              <div class="text-danger login-text " style="text-align:center;
+                margin-bottom: 10px;"
+                *ngIf="error">
+                <span> {{error}}</span>
+              </div>
+              <div class="footer pt-1 px-3">
+                <div class="row" *ngIf="loading">
+                  <div class="lds-ripple mx-auto">
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <button type="submit" [disabled]="!password || !isEmailValidated" class="btn btn-primary btn-lg btn-block mb-3 mt-0"
+                  (click)="emailLogin()">LOGIN</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

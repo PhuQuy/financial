@@ -9,13 +9,13 @@ export class SeoService {
         config = Object.assign({
             title: 'Hosiana | Tin đăng bất động sản, mua bán nhà đất, cho thuê nhà đất',
             description: 'Kênh bất động sản hàng đầu tại Việt Nam: mua bán nhà đất, cho thuê nhà đất, trao đổi nhà đất, dự án, căn hộ, căn hộ, biệt thự, villa, chung cư, văn phòng',
-            image: 'https://hosiana.vn/assets/sliders/29-03-2018-06-59-30.jpg',
+            image: 'https://financial-manage.firebaseapp.com/assets/images/home.jpg',
             slug: '',
             keywords: ''
         }, config);
 
         if(!config.image) {
-            config.image = 'https://hosiana.vn/assets/sliders/29-03-2018-06-59-30.jpg';
+            config.image = 'https://financial-manage.firebaseapp.com/assets/images/home.jpg';
         }
         this.meta.updateTag({ name: 'slug', content: config.slug });
         this.meta.updateTag({ name: 'image', content: config.image });

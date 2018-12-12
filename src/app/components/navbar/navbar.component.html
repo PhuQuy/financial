@@ -65,6 +65,11 @@
             <p>News</p>
           </a>
         </li>
+        <li class="nav-item" [routerLink]="['/admin']" [routerLinkActive]="['active']" [hidden]="!user">
+            <a class="nav-link">
+              <p>Admin</p>
+            </a>
+          </li>
       </ul>
     </div>
   </div>

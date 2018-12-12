@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener, Inject } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { WINDOW } from '@ng-toolkit/universal';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
     selector: 'app-navbar',
@@ -12,13 +13,19 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     fixTop: boolean = false;
     arrow: any;
-    constructor(@Inject(WINDOW) private window: Window, public location: Location, private element : ElementRef) {
+    user: any;
+    constructor(@Inject(WINDOW) private window: Window, public location: Location, private element: ElementRef, private afAuth: AngularFireAuth) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        this.afAuth.authState.subscribe(user => {
+            if (!!user) {
+                this.user = user;
+            }
+        })
     }
 
     @HostListener("window:scroll", [])
@@ -33,7 +40,7 @@ export class NavbarComponent implements OnInit {
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
-        setTimeout(function(){
+        setTimeout(function () {
             toggleButton.classList.add('toggled');
         }, 500);
         html.classList.add('nav-open');
@@ -56,10 +63,10 @@ export class NavbarComponent implements OnInit {
             this.sidebarClose();
         }
     };
-  
+
     isDocumentation() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        if( titlee === '/documentation' ) {
+        if (titlee === '/documentation') {
             return true;
         }
         else {

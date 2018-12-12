@@ -1,16 +1,19 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
-
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    selector: 'app-client',
+    templateUrl: './client.component.html',
+    styleUrls: ['./client.component.scss']
 })
-export class AppComponent {
+export class ClientComponent implements AfterViewInit {
     loading;
-    // @ViewChild('animateChild') animateChild: any;
     constructor(private router: Router, @Inject(PLATFORM_ID) public platformId: string) {
+    }
+
+    ngOnInit() {
+        console.log('ahihi');
+        
     }
 
     ngAfterViewInit() {
@@ -31,4 +34,5 @@ export class AppComponent {
                 }
             });
     }
+
 }

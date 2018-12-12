@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
-
-import { HomeComponent } from './routes/home/home.component';
-import { ContactUsComponent } from './routes/contact-us/contact-us.component';
-import { NewsComponent } from './routes/news/news.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'news', loadChildren: './routes/news/news.module#NewsModule' },
-  
+    {
+        path: 'login',
+        loadChildren: './routes/log-in/log-in.module#LoginModule'
+    },
+    {
+        path: '',
+        loadChildren: './layouts/client/client.module#ClientModule'
+    },
+    {
+        path: 'admin',
+        canActivate: [AuthGuard],
+        loadChildren: './layouts/admin/admin.module#AdminModule'
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-  ],
+    imports: [
+        RouterModule.forRoot(routes)
+    ],
+    exports: [
+        RouterModule
+    ],
 })
 
 export class AppRoutingModule { }

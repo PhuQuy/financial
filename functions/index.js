@@ -13,22 +13,32 @@ const http = functions.https.onRequest((request, response) => {
 });
 
 const sendNotification = functions.firestore
-  .document('/user/{value}').onCreate((event) => {
+  .document('/user/{value}').onCreate((snap, context) => {
     // ... Your code here
-    // const data = event.data.data();
+    // const data = snap.data();
+    console.log(snap.data);
+    console.log(context);
+    
+
+    // let body = data.name ? ('Có khách hàng ' + data.name) : 'Có khách hàng mới';
+
     const payload = {
       notification: {
-        title: 'Có người liên hệ',
-        body: 'Vô xem lẹ lẹ',
-        icon: "https://lh6.googleusercontent.com/-3e3ttRJyOJk/AAAAAAAAAAI/AAAAAAAAAUI/i7a1mUx3_Co/photo.jpg",
-        click_action: "https://gocodee.com/"
+        title: 'New Message',
+        body: 'body',
+        icon: "https://financial-manage.firebaseapp.com/assets/images/home.jpg",
+        click_action: "https://financial-manage.firebaseapp.com/admin/"
       }
     };
     var fcmTokens = admin.firestore().collection('fcmTokens');
     return fcmTokens.get()
       .then(snapshot => {
         snapshot.forEach(doc => {
-          admin.messaging().sendToDevice(doc.data().token, payload);
+          admin.messaging().sendToDevice(doc.data().token, payload).then(response => {
+            console.log("Send success")
+          }).catch(function (error) {
+            console.log("Error sending message:", error);
+          });
         });
         return true;
       })

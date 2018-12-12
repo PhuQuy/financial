@@ -233,10 +233,6 @@
             }
         }
 
-        .input-group:last-child{
-            margin-bottom: 40px;
-        }
-
         &.card-plain{
             @include input-coloured-bg($opacity-5, $white-color, $white-color, $transparent-bg, $opacity-1, $opacity-2);
 
