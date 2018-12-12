@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
             this.users.forEach((item, index) => {
                 if (item.phone) {
                     item.phone = this.encrypt.decrypt(item.phone);
-                    // console.log(item.phone);
+                    console.log(item);
                 }
             });
             // console.log(users);
