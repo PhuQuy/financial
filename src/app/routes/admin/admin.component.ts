@@ -34,15 +34,10 @@ export class AdminComponent implements OnInit {
             // console.log(users);
         });
 
+    }
 
-
-
-
-        // this.encrypt.setPublicKey(environment.publishSSHRASKey);
-        // var encrypted = this.encrypt.encrypt('phuquy');
-
-        // console.log(encrypted);
-
+    deleteUser(id){
+        this.userService.deleteById(id);
     }
 
 }
