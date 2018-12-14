@@ -43,7 +43,7 @@ export class HomeComponent implements AfterViewInit {
 
     createUser() {
         // console.log(this.user);
-        var encrypted = this.encrypt.encrypt(this.user.phone);
+        var encrypted = this.encrypt.encrypt(this.user.phone + '');
         this.user.phone = encrypted;
         this.userService.create(this.user);
         this.user = {};
