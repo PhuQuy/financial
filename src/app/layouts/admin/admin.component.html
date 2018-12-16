@@ -1,14 +1,15 @@
 <div class="admin-content">
-    <div class="wrapper">
-            <div class="sidebar" data-color="blue">
-                <app-sidebar></app-sidebar>
-            </div>
-            <div class="main-panel">
-                <app-navbar></app-navbar>
-                <div class="admin-container">
-                    <router-outlet></router-outlet>
-                </div>
-                <app-footer></app-footer>
-            </div>
-        </div>
+  <div class="wrapper">
+    <div class="sidebar" data-color="blue">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="main-panel">
+
+      <app-admin-nav></app-admin-nav>
+      <div class="admin-container">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
 </div>

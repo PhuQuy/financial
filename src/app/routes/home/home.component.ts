@@ -36,9 +36,10 @@ export class HomeComponent implements AfterViewInit {
         // var uncrypted = this.encrypt.decrypt(encrypted);
         // console.log(uncrypted);
 
-        userService.getAlls().subscribe(data => {
-
-        })
+        // userService.getAlls().subscribe(data => {
+        //     console.log(data);
+            
+        // })
     }
 
     createUser() {

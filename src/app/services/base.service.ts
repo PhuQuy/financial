@@ -3,6 +3,7 @@ import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class BaseService {
@@ -12,14 +13,20 @@ export class BaseService {
         angularFirestore.firestore.settings({ timestampsInSnapshots: true });
     }
 
-    public getAlls() {
-        return this.angularFirestore.collection<any>(this.basePath).snapshotChanges().pipe(
+    public getAlls(): Observable<any> {
+        let alls =  this.angularFirestore.collection<any>(this.basePath).snapshotChanges().pipe(
             map(actions => actions.map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;
                 return { id, ...data };
             }))
         );
+
+        if(alls) {
+            return alls;
+        } else {
+            return Observable.create();
+        }
     }
 
     public updateWithId(data, id) {
