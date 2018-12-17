@@ -5,11 +5,13 @@ import { AdminRoutingModule } from './admin.routing';
 import { MessagingService } from '@app/services/messaging.service';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { ModalsModule } from '@app/modals/modals.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ModalsModule
   ],
   declarations: [AdminComponent, UserListingComponent, UserDetailComponent],
   providers: [MessagingService]
