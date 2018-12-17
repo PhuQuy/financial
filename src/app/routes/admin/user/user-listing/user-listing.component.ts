@@ -4,6 +4,7 @@ import { UserService } from '@app/services/user.service';
 import * as JsEncryptModule from 'jsencrypt';
 import { environment } from '@env/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 
 @Component({
     selector: 'app-user-listing',
@@ -47,7 +48,8 @@ export class UserListingComponent implements OnInit {
     }
 
     open(content, id) {
-        this.modalService.open(content);
-        this.id_delete = id
+        this.modalService.open(ConfirmComponent)
+        // this.modalService.open(content);
+        // this.id_delete = id
     }
 }
