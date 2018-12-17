@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessagingService } from '@app/services/messaging.service';
 import { UserService } from '@app/services/user.service';
 import * as JsEncryptModule from 'jsencrypt';
