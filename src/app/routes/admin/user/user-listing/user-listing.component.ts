@@ -48,13 +48,23 @@ export class UserListingComponent implements OnInit {
         this.userService.deleteById(id);
     }
 
-    open(content, id) {
-        this.modalService.open(ConfirmComponent)
+    open() {
+        this.modalService.open(ConfirmComponent);
+        console.log('AS');
+        
         // this.modalService.open(content);
         // this.id_delete = id
     }
 
-    openDetail(id) {
-        this.router.navigate(['/admin/users', id]);
+    geta(id){
+        console.log(this.userService.getById(id));
     }
+
+    // openDetail(id) {
+    //     this.router.navigate(['/admin/users', id]);
+    //     item : [
+    //         {}
+    //     ]
+    //     this.userService.updateWithId(data, id);
+    // }
 }
