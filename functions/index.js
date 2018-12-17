@@ -3,7 +3,18 @@
 const server = require('./dist/server');
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
+const nodemailer = require('nodemailer');
 admin.initializeApp(functions.config().firebase);
+
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
+const mailTransport = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: gmailEmail,
+    pass: gmailPassword,
+  }
+});
 
 const http = functions.https.onRequest((request, response) => {
   if (!request.path) {
@@ -13,11 +24,13 @@ const http = functions.https.onRequest((request, response) => {
 });
 
 const sendNotification = functions.firestore
-  .document('/user/{value}').onCreate((snap, context) => {
-    // ... Your code here
-    // const data = snap.data();
-
-    // let body = data.name ? ('Có khách hàng ' + data.name) : 'Có khách hàng mới';
+  .document('/user/{value}').onCreate(event => {
+    const data = event.data.data();
+    let email = data.email;
+    let name = data.name;
+    if (email && name) {
+      sendEmail(email, name);
+    }
 
     const payload = {
       notification: {
@@ -43,6 +56,32 @@ const sendNotification = functions.firestore
         console.log('Error getting documents', err);
       });
   });
+
+const APP_NAME = 'Cloud Storage for Firebase quickstart';
+
+const sendWelcomeEmail = functions.auth.user().onCreate((user) => {
+  // [END onCreateTrigger]
+  // [START eventAttributes]
+  const email = user.email; // The email of the user.
+  const displayName = user.displayName; // The display name of the user.
+  // [END eventAttributes]
+
+  return sendEmail(email, 'displayName');
+});
+
+function sendEmail(email, displayName) {
+  const mailOptions = {
+    from: 'dotafreelancer@gmail.com',
+    to: email,
+  };
+
+  // The user subscribed to the newsletter.
+  mailOptions.subject = `Welcome to ${APP_NAME}!`;
+  mailOptions.text = `Hey ${displayName || ''}! Welcome to ${APP_NAME}. I hope you will enjoy our service.`;
+  return mailTransport.sendMail(mailOptions).then(() => {
+    return console.log('New welcome email sent to:', email);
+  });
+}
 
 module.exports = {
   http,

@@ -2,19 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-confirm',
-  templateUrl: './confirm.component.html',
-  styleUrls: ['./confirm.component.scss']
+    selector: 'app-confirm',
+    templateUrl: './confirm.component.html',
+    styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
+    title;
+    question;
+    confirmText;
+    id;
+    constructor(public activeModal: NgbActiveModal) { }
 
-  constructor(private activeModal: NgbActiveModal) { }
+    ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
-
-  confirm(value) {
-    this.activeModal.close(value);
-  }
+    confirm(value) {
+        this.activeModal.close(value);
+    }
 
 }
