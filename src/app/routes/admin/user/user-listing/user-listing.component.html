@@ -18,7 +18,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let user of users" (click)="openDetail(user.id)">
+                        <!-- <tr *ngFor="let user of users" (click)="openDetail(user.id)"> -->
+                        <tr *ngFor="let user of users" >
+
                             <td>{{user.name}}</td>
                             <td>{{user.long}}</td>
                             <td>{{user.phone}}</td>
