@@ -1,15 +1,14 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import Chart from 'chart.js';
+import { ROUTES } from '../sidebar/sidebar.component';
+import { Location } from '@angular/common';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.css']
+    selector: 'app-admin-nav',
+    templateUrl: './admin-nav.component.html',
+    styleUrls: ['./admin-nav.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class AdminNavComponent implements OnInit {
     private listTitles: any[];
     location: Location;
     mobile_menu_visible: any = 0;
@@ -29,20 +28,26 @@ export class NavbarComponent implements OnInit {
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
         this.sidebarClose();
 
-        this.router.events.subscribe((event) => {
-            this.sidebarClose();
-            var $layer: any = document.getElementsByClassName('close-layer')[0];
-            if ($layer) {
-                $layer.remove();
-                this.mobile_menu_visible = 0;
-            }
-        });
     }
+
+    ngAfterViewInit() {
+        let routerChange = this.router.events;
+        if (routerChange && routerChange != undefined) {
+            routerChange.subscribe((event) => {
+                this.sidebarClose();
+                var $layer: any = document.getElementsByClassName('close-layer')[0];
+                if ($layer) {
+                    $layer.remove();
+                    this.mobile_menu_visible = 0;
+                }
+            });
+        }
+    }
+
 
     collapse() {
         this.isCollapsed = !this.isCollapsed;
         const navbar = document.getElementsByTagName('nav')[0];
-        console.log(navbar);
         if (!this.isCollapsed) {
             navbar.classList.remove('navbar-transparent');
             navbar.classList.add('bg-white');
@@ -154,4 +159,5 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
+
 }

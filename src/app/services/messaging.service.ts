@@ -13,14 +13,17 @@ export class MessagingService {
     constructor(private angularFirestore: AngularFirestore, private afAuth: AngularFireAuth) {
     }
     updateToken(token) {
-        this.afAuth.authState.take(1).subscribe(user => {
-            if (!user) return;
-            // const data = { [user.uid]: token }
-            console.log(user);
+        let user = this.afAuth.authState.take(1);
+        if (user) {
+            user.subscribe(user => {
+                if (!user) return;
+                // const data = { [user.uid]: token }
+                console.log(user);
 
-            const data = { userID: user.uid, token: token }
-            var tokens = this.angularFirestore.doc('fcmTokens/' + user.uid).set(data);
-        })
+                const data = { userID: user.uid, token: token }
+                var tokens = this.angularFirestore.doc('fcmTokens/' + user.uid).set(data);
+            })
+        }
     }
     getPermission() {
         this.messaging.requestPermission()

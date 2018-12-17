@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <div class="card mt-3">
+    <div class="card-header border-bottom-0">
+      <h4 class="card-title"> Simple Table</h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Term</th>
+              <th>Phone</th>
+              <th>Money</th>
+              <th class="text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.name}}</td>
+              <td>{{user.long}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.money}}</td>
+              <td class="text-right">
+                <i (click)="deleteUser(user.id)" class="fas fa-user-times"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

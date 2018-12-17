@@ -24,19 +24,19 @@ export class NewsComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        this.router.events
-            .subscribe((event) => {
-                if (event instanceof NavigationStart) {
+        // this.router.events
+        //     .subscribe((event) => {
+        //         if (event instanceof NavigationStart) {
 
-                }
-                else if (
-                    event instanceof NavigationEnd ||
-                    event instanceof NavigationCancel
-                ) {
-                    this.state = this.outlet.activatedRouteData['routing'];
-                    console.log(this.state);
+        //         }
+        //         else if (
+        //             event instanceof NavigationEnd ||
+        //             event instanceof NavigationCancel
+        //         ) {
+        //             this.state = this.outlet.activatedRouteData['routing'];
+        //             console.log(this.state);
 
-                }
-            });
+        //         }
+        //     });
     }
 }
