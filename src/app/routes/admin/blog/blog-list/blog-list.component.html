@@ -1,3 +1,83 @@
-<p>
-  blog-list works!
-</p>
+<div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h4 class="card-title">Căn hộ có trên hệ thống</h4>
+                </div>
+                <div class="col-sm-4" style="text-align: right">
+                  <a class="btn btn-primary btn-round btn-icon" [routerLink]="['/admin/blogs/create']">
+                      <i class="now-ui-icons ui-1_simple-add"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive" style="overflow: auto">
+                <table class="table table-striped">
+                  <thead class="text-primary">
+                    <tr>
+                      <th class="text-center">
+                        #
+                      </th>
+                      <th>
+                        Tên Căn Hộ
+                      </th>
+                      <th style="padding-left: 45px">
+                        Loại căn hộ
+                      </th>
+                      <th class="text-center">
+                        Giá
+                      </th>
+                      <th class="text-center">
+                        Diện tích
+                      </th>
+                      <th class="text-center">
+                        Ngày tạo
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="tr-body" *ngFor="let blog of blogs; let i = index" [attr.data-index]="i">
+                      <td class="text-center" >
+                        {{i+1}}
+                      </td>
+                      <td>
+                        {{blog.name}}
+                      </td>
+                      <td class="text-center">
+                       
+                      </td>
+                      <td class="text-center">
+                        {{blog.transferPrice  | number:'.'}} đ
+                      </td>
+                      <td class="text-center">
+                        {{blog.area}} m<sup>2</sup>
+                      </td>
+                      <td class="text-center">
+                        {{blog.createdAt | date}}
+                      </td>
+                      <td class="text-center">
+                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="" [routerLink]="['/apartment', apartment.id]">
+                          <i class="now-ui-icons ui-2_settings-90"></i>
+                        </button>
+                        <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="" (click)="delete(apartment.id)">
+                          <i class="now-ui-icons ui-1_simple-remove"></i>
+                        </button>
+                      </td>
+                    </tr>
+      
+                    <tr >
+                      <td colspan="5"></td>
+                      <td class="td-total">Tổng số lượng</td>
+                      <td class="td-price" style="text-align: left;">{{blogs.length}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

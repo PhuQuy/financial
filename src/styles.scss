@@ -445,3 +445,9 @@ textarea.form-control {
     opacity: 0;
   }
 }
+
+.fr-wrapper {
+  a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
+    display: none !important;
+  }
+}

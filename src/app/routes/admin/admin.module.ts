@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin.routing';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { MessagingService } from '@app/services/messaging.service';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
@@ -16,7 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         CommonModule,
         AdminRoutingModule,
         ModalsModule,
-        NgbModalModule
+        NgbModalModule,
+        FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
     ],
     declarations: [
         UserListingComponent,
