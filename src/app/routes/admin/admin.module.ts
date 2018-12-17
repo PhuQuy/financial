@@ -7,6 +7,7 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { ModalsModule } from '@app/modals/modals.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { DecryptPhone } from '@app/core/decryptphone';
 
 @NgModule({
   imports: [
@@ -14,8 +15,9 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     AdminRoutingModule,
     ModalsModule,
     NgbModalModule
+    
   ],
-  declarations: [AdminComponent, UserListingComponent, UserDetailComponent],
+  declarations: [AdminComponent, UserListingComponent, UserDetailComponent, DecryptPhone],
   providers: [MessagingService]
 })
 export class AdminModule { }

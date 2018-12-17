@@ -33,3 +33,11 @@ table tbody td:hover {
     cursor: pointer;
     color: #fff;
 }
+
+table tbody tr td {
+    font-weight: bold;
+}
+
+.checked td{
+    font-weight: lighter!important;
+}
