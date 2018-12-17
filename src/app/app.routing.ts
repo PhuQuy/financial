@@ -4,12 +4,12 @@ import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
     {
-        path: 'login',
-        loadChildren: './routes/log-in/log-in.module#LoginModule'
-    },
-    {
         path: '',
         loadChildren: './layouts/client/client.module#ClientModule'
+    },
+    {
+        path: 'login',
+        loadChildren: './routes/log-in/log-in.module#LoginModule'
     },
     {
         path: 'admin',

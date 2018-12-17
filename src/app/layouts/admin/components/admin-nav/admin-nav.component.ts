@@ -14,7 +14,6 @@ export class AdminNavComponent implements OnInit {
     mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
     public isCollapsed = true;
 
     constructor(location: Location, private element: ElementRef, private router: Router) {
@@ -47,6 +46,8 @@ export class AdminNavComponent implements OnInit {
 
     collapse() {
         this.isCollapsed = !this.isCollapsed;
+        console.log(this.isCollapsed);
+
         const navbar = document.getElementsByTagName('nav')[0];
         if (!this.isCollapsed) {
             navbar.classList.remove('navbar-transparent');

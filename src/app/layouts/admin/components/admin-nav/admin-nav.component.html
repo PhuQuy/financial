@@ -9,7 +9,7 @@
         </button>
       </div>
     </div>
-    <button class="navbar-toggler" type="button" (click)="collapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <button class="navbar-toggler" type="button" (click)="collapse()"  [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -42,13 +42,18 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="sidebarClose()">
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
             <i class="now-ui-icons users_single-02"></i>
             <p>
               <span class="d-lg-none d-md-block">Account</span>
             </p>
           </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic10">
+                <button class="dropdown-item">Action - 1</button>
+                <button class="dropdown-item">Another Action</button>
+                <button class="dropdown-item">Something else is here</button>
+              </div>
         </li>
       </ul>
     </div>
