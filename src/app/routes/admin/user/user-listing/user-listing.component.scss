@@ -22,3 +22,14 @@ tr:last-child > td {
 .fa-user-times:hover {
     color: #F44336;
 }
+
+table tbody tr:hover {
+    background: #f96332;
+    cursor: pointer;
+    color: #fff;
+}
+table tbody td:hover {
+    background: #f96332;
+    cursor: pointer;
+    color: #fff;
+}
