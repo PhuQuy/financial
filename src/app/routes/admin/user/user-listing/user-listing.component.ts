@@ -38,10 +38,18 @@ export class UserListingComponent implements OnInit {
         this.userService.deleteById(id);
     }
 
-    open() {
-        this.modalService.open(ConfirmComponent);
-        console.log('AS');
-        
+    open(id) {
+        const modalRef = this.modalService.open(ConfirmComponent);
+        modalRef.componentInstance.title = 'Xác nhận xóa';
+        modalRef.componentInstance.id = id;
+        modalRef.componentInstance.question = 'Bạn có chắc chắn xóa không?';
+        modalRef.componentInstance.confirmText = 'Xóa';
+
+        modalRef.result.then((id) => {
+            this.userService.deleteById(id);
+            
+        }, () => { })
+        event.stopPropagation();
         // this.modalService.open(content);
         // this.id_delete = id
     }

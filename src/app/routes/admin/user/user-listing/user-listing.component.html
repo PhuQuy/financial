@@ -16,15 +16,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let user of users" (click)="openDetail(user.id)"> -->
-                        <tr *ngFor="let user of users" (click)="checkSeen(user)" [class.checked]="user.checked">
-
+                        <tr *ngFor="let user of users" (click)="openDetail(user.id);checkSeen(user)" [class.checked]="user.checked">
                             <td>{{user.name}}</td>
                             <td>{{user.long}}</td>
                             <td>{{user.phone | decrypt}}</td>
                             <td>{{user.money}}</td>
                             <td class="text-right">
-                                <i (click)="open()" class="fas fa-user-times"></i>
+                                <i (click)="open(user.id)" class="fas fa-user-times"></i>
                             </td>
                         </tr>
                     </tbody>
