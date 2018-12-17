@@ -49,9 +49,15 @@ export class UserListingComponent implements OnInit {
     }
 
     open() {
-        this.modalService.open(ConfirmComponent);
+        const modalRef = this.modalService.open(ConfirmComponent);
         console.log('AS');
-        
+        modalRef.componentInstance.question = 'World';
+        modalRef.componentInstance.id = 1;
+
+        modalRef.result.then((id) => {
+            console.log(id);
+            
+        }, () => { })
         // this.modalService.open(content);
         // this.id_delete = id
     }

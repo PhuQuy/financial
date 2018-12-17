@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Xác nhận xóa!</h4>
+    <h4 class="modal-title" id="modal-basic-title">{{question}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -8,5 +8,5 @@
     <p>Bạn có chắc chắn xóa không?</p>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="deleteUser(id_delete); d('Cross click')">Xóa</button>
+    <button type="button" class="btn btn-outline-dark" (click)="confirm(id);">{{confirmText}}</button>
 </div>
