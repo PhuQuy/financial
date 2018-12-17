@@ -7,6 +7,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
     CommonModule
   ],
   declarations: [ConfirmComponent],
+  exports: [ConfirmComponent],
   entryComponents: [ConfirmComponent]
 })
 export class ModalsModule { }

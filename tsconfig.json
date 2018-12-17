@@ -16,6 +16,9 @@
       "@app/*": [
         "app/*"
       ],
+      "@modals/*": [
+        "app/modals/*"
+      ],
       "@core/*": [
         "app/core/*"
       ],

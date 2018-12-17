@@ -6,12 +6,14 @@ import { MessagingService } from '@app/services/messaging.service';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { ModalsModule } from '@app/modals/modals.module';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ModalsModule
+    ModalsModule,
+    NgbModalModule
   ],
   declarations: [AdminComponent, UserListingComponent, UserDetailComponent],
   providers: [MessagingService]
