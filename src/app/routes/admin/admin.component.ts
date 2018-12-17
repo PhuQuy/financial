@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MessagingService } from '@app/services/messaging.service';
 import { UserService } from '@app/services/user.service';
 import * as JsEncryptModule from 'jsencrypt';
 import { environment } from '@env/environment';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-admin',
@@ -13,8 +14,13 @@ import { environment } from '@env/environment';
 export class AdminComponent implements OnInit {
     message;
     users = [];
+    @Input() id_delete;
     encrypt;
-    constructor(private messagingService: MessagingService, private userService: UserService) {
+    constructor(
+            private messagingService: MessagingService,
+            private userService: UserService,
+            private modalService: NgbModal
+        ) {
         this.encrypt = new JsEncryptModule.JSEncrypt();
         this.encrypt.setPrivateKey(environment.privateSSHRASKey);
     }
@@ -38,6 +44,11 @@ export class AdminComponent implements OnInit {
 
     deleteUser(id){
         this.userService.deleteById(id);
+    }
+
+    open(content, id) {
+        this.modalService.open(content);
+        this.id_delete = id
     }
 
 }
