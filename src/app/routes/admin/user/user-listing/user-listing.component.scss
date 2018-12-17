@@ -1,0 +1,24 @@
+tr > th {
+    color: #f96332!important;
+    font-size: 1.45em;
+    font-weight: 300;
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+}
+
+tr > td {
+    border-bottom: 1px solid #dee2e6;
+    border-top-width: 0px !important;
+}
+
+tr:last-child > td {
+    border-bottom-width: 0px !important;
+}
+
+.fa-user-times {
+    cursor: pointer;
+}
+
+.fa-user-times:hover {
+    color: #F44336;
+}

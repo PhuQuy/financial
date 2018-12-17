@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MessagingService } from '@app/services/messaging.service';
 import { UserService } from '@app/services/user.service';
 import * as JsEncryptModule from 'jsencrypt';
 import { environment } from '@env/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-user-listing',
@@ -15,7 +16,8 @@ export class UserListingComponent implements OnInit {
     users = [];
     encrypt;
     alls: any;
-    constructor(private messagingService: MessagingService, private userService: UserService) {
+    id_delete;
+    constructor(private messagingService: MessagingService, private userService: UserService, private modalService: NgbModal) {
         this.encrypt = new JsEncryptModule.JSEncrypt();
         this.encrypt.setPrivateKey(environment.privateSSHRASKey);
 
@@ -42,5 +44,10 @@ export class UserListingComponent implements OnInit {
 
     deleteUser(id) {
         this.userService.deleteById(id);
+    }
+
+    open(content, id) {
+        this.modalService.open(content);
+        this.id_delete = id
     }
 }
