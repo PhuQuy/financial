@@ -11,7 +11,11 @@ const routes: Routes = [
         children: [
             { path: '', component: HomeComponent },
             { path: 'contact-us', component: ContactUsComponent },
-            { path: 'news', loadChildren: './../../routes/news/news.module#NewsModule' }
+            { path: 'news', loadChildren: './../../routes/news/news.module#NewsModule' },
+            {
+                path: 'form',
+                loadChildren: './../../routes/submit-form/submit-form.module#SubmitFormModule'
+            },
         ]
     }
 ];
