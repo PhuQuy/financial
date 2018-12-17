@@ -60,11 +60,7 @@ export class UserListingComponent implements OnInit {
         console.log(this.userService.getById(id));
     }
 
-    // openDetail(id) {
-    //     this.router.navigate(['/admin/users', id]);
-    //     item : [
-    //         {}
-    //     ]
-    //     this.userService.updateWithId(data, id);
-    // }
+    openDetail(id) {
+        this.router.navigate(['/admin/users', id]);
+    }
 }
