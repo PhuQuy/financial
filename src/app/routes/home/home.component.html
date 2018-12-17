@@ -8,9 +8,9 @@
             <div class="row h-100">
               <div class="col-12 my-auto text-sm-center text-left">
                 <div class="slogan">
-                  <h4>15-Minute Transfer</h4>
-                  <h1>Getting Money </h1>
-                  <h4 class="second-color solgan">is now as easy as spending </h4>
+                  <h4 class="mb-0">24h</h4>
+                  <h1>Nhận Tiền</h1>
+                  <h4 class="second-color solgan">dễ dàng hơn bao giờ hết</h4>
                 </div>
                 <div class="row btn-header-group pt-3">
                   <div class="col-12 col-lg-8 col-sm-10 pt-md-0 mx-auto">
@@ -33,8 +33,8 @@
               <div class="col-12 col-md-8 mx-auto">
                 <div class="card w-100">
                   <div class="card-body">
-                    <h4 class="card-title text-muted">How much do you need?</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">You could get up to $5000!*</h6>
+                    <h4 class="card-title text-muted">Số tiền bạn muốn nhận?</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Lên đến 100 triệu đồng!*</h6>
                     <img src="/assets/images/payment.png" class="py-3">
                     <div class="mx-auto">
                     </div>
@@ -44,32 +44,35 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="text" [(ngModel)]="user.name" class="form-control" placeholder="YOUR NAME" name="name">
+                          <input type="text" [(ngModel)]="user.name" class="form-control" placeholder="HỌ VÀ TÊN" name="name">
                         </div>
 
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="number" [(ngModel)]="user.money" class="form-control" placeholder="AMOUNT OF MONEY ($)" name="money">
+                          <input type="number" [(ngModel)]="user.money" class="form-control" placeholder="SỐ TIỀN ($)"
+                            name="money">
                         </div>
 
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="text" [(ngModel)]="user.long" class="form-control" placeholder="HOW LONG FOR?" name="long">
+                          <input type="text" [(ngModel)]="user.long" class="form-control" placeholder="BAO LÂU?" name="long">
                         </div>
 
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <input type="number" [(ngModel)]="user.phone" class="form-control" placeholder="PHONE" name="phone">
+                          <input type="number" [(ngModel)]="user.phone" class="form-control" placeholder="SỐ ĐIỆN THOẠI"
+                            name="phone">
                         </div>
                       </div>
                     </form>
-                    <button type="button" class="btn btn-primary btn-round w-100" (click)="createUser()">Get your loan now!</button>
+                    <button type="button" class="btn btn-primary btn-round w-100" (click)="createUser()">NHẬN TIỀN
+                      NGAY!</button>
                   </div>
                 </div>
               </div>
@@ -141,10 +144,10 @@
       <div class="col-12 col-md-6">
         <div class="row h-100">
           <div class="col-12 my-auto">
-            <h2 class="cmsmasters_heading">Our manager will contact you</h2>
+            <h2 class="cmsmasters_heading">Quản lý của chúng tôi sẽ liên hệ với bạn</h2>
             <p>Make a request on our website and wait for response to e-mail within 15-30 minutes from the time of the
               request during business hours.</p>
-            <button type="button" class="btn btn-second btn-round">what details?</button>
+            <button type="button" class="btn btn-second btn-round" [routerLink]="['/contact-us']">Hot line</button>
           </div>
         </div>
       </div>
@@ -166,10 +169,10 @@
       <div class="col-12 col-md-6">
         <div class="row">
           <div class="col-12 my-auto">
-            <h2 class="white-color">Receive your money in the most convenient way in 15 minutes</h2>
+            <h2 class="white-color">Nhận tiền dễ dàng chỉ với 15 phút</h2>
             <p><span style="color: #ffffff;">Make a request on our website and wait for response to e-mail within 15-30
                 minutes from the time of the request during business hours.</span></p>
-            <button type="button" class="btn btn-primary btn-round">how it works?</button>
+            <button type="button" class="btn btn-primary btn-round" [routerLink]="['/form']">how it works?</button>
 
           </div>
         </div>
@@ -181,8 +184,7 @@
 <div class="section section-right-choise" #rightchoise>
   <div class="container">
     <div class="row px-3">
-      <h1><span style="color: #ffffff;">PayDay is</span> <span style="color: #cddc39;"> the right choice </span> <span
-          style="color: #ffffff;">for you if:</span></h1>
+      <h1><span style="color: #ffffff;">Điều kiện</span> <span style="color: #cddc39;"> tham gia</span> <span style="color: #ffffff;">:</span></h1>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 white-color">
@@ -193,7 +195,7 @@
             </div>
           </div>
           <div class="col-10">
-            <h5 class="icon_box_heading">YOU ARE 18 OR OLDER</h5>
+            <h5 class="icon_box_heading">Bạn phải hơn 18 tuổi</h5>
             <div class="icon_box_text">
               <p>The minimun age to use our service is 18.</p>
             </div>
@@ -207,26 +209,13 @@
             </div>
           </div>
           <div class="col-10">
-            <h5 class="icon_box_heading">YOU ARE A US RESIDENT</h5>
+            <h5 class="icon_box_heading">Bạn là sinh viên</h5>
             <div class="icon_box_text">
               <p>Must be a current resident of the United Kingdom.</p>
             </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-2 my-auto">
-            <div class="check-icon text-center">
-              <i class="far fa-check-circle"></i>
-            </div>
-          </div>
-          <div class="col-10">
-            <h5 class="icon_box_heading">YOU HAVE A BANK ACCOUNT</h5>
-            <div class="icon_box_text">
-              <p>You need an active UK bank account to allow the money to be transferred to you.</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="col-12 col-md-6 white-color">
@@ -237,14 +226,27 @@
             </div>
           </div>
           <div class="col-10">
-            <h5 class="icon_box_heading">YOU ARE HONEST AND TRUSTWORTHY</h5>
+            <h5 class="icon_box_heading">Bạn có tài khoản ngân hàng</h5>
+            <div class="icon_box_text">
+              <p>You need an active UK bank account to allow the money to be transferred to you.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2 my-auto">
+            <div class="check-icon text-center">
+              <i class="far fa-check-circle"></i>
+            </div>
+          </div>
+          <div class="col-10">
+            <h5 class="icon_box_heading">Bạn thật thà</h5>
             <div class="icon_box_text">
               <p>You deffinitely have to be a nice person.</p>
             </div>
           </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-2 my-auto">
             <div class="check-icon text-center">
               <i class="far fa-check-circle"></i>
@@ -270,7 +272,7 @@
               <p>You must have an income every month whether it be benefits or a job.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -281,7 +283,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="mb-1">Why people choose us</h1>
+        <h1 class="mb-1">Tại sạo lựa chọn dịch vụ của chúng tôi</h1>
         <h5 class="uppercase blue-color mb-5">We offer a totally new way of borrowing </h5>
       </div>
     </div>
@@ -297,8 +299,7 @@
           <div class="col-10 px-0">
             <div class="card w-100 why-us-card position-relative">
               <div class="card-body p-5">
-                <h3>Fair Interest<br>
-                  rates</h3>
+                <h3>Mức thuế hợp lý</h3>
                 <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
                   tristique sed</p>
                 <h5><a><span style="color: #3e467b;">How it works?</span></a></h5>
@@ -319,8 +320,7 @@
           <div class="col-10 px-0">
             <div class="card w-100 why-us-card position-relative">
               <div class="card-body p-5">
-                <h3>Loans up to<br>
-                  $5000</h3>
+                <h3>Giá trị khoản thuê cao</h3>
                 <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
                   tristique sed</p>
                 <h5><a><span style="color: #3e467b;">How it works?</span></a></h5>
@@ -341,8 +341,7 @@
           <div class="col-10 px-0">
             <div class="card w-100 why-us-card position-relative">
               <div class="card-body p-5">
-                <h3>Lowest APR
-                  available to you</h3>
+                <h3>Điều khoản đơn giản</h3>
                 <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
                   tristique sed</p>
                 <h5><a><span style="color: #3e467b;">How it works?</span></a></h5>
@@ -467,7 +466,8 @@
         </div>
         <div class="col-12">
           <h1 class="white-color text-center"><i class="fas fa-quote-left"></i></h1>
-          <p class="white-color px-4" style="font-size: 20px">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+          <p class="white-color px-4" style="font-size: 20px">Duis autem vel eum iriure dolor in hendrerit in vulputate
+            velit esse molestie
             consequat,
             vel illum dolore eu
             feugiat. Lorem ipsum dolor sit amet, cosectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
