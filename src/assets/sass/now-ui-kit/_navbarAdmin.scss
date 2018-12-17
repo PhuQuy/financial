@@ -141,7 +141,7 @@ app-admin {
       }
 
       .nav-link {
-        text-transform: uppercase;
+        text-transform: inherit;
         font-size: $font-size-mini;
         padding: $padding-base-vertical $padding-base-horizontal;
         line-height: $line-height-nav-link;
@@ -267,6 +267,10 @@ app-admin {
 
   .bg-primary {
     background-color: $primary-color !important;
+  }
+
+  .sidebar-bg {
+    background-color: $sidebar-color !important;
   }
 
   .bg-info {
