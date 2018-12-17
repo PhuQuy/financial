@@ -5,6 +5,7 @@ import * as JsEncryptModule from 'jsencrypt';
 import { environment } from '@env/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-user-listing',
@@ -18,7 +19,7 @@ export class UserListingComponent implements OnInit {
     encrypt;
     alls: any;
     id_delete;
-    constructor(private messagingService: MessagingService, private userService: UserService, private modalService: NgbModal) {
+    constructor(private messagingService: MessagingService, private userService: UserService, private modalService: NgbModal, private router: Router) {
         this.encrypt = new JsEncryptModule.JSEncrypt();
         this.encrypt.setPrivateKey(environment.privateSSHRASKey);
 
@@ -51,5 +52,9 @@ export class UserListingComponent implements OnInit {
         this.modalService.open(ConfirmComponent)
         // this.modalService.open(content);
         // this.id_delete = id
+    }
+
+    openDetail(id) {
+        this.router.navigate(['/admin/users', id]);
     }
 }
