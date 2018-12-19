@@ -1,80 +1,90 @@
 <div class="container">
   <form class="py-4">
     <label for="exampleInputEmail1">Ông (bà):</label>
-    <input type="text" name="user-name" class="form-control" id="user-name" placeholder="Ông (bà):">
+    <input type="text" name="user-name" [(ngModel)]="user.name" class="form-control" id="user-name" placeholder="Ông (bà)">
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-sm-6">
         <label for="exampleInputEmail1">SĐT:</label>
-        <input type="text" name="user-phone" class="form-control" id="user-phone" placeholder="SĐT:">
+        <input type="text" name="user-phone" [(ngModel)]="user.phone" class="form-control" id="user-phone" placeholder="SĐT">
       </div>
       <div class="col-sm-6">
         <label for="exampleInputEmail1">Zalo:</label>
-        <input type="text" name="user-zalo" class="form-control" id="user-zalo" placeholder="Zalo:">
+        <input type="text" name="user-zalo" [(ngModel)]="user.zalo" class="form-control" id="user-zalo" placeholder="Zalo">
       </div>
     </div>
     <label for="exampleInputEmail1">Chứng minh nhân dân:</label>
-    <input type="text" name="user-cmnd" class="form-control" id="user-cmnd" placeholder="Chứng minh nhân dân:">
+    <input type="text" name="user-cmnd" [(ngModel)]="user.cmnd" class="form-control" id="user-cmnd" placeholder="Chứng minh nhân dân">
     <div class="row">
       <div class="col-sm-6">
         <label for="exampleInputEmail1">Ngày cấp:</label>
-        <input type="text" name="user-date_cmnd" class="form-control" id="user-date_cmnd" placeholder="Ngày cấp:">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                 name="user-cmnd_date" [(ngModel)]="user.cmnd_date" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              <i class="far fa-calendar-alt"></i>
+            </button>
+          </div>
+        </div>
       </div>
       <div class="col-sm-6">
         <label for="exampleInputEmail1">Công an:</label>
-        <input type="text" name="user-date_ca" class="form-control" id="user-ca" placeholder="Công an:">
+        <input type="text" name="user-cmnd_ca" [(ngModel)]="user.cmnd_ca" class="form-control" id="user-cmnd_ca" placeholder="Công an">
       </div>
     </div>
     <label for="exampleInputEmail1">Địa chỉ thường trú:</label>
-    <input type="text" name="user-address" class="form-control" id="user-address" placeholder="Địa chỉ thường trú:">
+    <input type="text" name="user-address" [(ngModel)]="user.address" class="form-control" id="user-address" placeholder="Địa chỉ thường trú">
     <label for="exampleInputEmail1">Hiện là sinh viên trường:</label>
-    <input type="text" name="user-university" class="form-control" id="user-university" placeholder="Hiện là sinh viên trường:">
+    <input type="text" name="user-university" [(ngModel)]="user.university" class="form-control" id="user-university" placeholder="Hiện là sinh viên trường">
     <div class="row">
       <div class="col-sm-4">
         <label for="exampleInputEmail1">Khóa:</label>
-        <input type="text" name="user-nam" class="form-control" id="user-nam" placeholder="Khóa:">
+        <input type="text" name="user-nam" [(ngModel)]="user.nam" class="form-control" id="user-nam" placeholder="Khóa">
       </div>
       <div class="col-sm-4">
         <label for="exampleInputEmail1">Khoa:</label>
-        <input type="text" name="user-khoa" class="form-control" id="date_khoa" placeholder="Khoa:">
+        <input type="text" name="user-khoa" [(ngModel)]="user.khoa" class="form-control" id="date_khoa" placeholder="Khoa">
       </div>
       <div class="col-sm-4">
         <label for="exampleInputEmail1">Lớp:</label>
-        <input type="text" name="user-class" class="form-control" id="user-class" placeholder="Lớp:">
+        <input type="text" name="user-class" [(ngModel)]="user.class" class="form-control" id="user-class" placeholder="Lớp">
       </div>
     </div>
     <label for="exampleInputEmail1">Họ tên cha:</label>
-    <input type="text" name="user-father" class="form-control" id="user-father" placeholder="Họ tên cha:">
+    <input type="text" name="user-father" [(ngModel)]="user.father" class="form-control" id="user-father" placeholder="Họ tên cha">
     <div class="row">
       <div class="col-sm-6">
         <label for="exampleInputEmail1">SĐT:</label>
-        <input type="text" name="user-father_phone" class="form-control" id="user-father_phone" placeholder="SĐT:">
+        <input type="text" name="user-father_phone" [(ngModel)]="user.father_phone" class="form-control" id="user-father_phone" placeholder="SĐT">
       </div>
       <div class="col-sm-6">
         <label for="exampleInputEmail1">Nghề nghiệp:</label>
-        <input type="text" name="user-father_job" class="form-control" id="user-father_job" placeholder="Nghề nghiệp:">
+        <input type="text" name="user-father_job" [(ngModel)]="user.father_job" class="form-control" id="user-father_job" placeholder="Nghề nghiệp">
       </div>
     </div>
     <label for="exampleInputEmail1">Họ tên mẹ:</label>
-    <input type="text" name="user-father" class="form-control" id="user-father" placeholder="Họ tên mẹ:">
+    <input type="text" name="user-mother" [(ngModel)]="user.mother" class="form-control" id="user-mother" placeholder="Họ tên mẹ">
     <div class="row">
       <div class="col-sm-6">
         <label for="exampleInputEmail1">SĐT:</label>
-        <input type="text" name="user-mother_phone" class="form-control" id="user-mother_phone" placeholder="SĐT:">
+        <input type="text" name="user-mother_phone" [(ngModel)]="user.mother_phone" class="form-control" id="user-mother_phone" placeholder="SĐT">
       </div>
       <div class="col-sm-6">
         <label for="exampleInputEmail1">Nghề nghiệp:</label>
-        <input type="text" name="user-mother_job" class="form-control" id="user-mother_job" placeholder="Nghề nghiệp:">
+        <input type="text" name="user-mother_job" [(ngModel)]="user.mother_job" class="form-control" id="user-mother_job" placeholder="Nghề nghiệp">
       </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
-          <label for="exampleInputEmail1">>Họ và tên AC (nếu có):</label>
-          <input type="text" name="user-ace" class="form-control" id="user-ace" placeholder=">Họ và tên AC (nếu có):">
-        </div>
-        <div class="col-sm-6">
-          <label for="exampleInputEmail1">SĐT:</label>
-          <input type="text" name="user-ace_phone" class="form-control" id="user-ace_phone" placeholder="SĐT:">
-        </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Họ và tên AC (nếu có):</label>
+        <input type="text" name="user-ace" [(ngModel)]="user.ace" class="form-control" id="user-ace" placeholder="Họ và tên AC (nếu có)">
       </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">SĐT:</label>
+        <input type="text" name="user-ace_phone" [(ngModel)]="user.ace_phone" class="form-control" id="user-ace_phone" placeholder="SĐT">
+      </div>
+    </div>
+    <button type="button" [routerLink]="['/']" class="btn btn-primary btn-round w-100" (click)="createUser()">NHẬN TIỀN
+      NGAY!</button>
   </form>
 </div>
