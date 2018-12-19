@@ -1,33 +1,33 @@
 <div class="col-md-12">
-    <div class="card mt-3">
-        <div class="card-header border-bottom-0">
-            <h4 class="card-title"> Simple Table</h4>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Họ tên</th>
-                            <th>Kì hạn</th>
-                            <th>Điện thoại</th>
-                            <th>Số tiền</th>
-                            <th class="text-right">Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of users" (click)="openDetail(user.id);checkSeen(user)" [class.checked]="user.checked">
-                            <td>{{user.name}}</td>
-                            <td>{{user.long}}</td>
-                            <td>{{user.phone | decrypt}}</td>
-                            <td>{{user.money}}</td>
-                            <td class="text-right">
-                                <i (click)="open(user.id)" class="fas fa-user-times"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  <div class="card mt-3">
+    <div class="card-header border-bottom-0">
+      <h4 class="card-title">Quản lý khách hàng</h4>
     </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Họ tên</th>
+              <th>Kì hạn</th>
+              <th>Điện thoại</th>
+              <th>Số tiền</th>
+              <th class="text-right">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users" (click)="openDetail(user.id);checkSeen(user)" [class.checked]="user.checked">
+              <td>{{user.name}}</td>
+              <td>{{user.long}}</td>
+              <td>{{user.phone | decrypt}}</td>
+              <td>{{user.money}}</td>
+              <td class="text-right">
+                <i (click)="open(user.id);  $event.stopPropagation();" class="fas fa-user-times"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

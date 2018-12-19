@@ -6,22 +6,21 @@ import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
-
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgbModule.forRoot()
-  ],
-  declarations: [
-    FooterComponent,
-    SidebarComponent,
-    AdminNavComponent
-  ],
-  exports: [
-    FooterComponent,
-    SidebarComponent,
-    AdminNavComponent
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        NgbModule.forRoot()
+    ],
+    declarations: [
+        FooterComponent,
+        SidebarComponent,
+        AdminNavComponent
+    ],
+    exports: [
+        FooterComponent,
+        SidebarComponent,
+        AdminNavComponent
+    ]
 })
 export class ComponentsModule { }

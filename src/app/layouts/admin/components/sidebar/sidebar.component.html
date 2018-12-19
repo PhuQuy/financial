@@ -1,20 +1,10 @@
 <div class="logo">
-  <!-- <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-    <div class="logo-img">
-      <img src="./assets/images/angular2-logo-white.png"/>
-      <img [routerLink]="['/admin']" src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/06/logo1-2.png"
-        alt="">
-    </div>
-  </a> -->
-  <!-- <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-        Payday
-    </a> -->
     <img [routerLink]="['/admin']" src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/06/logo1-2.png"
     alt="">
 </div>
 <div class="sidebar-wrapper">
   <ul class="nav">
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+    <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
       <a [routerLink]="menuItem.path">
         <i class="now-ui-icons {{menuItem.icon}}"></i>
         <p>{{menuItem.title}}</p>

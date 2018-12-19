@@ -17,7 +17,6 @@ export class UserListingComponent implements OnInit {
     alls: any;
     id_delete;
     constructor(private messagingService: MessagingService, private userService: UserService, private modalService: NgbModal, private router: Router) {
-
         this.alls = this.userService.getAlls();
     }
 
@@ -27,7 +26,6 @@ export class UserListingComponent implements OnInit {
         this.message = this.messagingService.currentMessage;
         if (this.alls) {
             this.alls.subscribe(users => {
-                console.log(users);
                 this.users = users;
             });
         }
@@ -49,7 +47,6 @@ export class UserListingComponent implements OnInit {
             this.userService.deleteById(id);
             
         }, () => { })
-        event.stopPropagation();
         // this.modalService.open(content);
         // this.id_delete = id
     }

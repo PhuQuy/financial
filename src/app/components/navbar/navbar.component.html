@@ -1,14 +1,14 @@
 <div class="navbar-header-top d-none d-sm-block" style="height:40px">
   <div class="container h-100">
     <div class="row h-100">
-      <div class="col-lg-3 col-5 my-auto">
-        <p class="mb-0"><i class="fas fa-map-marker-alt pr-2"></i>Brooklyn, NY 10036, United States</p>
+      <div class="col-lg-5 col-5 my-auto">
+        <p class="mb-0"><i class="fas fa-map-marker-alt pr-2"></i>Đường số 7, nhà khách Đại Học Quốc Gia, Thủ Đức, tp HCM</p>
       </div>
       <div class="my-auto">
-        <p class="mb-0"><i class="fab fa-telegram-plane pr-2"></i>example@gmail.com</p>
+        <p class="mb-0"><i class="fab fa-telegram-plane pr-2"></i>support@thuetien.com.vn</p>
       </div>
-      <div class="col-lg-3 col-3 my-auto">
-        <p class="mb-0"><i class="fas fa-phone pr-2"></i>0909 748414</p>
+      <div class="col-lg-3 col-3 my-auto pl-4">
+        <p class="mb-0"><i class="fas fa-phone pr-2"></i>0938 179 785</p>
       </div>
     </div>
   </div>
@@ -18,9 +18,9 @@
     <ngb-panel id="toggle-1" title="ahskldjals">
       <ng-template ngbPanelContent>
         <div class="list-menu text-center px-3" style="background-color: #212121">
-          <p class="mb-0 py-1 pt-3"><i class="fas fa-map-marker-alt pr-2"></i>Brooklyn, NY 10036, United States</p>
-          <p class="mb-0 py-1"><i class="fab fa-telegram-plane pr-2"></i>example@gmail.com</p>
-          <p class="mb-0 py-1"><i class="fas fa-phone pr-2"></i>0909 748414</p>
+          <p class="mb-0 py-1 pt-3"><i class="fas fa-map-marker-alt pr-2"></i>Đường số 7, nhà khách Đại Học Quốc Gia, Thủ Đức, tp HCM</p>
+          <p class="mb-0 py-1"><i class="fab fa-telegram-plane pr-2"></i>support@thuetien.com.vn</p>
+          <p class="mb-0 py-1"><i class="fas fa-phone pr-2"></i>0938 179 785</p>
         </div>
       </ng-template>
     </ngb-panel>
@@ -52,22 +52,22 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" (click)="sidebarClose()" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact: true}">
           <a class="nav-link" [routerLink]="['/']">
-            <p>Home</p>
+            <p>Trang chủ</p>
           </a>
         </li>
         <li class="nav-item" (click)="sidebarClose()" [routerLink]="['/contact-us']" [routerLinkActive]="['active']">
           <a class="nav-link">
-            <p>Contact</p>
+            <p>Liên hệ</p>
           </a>
         </li>
         <li class="nav-item" (click)="sidebarClose()" [routerLink]="['/news']" [routerLinkActive]="['active']">
           <a class="nav-link">
-            <p>News</p>
+            <p>Tin tức</p>
           </a>
         </li>
         <li class="nav-item" (click)="sidebarClose()" [routerLink]="['/admin']" [routerLinkActive]="['active']" [hidden]="!user">
             <a class="nav-link">
-              <p>Admin</p>
+              <p>Quản lý</p>
             </a>
           </li>
       </ul>
