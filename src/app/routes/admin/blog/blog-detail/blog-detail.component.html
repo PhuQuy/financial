@@ -1,1 +1,16 @@
-<div [froalaEditor]>Hello, Froala!</div>
+<div class="container my-3 pt-3">
+    <div class="form-group">
+        <label for="image">Hình minh họa:</label>
+        <input class="form-control" type="file" name="picture" [(ngModel)]="blog.picture">
+        <label for="title" class="mr-sm-2">Tiêu đề bài viết:</label>
+        <input class="form-control mb-2 mr-sm-2" type="text" name="title" [(ngModel)]="blog.title">
+        <label for="describe" class="mr-sm-2">Tóm tắt:</label>
+        <textarea class="form-control" name="describe" rows="5" [(ngModel)]="blog.describe"></textarea>
+        <label for="content" class="mr-sm-2">Nội dung chi tiết:</label>
+        <div [froalaEditor] id="content" [(ngModel)]="blog.content">Hello, Froala!</div>
+
+        <div class="clearfix">
+            <button type="button" class="btn btn-primary float-right my-2 btn-lg" (click)="createBlog()">Submit</button>
+        </div>
+    </div>
+</div>
