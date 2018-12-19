@@ -48,6 +48,14 @@ export class HomeComponent implements AfterViewInit {
         
     }
 
+    saveUserLocal(){
+        //console.log(this.user);
+        localStorage.name = this.user.name;
+        localStorage.money = this.user.money;
+        localStorage.long = this.user.long;
+        localStorage.phone = this.user.phone;
+    }
+
 
     createUser() {
         // console.log(this.user);

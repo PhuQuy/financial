@@ -1,3 +1,33 @@
-<p>
-  user-detail works!
-</p>
+<div class="container">
+    <p class="">Ông (bà): {{users.name}}</p>
+    <div class="row">
+      <div class="col-sm-6">SĐT: {{users.phone | decrypt}}</div>
+      <div class="col-sm-6">Zalo: {{users.zalo}}</div>
+    </div>
+    <p class="">Chứng minh nhân dân: {{users.cmnd}}</p>
+    <div class="row">
+      <div class="col-sm-6">Ngày cấp: {{users.cmnd_date}}</div>
+      <div class="col-sm-6">Công an: {{users.cmnd_ca}}</div>
+    </div>
+    <p class="">Địa chỉ thường trú: {{users.address}}</p>
+    <p class="">Hiện là sinh viên trường: {{users.university}}</p>
+    <div class="row">
+      <div class="col-sm-4">Khóa: {{users.nam}}</div>
+      <div class="col-sm-4">Khoa: {{users.khoa}}</div>
+      <div class="col-sm-4">Lớp: {{users.class}}</div>
+    </div>
+    <p class="">Họ tên cha: {{users.father}}</p>
+    <div class="row">
+      <div class="col-sm-6">SĐT: {{users.father_phone}}</div>
+      <div class="col-sm-6">Nghề nghiệp: {{users.father_job}}</div>
+    </div>
+    <p class="">Họ tên mẹ: {{users.mother}}</p>
+    <div class="row">
+      <div class="col-sm-6">SĐT: {{users.mother_phone}}</div>
+      <div class="col-sm-6">Nghề nghiệp: {{users.mother_job}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Họ và tên AC (nếu có): {{users.ace}}</div>
+      <div class="col-sm-6">SĐT: {{users.ace_phone}}</div>
+    </div>
+</div>
