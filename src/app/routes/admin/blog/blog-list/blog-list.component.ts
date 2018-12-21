@@ -45,4 +45,9 @@ export class BlogListComponent implements OnInit {
         // this.modalService.open(content);
         // this.id_delete = id
     }
+
+    openBlog(id)
+    {
+        this.router.navigate(['/admin/blogs', id])
+    }
 }

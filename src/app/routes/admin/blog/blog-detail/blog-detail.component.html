@@ -1,7 +1,7 @@
 <div class="container my-3 pt-3">
     <div class="form-group">
         <label for="image">Hình minh họa:</label>
-        <input class="form-control" type="file" name="picture" [(ngModel)]="blog.picture">
+        <input class="form-control" type="file" accept="image/png, image/jpeg, image/gif" (change)="detectFiles($event)" name="picture" [(ngModel)]="blog.picture">
         <label for="title" class="mr-sm-2">Tiêu đề bài viết:</label>
         <input class="form-control mb-2 mr-sm-2" type="text" name="title" [(ngModel)]="blog.title">
         <label for="describe" class="mr-sm-2">Tóm tắt:</label>
