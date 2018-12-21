@@ -7,6 +7,8 @@ RUN npm install -g @angular/cli@6.0.8
 
 COPY . /usr/src/app
 
+RUN npm install
+
 RUN npm run build:prod
 
 FROM nginx:1.13.9-alpine

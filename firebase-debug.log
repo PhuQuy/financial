@@ -11,3 +11,23 @@
 [debug] [2018-12-20T16:08:47.928Z] [iam] checking project financial-manage for permissions ["firebase.projects.get"]
 [debug] [2018-12-20T16:08:47.935Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/financial-manage:testIamPermissions  
 
+[debug] [2018-12-20T16:08:49.172Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-20T16:08:49.174Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/financial-manage  
+ 
+[debug] [2018-12-20T16:08:50.323Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\Clients\Duong\financial'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-20T16:08:51.934Z] Fetching environment
+[debug] [2018-12-20T16:08:51.939Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/465220428307:getServerAppConfig  
+ 
+[debug] [2018-12-20T16:08:51.940Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/465220428307/clients/_:getWebAppConfig  
+ 
+[debug] [2018-12-20T16:08:52.399Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-20T16:08:52.400Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-20T16:08:52.478Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: functions/dist/browser
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2018-12-20T16:08:56.000Z] Parsing function triggers
+[info] +  functions: http: http://localhost:5001/financial-manage/us-central1/http
