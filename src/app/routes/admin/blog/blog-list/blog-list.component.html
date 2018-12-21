@@ -4,7 +4,7 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-sm-8">
-                  <h4 class="card-title">Căn hộ có trên hệ thống</h4>
+                  <h4 class="card-title">Danh sách bài viết</h4>
                 </div>
                 <div class="col-sm-4" style="text-align: right">
                   <a class="btn btn-primary btn-round btn-icon" [routerLink]="['/admin/blogs/create']">
@@ -22,16 +22,13 @@
                         #
                       </th>
                       <th>
-                        Tên Căn Hộ
+                        Hình minh họa
                       </th>
-                      <th style="padding-left: 45px">
-                        Loại căn hộ
-                      </th>
-                      <th class="text-center">
-                        Giá
+                      <th class="text-center" style="padding-left: 45px">
+                        Tiêu đề
                       </th>
                       <th class="text-center">
-                        Diện tích
+                        Tóm tắt
                       </th>
                       <th class="text-center">
                         Ngày tạo
@@ -44,25 +41,22 @@
                         {{i+1}}
                       </td>
                       <td>
-                        {{blog.name}}
+                        {{blog.picture}}
                       </td>
                       <td class="text-center">
-                       
+                        {{blog.title}}
                       </td>
                       <td class="text-center">
-                        {{blog.transferPrice  | number:'.'}} đ
+                        {{blog.describe}}
                       </td>
                       <td class="text-center">
-                        {{blog.area}} m<sup>2</sup>
+                        {{blog.time | date}}
                       </td>
                       <td class="text-center">
-                        {{blog.createdAt | date}}
-                      </td>
-                      <td class="text-center">
-                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="" [routerLink]="['/apartment', apartment.id]">
+                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="" >
                           <i class="now-ui-icons ui-2_settings-90"></i>
                         </button>
-                        <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="" (click)="delete(apartment.id)">
+                        <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
                           <i class="now-ui-icons ui-1_simple-remove"></i>
                         </button>
                       </td>
@@ -70,7 +64,7 @@
       
                     <tr >
                       <td colspan="5"></td>
-                      <td class="td-total">Tổng số lượng</td>
+                      <td class="td-total">Số bài viết</td>
                       <td class="td-price" style="text-align: left;">{{blogs.length}}</td>
                     </tr>
                   </tbody>
