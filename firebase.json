@@ -1,11 +1,24 @@
 {
   "hosting": {
-    "public": "functions/dist",
+    "public": "functions/dist/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
-      {
-        "source": "**",
-        "function": "http"
-      }
-    ]
+        {
+            "source": "/seo/**",
+            "function": "http"
+          },
+          {
+            "source": "/contact-us/**",
+            "destination": "contact.html"
+          },
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+      ]
   }
 }
