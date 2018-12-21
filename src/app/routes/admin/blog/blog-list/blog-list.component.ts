@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '@app/services/blog.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
+import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
     selector: 'app-blog-list',
@@ -10,7 +14,7 @@ import { BlogService } from '@app/services/blog.service';
 export class BlogListComponent implements OnInit {
     blogs = [];
     alls: any;
-    constructor(private blogService: BlogService) {
+    constructor(private blogService: BlogService, private modalService: NgbModal, private router: Router) {
         this.alls = this.blogService.getAlls();
     }
 
@@ -23,4 +27,22 @@ export class BlogListComponent implements OnInit {
         }
     }
 
+    deleteUser(id) {
+        this.blogService.deleteById(id);
+    }
+
+    open(id) {
+        const modalRef = this.modalService.open(ConfirmComponent);
+        modalRef.componentInstance.title = 'Xác nhận xóa';
+        modalRef.componentInstance.id = id;
+        modalRef.componentInstance.question = 'Bạn có chắc chắn xóa không?';
+        modalRef.componentInstance.confirmText = 'Xóa';
+
+        modalRef.result.then((id) => {
+            this.blogService.deleteById(id);
+
+        }, () => { })
+        // this.modalService.open(content);
+        // this.id_delete = id
+    }
 }
