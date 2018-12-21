@@ -8,6 +8,10 @@ const routes: Routes = [
         loadChildren: './layouts/client/client.module#ClientModule'
     },
     {
+        path: 'seo',
+        loadChildren: './layouts/client/client.module#ClientModule'
+    },
+    {
         path: 'login',
         loadChildren: './routes/log-in/log-in.module#LoginModule'
     },
