@@ -16,15 +16,16 @@ export class BlogDetailComponent implements OnInit {
     blog: any = new Object();
     time = new Date();
     alls: any;
+    id: any;
 
     constructor(private blogService: BlogService, private route: ActivatedRoute, protected uploadService: UploadService) {
         this.route.params.subscribe(params => {
             if (params['id'] != 'create') {
-                this.blog.id = params['id'];
+                this.id = params['id'];
 
             }
         });
-        this.alls = this.blogService.getById(this.blog.id);
+        this.alls = this.blogService.getById(this.id);
     }
 
     ngOnInit() {
@@ -39,9 +40,15 @@ export class BlogDetailComponent implements OnInit {
 
     createBlog() {
 
-        this.blog.time = this.time.getTime();
-        this.blogService.create(this.blog);
-        this.blog = {};
+        if (this.id == null) {
+            this.blog.time = this.time.getTime();
+            this.blogService.create(this.blog);
+            this.blog = {};
+        }
+        else{
+            this.blogService.updateWithId(this.blog, this.id);
+            alert("Cập nhật thành công")
+        }
 
     }
 
