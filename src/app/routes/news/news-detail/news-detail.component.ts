@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { BlogService } from '@app/services/blog.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -12,22 +13,24 @@ declare var $: any;
 })
 export class NewsDetailComponent implements AfterViewInit {
 
-    blogs = [];
-    alls: any;
-    constructor(private blogService: BlogService) {
-        this.alls = this.blogService.getAlls();
+    blog: any;
+    id: any;
+    constructor(private blogService: BlogService, private route: ActivatedRoute) {
+
 
     }
 
     ngOnInit() {
-        if (this.alls) {
-            this.alls.subscribe(blogs => {
-                this.blogs = blogs;
-                console.log(this.blogs);
-
-            });
-        }
-
+        this.route.params.subscribe(params => {
+            if (params['id'] != 'create') {
+                this.id = params['id'];
+                this.blogService.getById(this.id).subscribe(blog => {
+                    console.log(blog);
+                    
+                    this.blog = blog;
+                })
+            }
+        });
     }
 
     ngAfterViewInit() {

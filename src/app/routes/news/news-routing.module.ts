@@ -10,7 +10,7 @@ const routes: Routes = [
         component: NewsComponent,
         children: [
             { path: '', component: NewsListComponent, data: { routing: 'blog' } },
-            { path: ':key', component: NewsDetailComponent, data: { routing: 'detail' } }
+            { path: ':id', component: NewsDetailComponent, data: { routing: 'detail' } }
         ]
     }
 ];
