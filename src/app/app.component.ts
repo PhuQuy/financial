@@ -14,21 +14,21 @@ export class AppComponent {
     }
 
     ngAfterViewInit() {
-        // this.router.events
-        //     .subscribe((event) => {
-        //         if (event instanceof NavigationStart) {
-        //             this.loading = true;
-        //         }
-        //         else if (
-        //             event instanceof NavigationEnd ||
-        //             event instanceof NavigationCancel
-        //         ) {
-        //             this.loading = false;
+        this.router.events
+            .subscribe((event) => {
+                if (event instanceof NavigationStart) {
+                    this.loading = true;
+                }
+                else if (
+                    event instanceof NavigationEnd ||
+                    event instanceof NavigationCancel
+                ) {
+                    this.loading = false;
 
-        //             if (isPlatformBrowser(this.platformId)) {
-        //                 window.scrollTo(0, 0);
-        //             }
-        //         }
-        //     });
+                    if (isPlatformBrowser(this.platformId)) {
+                        window.scrollTo(0, 0);
+                    }
+                }
+            });
     }
 }
