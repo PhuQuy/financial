@@ -4,6 +4,7 @@ import { UserService } from '@app/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-user-listing',
@@ -13,9 +14,12 @@ import { Router } from '@angular/router';
 })
 export class UserListingComponent implements OnInit {
     message;
-    users = [];
+    users = new Observable<any[]>();
     alls: any;
     id_delete;
+    length: any;
+
+    //likes: FirebaseListObservable<number[]>;
     constructor(private messagingService: MessagingService, private userService: UserService, private modalService: NgbModal, private router: Router) {
         this.alls = this.userService.getAlls();
     }
@@ -29,7 +33,8 @@ export class UserListingComponent implements OnInit {
                 this.users = users;
             });
         }
-
+        console.log(this.alls);
+        
     }
 
     deleteUser(id) {
@@ -37,7 +42,7 @@ export class UserListingComponent implements OnInit {
     }
 
     open(id) {
-        const modalRef = this.modalService.open(ConfirmComponent);
+        const modalRef = this.modalService.open(ConfirmComponent, { centered: true });
         modalRef.componentInstance.title = 'Xác nhận xóa';
         modalRef.componentInstance.id = id;
         modalRef.componentInstance.question = 'Bạn có chắc chắn xóa không?';

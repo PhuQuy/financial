@@ -1,33 +1,80 @@
 <div class="container">
-    <p class="">Ông (bà): {{users.name}}</p>
+  <form class="py-4">
+    <label for="exampleInputEmail1">Ông (bà):</label>
+    <input type="text" name="user-name" [(ngModel)]="user.name" class="form-control" id="user-name" disabled>
     <div class="row">
-      <div class="col-sm-6">SĐT: {{users.phone | decrypt}}</div>
-      <div class="col-sm-6">Zalo: {{users.zalo}}</div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">SĐT:</label>
+        <input type="text" name="user-phone" [(ngModel)]="user.phone" class="form-control" id="user-phone" disabled>
+      </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Zalo:</label>
+        <input type="text" name="user-zalo" [(ngModel)]="user.zalo" class="form-control" id="user-zalo" disabled>
+      </div>
     </div>
-    <p class="">Chứng minh nhân dân: {{users.cmnd}}</p>
+    <label for="exampleInputEmail1">Chứng minh nhân dân:</label>
+    <input type="text" name="user-cmnd" [(ngModel)]="user.cmnd" class="form-control" id="user-cmnd" disabled>
     <div class="row">
-      <div class="col-sm-6">Ngày cấp: {{users.cmnd_date}}</div>
-      <div class="col-sm-6">Công an: {{users.cmnd_ca}}</div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Ngày cấp:</label>
+        <input type="text" name="user-cmnd_date" [(ngModel)]="user.cmnd_date" class="form-control" id="user-cmnd_date" disabled>
+      </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Công an:</label>
+        <input type="text" name="user-cmnd_ca" [(ngModel)]="user.cmnd_ca" class="form-control" id="user-cmnd_ca" disabled>
+      </div>
     </div>
-    <p class="">Địa chỉ thường trú: {{users.address}}</p>
-    <p class="">Hiện là sinh viên trường: {{users.university}}</p>
+    <label for="exampleInputEmail1">Địa chỉ thường trú:</label>
+    <input type="text" name="user-address" [(ngModel)]="user.address" class="form-control" id="user-address" disabled>
+    <label for="exampleInputEmail1">Hiện là sinh viên trường:</label>
+    <input type="text" name="user-university" [(ngModel)]="user.university" class="form-control" id="user-university" disabled>
     <div class="row">
-      <div class="col-sm-4">Khóa: {{users.nam}}</div>
-      <div class="col-sm-4">Khoa: {{users.khoa}}</div>
-      <div class="col-sm-4">Lớp: {{users.class}}</div>
+      <div class="col-sm-4">
+        <label for="exampleInputEmail1">Khóa:</label>
+        <input type="text" name="user-nam" [(ngModel)]="user.nam" class="form-control" id="user-nam" disabled>
+      </div>
+      <div class="col-sm-4">
+        <label for="exampleInputEmail1">Khoa:</label>
+        <input type="text" name="user-khoa" [(ngModel)]="user.khoa" class="form-control" id="date_khoa" disabled>
+      </div>
+      <div class="col-sm-4">
+        <label for="exampleInputEmail1">Lớp:</label>
+        <input type="text" name="user-class" [(ngModel)]="user.class" class="form-control" id="user-class" disabled>
+      </div>
     </div>
-    <p class="">Họ tên cha: {{users.father}}</p>
+    <label for="exampleInputEmail1">Họ tên cha:</label>
+    <input type="text" name="user-father" [(ngModel)]="user.father" class="form-control" id="user-father" disabled>
     <div class="row">
-      <div class="col-sm-6">SĐT: {{users.father_phone}}</div>
-      <div class="col-sm-6">Nghề nghiệp: {{users.father_job}}</div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">SĐT:</label>
+        <input type="text" name="user-father_phone" [(ngModel)]="user.father_phone" class="form-control" id="user-father_phone" disabled>
+      </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Nghề nghiệp:</label>
+        <input type="text" name="user-father_job" [(ngModel)]="user.father_job" class="form-control" id="user-father_job" disabled>
+      </div>
     </div>
-    <p class="">Họ tên mẹ: {{users.mother}}</p>
+    <label for="exampleInputEmail1">Họ tên mẹ:</label>
+    <input type="text" name="user-mother" [(ngModel)]="user.mother" class="form-control" id="user-mother" disabled>
     <div class="row">
-      <div class="col-sm-6">SĐT: {{users.mother_phone}}</div>
-      <div class="col-sm-6">Nghề nghiệp: {{users.mother_job}}</div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">SĐT:</label>
+        <input type="text" name="user-mother_phone" [(ngModel)]="user.mother_phone" class="form-control" id="user-mother_phone" disabled>
+      </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Nghề nghiệp:</label>
+        <input type="text" name="user-mother_job" [(ngModel)]="user.mother_job" class="form-control" id="user-mother_job" disabled>
+      </div>
     </div>
     <div class="row">
-      <div class="col-sm-6">Họ và tên AC (nếu có): {{users.ace}}</div>
-      <div class="col-sm-6">SĐT: {{users.ace_phone}}</div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Họ và tên AC (nếu có):</label>
+        <input type="text" name="user-ace" [(ngModel)]="user.ace" class="form-control" id="user-ace" disabled>
+      </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">SĐT:</label>
+        <input type="text" name="user-ace_phone" [(ngModel)]="user.ace_phone" class="form-control" id="user-ace_phone" disabled>
+      </div>
     </div>
+  </form>
 </div>

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '@app/services/user.service';
 import { environment } from '@env/environment.prod';
 import * as JsEncryptModule from 'jsencrypt';
+import { HinhThucVayTienComponent } from '@app/routes/submit-form/hinh-thuc-vay-tien/hinh-thuc-vay-tien.component';
+import { LaiSuatComponent } from '@app/routes/submit-form/lai-suat/lai-suat.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -14,7 +18,7 @@ export class SubmitFormComponent implements OnInit {
   user: any = new Object();
   encrypt;
   model;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private modalService: NgbModal) {
     this.encrypt = new JsEncryptModule.JSEncrypt();
     this.encrypt.setPublicKey(environment.publishSSHRASKey);
 
@@ -34,6 +38,16 @@ export class SubmitFormComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  open_hinhthucvay(){
+    const modalRef = this.modalService.open(HinhThucVayTienComponent, { centered: true });
+    modalRef.componentInstance.title = 'Hình thức nhận tiền vay';
+  }
+
+  open_laixuat(){
+    const modalRef = this.modalService.open(LaiSuatComponent, { centered: true });
+    modalRef.componentInstance.title = 'Lãi suất thỏa thuận';
   }
 
 }
