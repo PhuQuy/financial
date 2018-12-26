@@ -17,34 +17,34 @@ export class HomeComponent implements AfterViewInit {
         this.encrypt = new JsEncryptModule.JSEncrypt();
         this.encrypt.setPublicKey(environment.publishSSHRASKey);
         
-        const hasName = (name) => {
-            return { name };
-        }
+        // const hasName = (name) => {
+        //     return { name };
+        // }
 
-        const canSayHi = (name) => {
-            return {
-                sayHi: () => `Hello, ${name}`
-            }
-        }
+        // const canSayHi = (name) => {
+        //     return {
+        //         sayHi: () => `Hello, ${name}`
+        //     }
+        // }
 
-        const Person = (name) => {
-            return {
-                ...hasName(name),
-                ...canSayHi(name)
-            }
-        }
+        // const Person = (name) => {
+        //     return {
+        //         ...hasName(name),
+        //         ...canSayHi(name)
+        //     }
+        // }
 
-        const person = Person('Quy');
-        console.log(person.sayHi());
+        // const person = Person('Quy');
+        // console.log(person.sayHi());
 
 
-        const orders = [500, 30, 99, 15, 223];
-        let ahihi = orders.reduce((acc, cur) => {
-            console.log(acc);
-            console.log(cur);
+        // const orders = [500, 30, 99, 15, 223];
+        // let ahihi = orders.reduce((acc, cur) => {
+        //     console.log(acc);
+        //     console.log(cur);
             
-            return acc;
-        });
+        //     return acc;
+        // });
         
     }
 
