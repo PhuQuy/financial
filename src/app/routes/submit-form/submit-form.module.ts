@@ -4,6 +4,8 @@ import { SubmitFormComponent } from './submit-form.component';
 import { SubmitFormRoutingModule } from './submit-form.routing';
 import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HinhThucVayTienComponent } from './hinh-thuc-vay-tien/hinh-thuc-vay-tien.component';
+import { LaiSuatComponent } from './lai-suat/lai-suat.component';
 
 @NgModule({
     imports: [
@@ -12,6 +14,6 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         NgbModule.forRoot()
     ],
-    declarations: [SubmitFormComponent]
+    declarations: [SubmitFormComponent, HinhThucVayTienComponent, LaiSuatComponent]
 })
 export class SubmitFormModule { }

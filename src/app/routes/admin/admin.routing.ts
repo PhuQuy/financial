@@ -6,6 +6,7 @@ import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 const routes: Routes = [
     {
         path: '',
