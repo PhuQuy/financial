@@ -46,6 +46,8 @@ export class HomeComponent implements AfterViewInit {
         this.user.money = this.moneySelected;
         this.longSelected = 3;
         this.user.long = this.longSelected;
+        console.log(typeof this.user.name);
+        
 
         const hasName = (name) => {
             return { name };
@@ -85,10 +87,16 @@ export class HomeComponent implements AfterViewInit {
 
     saveUserLocal(){
         //console.log(this.user);
-        localStorage.name = this.user.name;
-        localStorage.money = this.user.money;
-        localStorage.long = this.user.long;
-        localStorage.phone = this.user.phone;
+        if(typeof this.user.name === "undefined"){
+            localStorage.name = '';
+        }else{
+            localStorage.name = this.user.name;
+        }
+        if(typeof this.user.phone === "undefined"){
+            localStorage.phone = '';
+        }else{
+            localStorage.phone = this.user.phone;
+        }
     }
 
 
