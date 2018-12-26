@@ -1,12 +1,12 @@
-<div class="card news-list">
-  <div *ngFor="let new of [1]">
+<div class="card news-list" *ngIf="blog">
+  <div>
     <div class="row">
       <div class="col-2" style="max-width:100px">
         <div class="top-left-menu">
           <div class="news-post-day">
-            <abbr title="May 23, 2018">
-              <label>23</label>
-              <label>May</label>
+            <abbr title="{{blog.time | date}}">
+              <label>{{blog.time | date: 'dd'}}</label>
+              <label>{{blog.time | date: 'MMM'}}</label>
             </abbr>
           </div>
           <div class="news-like-comment">
@@ -23,24 +23,15 @@
       </div>
       <div class="col-10">
         <div class="news-img">
-          <img src="http://payday-loans.cmsmasters.net/wp-content/uploads/2016/05/19-1-860x560.jpg">
+          <img src="{{blog.picture}}">
         </div>
         <div class="news-content">
-          <h4 class="pointer news-card-title">Bad Credit History</h4>
+          <h4 class="pointer news-card-title">{{blog.title}}</h4>
           <div class="news-post-by"><span class="posted-by">POSTED BY </span> <a>CMSMASTERS</a> <span class="news-divider">|</span>
             <a>BAD CREDIT</a>, <a>PAYDAY
               LOANS</a></div>
-          <p class="pt-3 news-card-short">Sed rutrum, libero non pretium tristique, arcu mi sollicitudin ex, quis
-            venenatis orci tellus vel dolor.
-            Donec gravida, dolor ut...</p>
-          <p>Sed rutrum, libero non pretium tristique, arcu mi sollicitudin ex, quis venenatis orci tellus vel dolor.
-            Donec gravida, dolor ut auctor facilisis, enim dolor pellentesque lectus, nec vehicula nibh risus ac leo.
-            Mauris volutpat aliquam tellus nec rhoncus. Aliquam et nibh pulvinar, sodales nibh et, pretium urna.
-            Vivamus quam augue, maximus in consequat imperdiet, iaculis non nibh. Aliquam erat volutpat. Curabitur
-            venenatis massa sed lacus tristique, non auctor nisl sodales. Sed ultricies lacus ut libero faucibus
-            fringilla. Ut nisi tellus, posuere vel mattis nec, convallis a metus. Nullam elementum molestie felis nec
-            lobortis. Cras at justo eu elit semper tempor sed quis orci. In risus magna, malesuada vel elementum ut,
-            finibus et nunc.</p>
+          <p class="pt-3 news-card-short">{{blog.describe}}...</p>
+          <p [innerHtml]="blog.content"></p>
         </div>
       </div>
     </div>

@@ -1,77 +1,81 @@
 <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">
-              <div class="row">
-                <div class="col-sm-8">
-                  <h4 class="card-title">Danh sách bài viết</h4>
-                </div>
-                <div class="col-sm-4" style="text-align: right">
-                  <a class="btn btn-primary btn-round btn-icon" [routerLink]="['/admin/blogs/create']">
-                      <i class="now-ui-icons ui-1_simple-add"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive" style="overflow: auto">
-                <table class="table table-striped">
-                  <thead class="text-primary">
-                    <tr>
-                      <th class="text-center">
-                        #
-                      </th>
-                      <th>
-                        Hình minh họa
-                      </th>
-                      <th class="text-center" style="padding-left: 45px">
-                        Tiêu đề
-                      </th>
-                      <th class="text-center">
-                        Tóm tắt
-                      </th>
-                      <th class="text-center">
-                        Ngày tạo
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="tr-body" *ngFor="let blog of blogs; let i = index" [attr.data-index]="i">
-                      <td class="text-center" >
-                        {{i+1}}
-                      </td>
-                      <td>
-                        {{blog.picture}}
-                      </td>
-                      <td class="text-center">
-                        {{blog.title}}
-                      </td>
-                      <td class="text-center">
-                        {{blog.describe}}
-                      </td>
-                      <td class="text-center">
-                        {{blog.time | date}}
-                      </td>
-                      <td class="text-center">
-                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="" >
-                          <i class="now-ui-icons ui-2_settings-90"></i>
-                        </button>
-                        <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
-                          <i class="now-ui-icons ui-1_simple-remove"></i>
-                        </button>
-                      </td>
-                    </tr>
-      
-                    <tr >
-                      <td colspan="5"></td>
-                      <td class="td-total">Số bài viết</td>
-                      <td class="td-price" style="text-align: left;">{{blogs.length}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-8">
+            <h4 class="card-title">Danh sách bài viết</h4>
+          </div>
+          <div class="col-sm-4" style="text-align: right">
+            <a class="btn btn-primary btn-round btn-icon" [routerLink]="['/admin/blogs/create']">
+              <i class="now-ui-icons ui-1_simple-add"></i>
+            </a>
           </div>
         </div>
       </div>
-      
+      <div class="card-body">
+        <div class="table-responsive" style="overflow: auto">
+          <table class="table table-striped">
+            <thead class="text-primary">
+              <tr>
+                <th class="text-center">
+                  #
+                </th>
+                <th>
+                  Hình minh họa
+                </th>
+                <th>
+                  Tiêu đề
+                </th>
+                <th>
+                  Tóm tắt
+                </th>
+                <th class="text-center">
+                  Ngày tạo
+                </th>
+                <th class="text-right ">
+                  Thao tác
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tr-body" *ngFor="let blog of blogs; let i = index" [attr.data-index]="i">
+                <td class="text-center">
+                  {{i+1}}
+                </td>
+                <td>
+                  {{blog.picture}}
+                </td>
+                <td>
+                  {{blog.title}}
+                </td>
+                <td>
+                  {{blog.describe}}
+                </td>
+                <td class="text-center">
+                  {{blog.time | date}}
+                </td>
+                <td class="text-right">
+                  <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title=""
+                    title="">
+                    <i class="now-ui-icons ui-2_settings-90" (click)="openBlog(blog.id)"></i>
+                  </button>
+                  <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title=""
+                    title="">
+                    <i (click)="open(blog.id); $event.stopPropagation();" class="now-ui-icons ui-1_simple-remove"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="4"></td>
+                <td class="td-total text-center">Số bài viết</td>
+                <td class="td-price text-center">{{blogs.length}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
