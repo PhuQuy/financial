@@ -5,30 +5,24 @@
       <h5 class="sub-title">FOR HELP, USE THE FORM BELOW</h5>
     </div>
     <div class="row pt-5">
-      <div class="col-6">
-        <form>
+      <div class="col-6" *ngIf="myform">
+        <form [formGroup]="myform" (ngSubmit)="sendMessage(myform.value)">
           <div class="row">
             <div class="col-6">
-              <div class="form-group" [ngClass]="{
-                  'has-danger': name.invalid && (name.dirty || name.touched),
-                  'has-success': name.valid && (name.dirty || name.touched)
-                    }">
+              <div class="form-group">
                 <label>Name *</label>
-                <input type="text" class="form-control" name="name" [(ngModel)]="contact.name">
+                <input type="text" class="form-control" formControlName="name" required>
               </div>
             </div>
             <div class="col-6">
-              <div class="form-group" [ngClass]="{
-                  'has-danger': email.invalid && (email.dirty || email.touched),
-                  'has-success': email.valid && (email.dirty || email.touched)
-                    }">
+              <div class="form-group">
                 <label>Email *</label>
-                <input type="text" class="form-control" name="email" [(ngModel)]="contact.email">
+                <input type="text" class="form-control" formControlName="email" required>
               </div>
             </div>
             <div class="col-12">
               <label>Message</label>
-              <textarea class="w-100" style="height:250px"></textarea>
+              <textarea class="w-100" style="height:250px" formControlName="message" required></textarea>
             </div>
           </div>
         </form>
@@ -38,7 +32,7 @@
       </div>
     </div>
     <div class="pt-3">
-      <button class="btn btn-primary send-msg">Send Message</button>
+      <button class="btn btn-primary send-msg" (click)="sendMessage()">Send Message</button>
     </div>
   </div>
 </div>
