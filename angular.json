@@ -23,7 +23,8 @@
               "src/assets",
               "src/firebase-messaging-sw.js",
               "src/manifest.json",
-              "src/contact.html"
+              "src/contact.html",
+              "./src/app/routes/contact-us/map.js"
             ],
             "styles": [
               "src/styles.scss",

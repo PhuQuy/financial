@@ -8,6 +8,7 @@ import { NavbarComponent } from '@components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientComponent } from './client.component';
 import { ClientRoutingModule } from './client.routing';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
     imports: [
@@ -15,7 +16,10 @@ import { ClientRoutingModule } from './client.routing';
         ClientRoutingModule,
         NgbModule.forRoot(),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyDhMJyRMmSKUPnuWEUqmH87W531M1kdRK4'
+        })
     ],
     declarations: [
         ClientComponent,

@@ -1,5 +1,22 @@
 <div class="contact-us pb-4">
+  <div class="container-fluid px-0">
+      <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="12">
+        <agm-marker [latitude]="lat" [longitude]="lng"
+          [iconUrl]="{
+            url: '../../../assets/images/local.png',
+            scaledSize: {
+              width: 42,
+              height: 53
+            }
+          }"
+        ></agm-marker>
+      </agm-map>
+  </div>
   <div class="container">
+
+  <!-- MAP -->
+    
+
     <div class="text-center">
       <h3 class="title mb-2">LIÊN HỆ</h3>
       <h5 class="sub-title">Xin điền đầy đủ thông tin bên dưới, chúng tôi sẽ liên hệ với bạn</h5>
