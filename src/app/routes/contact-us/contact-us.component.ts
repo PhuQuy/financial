@@ -12,13 +12,13 @@ export class ContactUsComponent implements OnInit {
     local;
     lat: number = 10.880319;
     lng: number = 106.794486;
-    icon = [{
-        'url': '../../../assets/images/local.png',
-        'scaledSize': {
-            'width': 40,
-            'height': 60
+    icon = {
+        url: '../../../assets/images/local.png',
+        scaledSize: {
+            width: 40,
+            height: 60
         }
-    }];
+    };
     
     markers: marker[] = [
         {
