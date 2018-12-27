@@ -127,11 +127,16 @@ select.form-control {
 @media screen and (min-width: 991px) {
   .section-right-choise {
     .col-10 {
-      height: 120px;
+      height: 69px;
     }
 
     .check-icon {
       margin-top: -35px;
     }
   }
+}
+
+
+.news-item-custom {
+    padding: 2em;
 }
