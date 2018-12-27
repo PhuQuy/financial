@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./hinh-thuc-vay-tien.component.scss']
 })
 export class HinhThucVayTienComponent implements OnInit {
-
+title;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {

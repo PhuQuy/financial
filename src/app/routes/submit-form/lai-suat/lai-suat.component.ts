@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./lai-suat.component.scss']
 })
 export class LaiSuatComponent implements OnInit {
-
+title
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
