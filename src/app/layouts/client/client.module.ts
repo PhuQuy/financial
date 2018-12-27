@@ -16,10 +16,14 @@ import { AgmCoreModule } from '@agm/core';
         ClientRoutingModule,
         NgbModule.forRoot(),
         FormsModule,
+<<<<<<< HEAD
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDhMJyRMmSKUPnuWEUqmH87W531M1kdRK4'
         })
+=======
+        ReactiveFormsModule
+>>>>>>> a13b6c235ac4d4b2725f7abaa9c9cee2daf192d1
     ],
     declarations: [
         ClientComponent,
