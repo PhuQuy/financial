@@ -51,7 +51,8 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <select class="form-control" type="number" [(ngModel)]="moneySelected" name="money" (ngModelChange)="selectChange()">
+                          <select class="form-control" type="number" [(ngModel)]="moneySelected" name="money"
+                            (ngModelChange)="selectChange()">
                             <option *ngFor="let money of moneys" [ngValue]="money.num">{{money.title}}</option>
                           </select>
                         </div>
@@ -60,11 +61,12 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                           </div>
-                          <select class="form-control" type="number" [(ngModel)]="longSelected" name="long" (ngModelChange)="selectChange()">
+                          <select class="form-control" type="number" [(ngModel)]="longSelected" name="long"
+                            (ngModelChange)="selectChange()">
                             <option *ngFor="let long of longs" [ngValue]="long.num">{{long.title}}</option>
                           </select>
                         </div>
-                        
+
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
@@ -74,7 +76,8 @@
                         </div>
                       </div>
                     </form>
-                    <button type="button" [routerLink]="['/form']" class="btn btn-primary btn-round w-100" (click)="saveUserLocal()">NHẬN TIỀN
+                    <button type="button" [routerLink]="['/form']" class="btn btn-primary btn-round w-100" (click)="saveUserLocal()">NHẬN
+                      TIỀN
                       NGAY!</button>
                   </div>
                 </div>
@@ -91,7 +94,7 @@
 <div class="section section-introduce" #introduce>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center invisible d-none d-sm-block">
         <img src="/assets/images/apig.png">
         <h3 class="pt-4">Where ever you are</h3>
         <p style="text-align: center;">Cum sociis natoque penatibus et magnis. Pro vel nibh et elit mollis commodo et
@@ -100,12 +103,12 @@
       </div>
       <div class="col-md-4 text-center pt-5 pt-md-0">
         <img src="/assets/images/money.png">
-        <h3 class="pt-4">Directly to your card</h3>
-        <p style="text-align: center;">Cum sociis natoque penatibus et magnis. Pro vel nibh et elit mollis commodo et
-          nec</p>
-        <a class="uppercase" href="#">don’t have a card?</a>
+        <h3 class="pt-4">Chuyển trực tiếp vào tài khoản bạn</h3>
+        <!-- <p style="text-align: center;">Cum sociis natoque penatibus et magnis. Pro vel nibh et elit mollis commodo et
+          nec</p> -->
+        <a class="uppercase" [routerLink]="['/contact-us']">Bạn không có thẻ?</a>
       </div>
-      <div class="col-md-4 text-center  pt-5 pt-md-0">
+      <div class="col-md-4 text-center  pt-5 pt-md-0 invisible d-none d-sm-block">
         <img src="/assets/images/money2.png">
         <h3 class="pt-4">Where ever you are</h3>
         <p style="text-align: center;">Cum sociis natoque penatibus et magnis. Pro vel nibh et elit mollis commodo et
@@ -131,7 +134,7 @@
       <div class="col-md-6 col-12 pt-5">
         <h2 class="white-color">Điền vào phiếu đăng ký hỗ trợ</h2>
         <p><span style="color: #ffffff;">Yêu cầu của bạn sẽ được nhân viên trả lời trong vòng 15 đến 30 phút.</span></p>
-        <button [routerLink]="['/form']"  type="button" class="btn btn-second btn-round">Đăng ký</button>
+        <button [routerLink]="['/form']" type="button" class="btn btn-second btn-round">Đăng ký</button>
 
       </div>
     </div>
@@ -147,9 +150,9 @@
         <div class="row h-100">
           <div class="col-12 my-auto">
             <h2 class="cmsmasters_heading">Quản lý của chúng tôi sẽ liên hệ với bạn</h2>
-            <p>Make a request on our website and wait for response to e-mail within 15-30 minutes from the time of the
-              request during business hours.</p>
-            <button type="button" class="btn btn-second btn-round" [routerLink]="['/contact-us']">Hot line</button>
+            <p>Thực hiện yêu cầu trên trang web của chúng tôi và chờ phản hồi email trong vòng 15-30 phút kể từ thời
+              điểm yêu cầu trong giờ làm việc.</p>
+            <button type="button" class="btn btn-second btn-round" [routerLink]="['/contact-us']">Liên hệ</button>
           </div>
         </div>
       </div>
@@ -172,9 +175,9 @@
         <div class="row">
           <div class="col-12 my-auto">
             <h2 class="white-color">Nhận tiền dễ dàng chỉ với 15 phút</h2>
-            <p><span style="color: #ffffff;">Make a request on our website and wait for response to e-mail within 15-30
-                minutes from the time of the request during business hours.</span></p>
-            <button type="button" class="btn btn-primary btn-round" [routerLink]="['/form']">how it works?</button>
+            <p><span style="color: #ffffff;">Nhận tiền nhanh chóng sau khi đăng ký và điền đầy đủ thông tin cần thiết.
+                Chúng tôi sẽ xác thực thông tin và chuyển tiền chỉ trong 15-30 phút.</span></p>
+            <button type="button" class="btn btn-primary btn-round" [routerLink]="['/form']">Đăng ký</button>
 
           </div>
         </div>
@@ -199,7 +202,7 @@
           <div class="col-10">
             <h5 class="icon_box_heading">Bạn phải hơn 18 tuổi</h5>
             <div class="icon_box_text">
-              <p>The minimun age to use our service is 18.</p>
+              <!-- <p>The minimun age to use our service is 18.</p> -->
             </div>
           </div>
         </div>
@@ -213,7 +216,7 @@
           <div class="col-10">
             <h5 class="icon_box_heading">Bạn là sinh viên</h5>
             <div class="icon_box_text">
-              <p>Must be a current resident of the United Kingdom.</p>
+              <!-- <p>Must be a current resident of the United Kingdom.</p> -->
             </div>
           </div>
         </div>
@@ -230,7 +233,7 @@
           <div class="col-10">
             <h5 class="icon_box_heading">Bạn có tài khoản ngân hàng</h5>
             <div class="icon_box_text">
-              <p>You need an active UK bank account to allow the money to be transferred to you.</p>
+              <!-- <p>You need an active UK bank account to allow the money to be transferred to you.</p> -->
             </div>
           </div>
         </div>
@@ -243,7 +246,7 @@
           <div class="col-10">
             <h5 class="icon_box_heading">Bạn thật thà</h5>
             <div class="icon_box_text">
-              <p>You deffinitely have to be a nice person.</p>
+              <!-- <p>You deffinitely have to be a nice person.</p> -->
             </div>
           </div>
         </div>
@@ -286,7 +289,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <h1 class="mb-1">Tại sạo lựa chọn dịch vụ của chúng tôi</h1>
-        <h5 class="uppercase blue-color mb-5">We offer a totally new way of borrowing </h5>
+        <!-- <h5 class="uppercase blue-color mb-5">We offer a totally new way of borrowing </h5> -->
       </div>
     </div>
 
@@ -302,9 +305,9 @@
             <div class="card w-100 why-us-card position-relative">
               <div class="card-body p-5">
                 <h3>Mức thuế hợp lý</h3>
-                <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
-                  tristique sed</p>
-                <h5><a><span style="color: #3e467b;">How it works?</span></a></h5>
+                <!-- <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
+                  tristique sed</p> -->
+                <h5><a><span style="color: #3e467b;">Chi tiết</span></a></h5>
               </div>
 
             </div>
@@ -323,9 +326,9 @@
             <div class="card w-100 why-us-card position-relative">
               <div class="card-body p-5">
                 <h3>Giá trị khoản thuê cao</h3>
-                <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
-                  tristique sed</p>
-                <h5><a><span style="color: #3e467b;">How it works?</span></a></h5>
+                <!-- <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
+                  tristique sed</p> -->
+                <h5><a><span style="color: #3e467b;">Chi tiết</span></a></h5>
               </div>
 
             </div>
@@ -344,9 +347,9 @@
             <div class="card w-100 why-us-card position-relative">
               <div class="card-body p-5">
                 <h3>Điều khoản đơn giản</h3>
-                <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
-                  tristique sed</p>
-                <h5><a><span style="color: #3e467b;">How it works?</span></a></h5>
+                <!-- <p>Cum sociis natoque penatibus et magnis parturient. Pro vel nibh et elit mollis commodo et nec augue
+                  tristique sed</p> -->
+                <h5><a><span style="color: #3e467b;">Chi tiết</span></a></h5>
               </div>
 
             </div>
@@ -418,19 +421,25 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="mb-1">Latest News</h1>
-        <h5 class="blue-color uppercase">stay tuned into the world of finance and business</h5>
+        <h1 class="mb-1">Tin tức</h1>
+        <h5 class="blue-color uppercase">Theo dõi thế giới tài chính và kinh doanh</h5>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12">
         <!-- Set up your HTML -->
-        <div class="owl-carousel news-carousel mt-5 custom-news">
+        <!-- <div class="owl-carousel news-carousel mt-5 custom-news">
           <div *ngFor=" let data of [1,2,3,4,5]; let i =index">
             <news-item></news-item>
           </div>
-        </div>
+        </div> -->
+
+        <owl-carousel [options]="carouselOption" [items]="blogs" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+          <div class="item news-item-custom" *ngFor="let blog of blogs;let i = index">
+                <news-item [blog]="blog"></news-item>
+            </div>
+        </owl-carousel>
       </div>
     </div>
   </div>

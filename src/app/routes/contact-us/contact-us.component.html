@@ -18,16 +18,16 @@
     
 
     <div class="text-center">
-      <h3 class="title mb-2">Leave a Reply</h3>
-      <h5 class="sub-title">FOR HELP, USE THE FORM BELOW</h5>
+      <h3 class="title mb-2">LIÊN HỆ</h3>
+      <h5 class="sub-title">Xin điền đầy đủ thông tin bên dưới, chúng tôi sẽ liên hệ với bạn</h5>
     </div>
     <div class="row pt-5">
-      <div class="col-6" *ngIf="myform">
-        <form [formGroup]="myform" (ngSubmit)="sendMessage(myform.value)">
+      <div class="col-12 col-md-6" *ngIf="myform">
+        <form [formGroup]="myform" (ngSubmit)="sendMessage(myform.value)" class="form-groups">
           <div class="row">
             <div class="col-6">
-              <div class="form-group">
-                <label>Name *</label>
+              <div class="form-group pl-0">
+                <label>Họ tên *</label>
                 <input type="text" class="form-control" formControlName="name" required>
               </div>
             </div>
@@ -38,18 +38,18 @@
               </div>
             </div>
             <div class="col-12">
-              <label>Message</label>
+              <label>Nội dung</label>
               <textarea class="w-100" style="height:250px" formControlName="message" required></textarea>
             </div>
           </div>
+          <div class="pt-3">
+            <button class="btn btn-primary send-msg" (click)="sendMessage()">Gửi</button>
+          </div>
         </form>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <img src="http://payday-loans.cmsmasters.net/wp-content/uploads/2015/04/Depositphotos_46160073_original.png">
       </div>
-    </div>
-    <div class="pt-3">
-      <button class="btn btn-primary send-msg" (click)="sendMessage()">Send Message</button>
     </div>
   </div>
 </div>

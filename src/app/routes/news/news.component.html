@@ -23,19 +23,19 @@
     </div>
   </div>
   <div class="container text-center py-5">
-    <h1 class="m-0">News</h1>
+    <h1 class="m-0">Tin Tức</h1>
   </div>
 </div>
 <div class="container news-content pt-5">
   <div class="row">
-    <div class="col-9">
+    <div class="col-lg-9 col-sm-10 col-12">
       <router-outlet #appOutlet="outlet"></router-outlet>
     </div>
-    <div class="col-3">
-      <form class="form-inline ml-0" (ngSubmit)="search()" data-background-color style="width: 250px;">
+    <div class="col-lg-3 col-sm-2 col-12">
+      <form class="form-inline ml-0" (ngSubmit)="search()" data-background-color>
         <div class="form-group news-search input-image">
           <input type="text" class="form-control news-search search-home" name="searchss" [(ngModel)]="searchText"
-            style="height: 49px; background-color:#f6f6f6; color: #bdbdbd" placeholder="Search">
+            style="height: 49px; background-color:#f6f6f6; color: #bdbdbd" placeholder="Tìm kiếm">
           <div class="image-content pointer" (click)="search()">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 30 30">
               <path fill="#555" fill-rule="nonzero" d="M11.194 21.392c2.413 0 4.696-.837 6.526-2.366l.942.942-.313.314a.874.874 0 0 0 0 1.237l7.225 7.225a.873.873 0 0 0 1.238 0l1.932-1.933a.874.874 0 0 0 0-1.237l-7.225-7.225a.874.874 0 0 0-1.238 0l-.381.382-.94-.94a10.112 10.112 0 0 0 2.43-6.595 10.13 10.13 0 0 0-2.986-7.21A10.129 10.129 0 0 0 11.194 1C8.473 1 5.913 2.06 3.987 3.987A10.128 10.128 0 0 0 1 11.197c0 2.723 1.06 5.283 2.986 7.208a10.118 10.118 0 0 0 7.208 2.987zm15.693 4.802l-.695.694-5.988-5.988.695-.694 5.988 5.988zM5.223 5.224a8.388 8.388 0 0 1 5.971-2.473 8.39 8.39 0 0 1 5.972 2.474 8.392 8.392 0 0 1 2.474 5.972 8.39 8.39 0 0 1-2.474 5.972 8.39 8.39 0 0 1-5.972 2.474 8.388 8.388 0 0 1-5.971-2.474 8.391 8.391 0 0 1-2.474-5.972c0-2.257.878-4.377 2.474-5.972z" />
@@ -44,12 +44,7 @@
         </div>
       </form>
 
-      <h4>ABOUT US</h4>
-      <p class="about-us-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-        vel illum dolore eu
-        feugiat.</p>
-
-      <h4>CATEGORIES</h4>
+      <h4>Thể loại</h4>
       <ul class="categories-list pl-0">
         <li>
           <a>Advices</a>
@@ -86,12 +81,11 @@
         </li>
       </ul>
 
-      <h4>LATEST NEWS</h4>
-      <h4>CONTACT</h4>
+      <h4>Liên hệ</h4>
       <div class="news-contact">
-        <div><span><i class="fas fa-map-marker-alt"></i></span>San Francisco, CA 94102, US 1234</div>
-        <div class="pt-3"><span><i class="far fa-envelope"></i></span>abcxyz@example.com</div>
-        <div class="pt-3"><span><i class="fas fa-mobile-alt"></i></span>+1 000 123 1234</div>
+        <div><span><i class="fas fa-map-marker-alt"></i></span>Đường số 7, nhà khách Đại Học Quốc Gia, Thủ Đức, tp HCM</div>
+        <div class="pt-3"><span><i class="far fa-envelope"></i></span><label>support@thuetien.com.vn</label></div>
+        <div class="pt-3"><span><i class="fas fa-mobile-alt"></i></span>0938 179 785</div>
       </div>
 
     </div>
