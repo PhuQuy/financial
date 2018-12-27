@@ -1,9 +1,9 @@
 <div class="card news-list" *ngIf="blog">
   <div>
     <div class="row">
-      <div class="col-2" style="max-width:100px">
+      <div class="col-12 col-sm-1 col-lg-2 pr-md-0">
         <div class="top-left-menu">
-          <div class="news-post-day">
+          <div class="news-post-day text-center">
             <abbr title="{{blog.time | date}}">
               <label>{{blog.time | date: 'dd'}}</label>
               <label>{{blog.time | date: 'MMM'}}</label>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="col-10">
+      <div class="col-lg-10 col-sm-11 col-12 pl-md-0">
         <div class="news-img">
           <img src="{{blog.picture}}">
         </div>
