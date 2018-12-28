@@ -33,7 +33,7 @@
                 <th class="text-center">
                   Ngày tạo
                 </th>
-                <th class="text-right ">
+                <th class="text-right " style="min-width: 100px;">
                   Thao tác
                 </th>
               </tr>
@@ -44,7 +44,7 @@
                   {{i+1}}
                 </td>
                 <td>
-                  {{blog.picture}}
+                  <img [src]="blog?.picture" height="100px" width="150px">
                 </td>
                 <td>
                   {{blog.title}}

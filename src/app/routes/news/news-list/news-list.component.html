@@ -27,10 +27,10 @@
         </div>
         <div class="news-content">
           <h4 class="pointer news-card-title">{{blog.title}}</h4>
-          <div class="news-post-by"><span class="posted-by">POSTED BY </span> <a>CMSMASTERS</a> <span class="news-divider">|</span> <a>BAD CREDIT</a>, <a>PAYDAY
+          <div class="news-post-by"><span class="posted-by">Đăng bởi </span> <a [routerLink]="['/contact-us']" >QUẢN TRỊ VIÊN</a> <span class="news-divider">|</span><a [routerLink]="['/']" >PAYDAY
               LOANS</a></div>
           <p class="pt-3 news-card-short">{{blog.describe}}...</p>
-          <a [routerLink]="['/news', blog.id]" class="read-more">Read more</a>
+          <a [routerLink]="['/news', blog.id]" class="read-more">Xem chi tiết</a>
         </div>
       </div>
     </div>

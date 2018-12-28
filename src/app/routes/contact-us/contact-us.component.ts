@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ContactService } from '@app/services/contact.service';
 
 @Component({
     selector: 'app-contact-us',
     templateUrl: './contact-us.component.html',
-    styleUrls: ['./contact-us.component.scss']
+    styleUrls: ['./contact-us.component.scss'],
+    providers: [ContactService]
 })
-
-
 export class ContactUsComponent implements OnInit {
     local;
     lat: number = 10.880319;
@@ -19,7 +19,7 @@ export class ContactUsComponent implements OnInit {
             height: 60
         }
     };
-    
+
     markers: marker[] = [
         {
             lat: 10.880319,
@@ -129,7 +129,7 @@ export class ContactUsComponent implements OnInit {
     // });;
 
     myform;
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private contactService: ContactService) {
         this.myform = this.fb.group({
             'email': [null, Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)])],
             'name': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
@@ -137,23 +137,29 @@ export class ContactUsComponent implements OnInit {
         });
 
     }
-    
+
 
     ngOnInit() {
     }
 
 
     sendMessage(value) {
-        console.log(value);
-
+        if(value) {
+            this.contactService.create(value);
+            this.myform = this.fb.group({
+                'email': [null, Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)])],
+                'name': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
+                'message': ''
+            });
+        }
     }
 
 }
 
 interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
+    lat: number;
+    lng: number;
+    label?: string;
     draggable: boolean;
     icon: string;
 }
