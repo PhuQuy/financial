@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ContactService } from '@app/services/contact.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmNotSubmitComponent } from '@app/modals/confirm/confirm-not-submit/confirm-not-submit.component';
+
+
 
 @Component({
     selector: 'app-contact-us',
@@ -129,7 +133,7 @@ export class ContactUsComponent implements OnInit {
     // });;
 
     myform;
-    constructor(private fb: FormBuilder, private contactService: ContactService) {
+    constructor(private fb: FormBuilder, private contactService: ContactService, private modalService: NgbModal) {
         this.myform = this.fb.group({
             'email': [null, Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)])],
             'name': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
@@ -152,6 +156,11 @@ export class ContactUsComponent implements OnInit {
                 'message': ''
             });
         }
+
+        const modalRef = this.modalService.open(ConfirmNotSubmitComponent, { centered: true });
+        modalRef.componentInstance.title = 'Gửi thành công';
+        modalRef.componentInstance.question = 'Cám ơn bạn đã liên hệ với chúng tôi!';
+        
     }
 
 }
