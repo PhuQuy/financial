@@ -15,6 +15,10 @@ const routes: Routes = [
                 path: 'form',
                 loadChildren: './../../routes/submit-form/submit-form.module#SubmitFormModule'
             },
+            {
+                path: 'chat',
+                loadChildren: './../../routes/chat/chat.module#ChatModule'
+            },
         ]
     }
 ];

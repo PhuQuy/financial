@@ -451,3 +451,13 @@ textarea.form-control {
     display: none !important;
   }
 }
+
+app-contact-us {
+  .tooltip-error .tooltiptext {
+    background-color: #3e467b;
+
+    &::after {
+      border-color: transparent transparent #3e467b transparent;
+    }
+  }
+}

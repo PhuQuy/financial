@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="pt-3">
-            <button class="btn btn-primary send-msg" *ngIf="myform.valid" (click)="sendMessage()">Gửi</button>
+            <button class="btn btn-primary send-msg" [disabled]="!myform.valid" (click)="sendMessage()">Gửi</button>
           </div>
         </form>
       </div>
