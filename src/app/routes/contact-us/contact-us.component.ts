@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ContactService } from '@app/services/contact.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmNotSubmitComponent } from '@app/modals/confirm/confirm-not-submit/confirm-not-submit.component';
+
 
 @Component({
     selector: 'app-contact-us',
     templateUrl: './contact-us.component.html',
+    encapsulation: ViewEncapsulation.None,
     styleUrls: ['./contact-us.component.scss'],
     providers: [ContactService]
 })
 export class ContactUsComponent implements OnInit {
+    contact: any = new Object();
     local;
     lat: number = 10.880319;
     lng: number = 106.794486;
@@ -128,8 +133,12 @@ export class ContactUsComponent implements OnInit {
     //     ])
     // });;
 
-    myform;
-    constructor(private fb: FormBuilder, private contactService: ContactService) {
+    myform: FormGroup;
+    name: FormControl; 
+    email: FormControl;
+    message: FormControl;
+
+    constructor(private fb: FormBuilder, private contactService: ContactService, private modalService: NgbModal) {
         this.myform = this.fb.group({
             'email': [null, Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)])],
             'name': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
@@ -140,6 +149,32 @@ export class ContactUsComponent implements OnInit {
 
 
     ngOnInit() {
+
+        this.createFormControls();
+        this.createForm();
+    }
+
+    createFormControls() {
+        this.name = new FormControl('', [
+            Validators.minLength(1),
+            Validators.required
+        ]);
+        this.email = new FormControl('', [ 
+            Validators.required,
+            Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) 
+        ]);
+        this.message = new FormControl('', [
+            Validators.minLength(1),
+            Validators.required
+        ]);
+    }
+
+    createForm() { 
+        this.myform = new FormGroup({
+            name: this.name,
+            email: this.email,
+            message: this.message
+        });
     }
 
 
@@ -152,6 +187,11 @@ export class ContactUsComponent implements OnInit {
                 'message': ''
             });
         }
+
+        const modalRef = this.modalService.open(ConfirmNotSubmitComponent, { centered: true });
+        modalRef.componentInstance.title = 'Gửi thành công';
+        modalRef.componentInstance.question = 'Cám ơn bạn đã liên hệ với chúng tôi!';
+        
     }
 
 }

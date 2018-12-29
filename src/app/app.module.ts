@@ -9,8 +9,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { AuthGuard } from './core/auth.guard';
-import { AgmCoreModule } from '@agm/core';
-
 
 @NgModule({
     declarations: [
@@ -21,10 +19,7 @@ import { AgmCoreModule } from '@agm/core';
         NgtUniversalModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFirestoreModule,
-        AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyDhMJyRMmSKUPnuWEUqmH87W531M1kdRK4'
-        })
+        AngularFirestoreModule
     ],
     providers: [AngularFireDatabase, AngularFireAuth, AuthGuard]
 })
