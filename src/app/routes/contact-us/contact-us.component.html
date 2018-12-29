@@ -1,6 +1,6 @@
 <div class="contact-us pb-4">
   <div class="container-fluid px-0">
-      <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="12">
+      <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="12" [scrollwheel]="null">
         <agm-marker [latitude]="lat" [longitude]="lng"
           [iconUrl]="{
             url: '../../../assets/images/local.png',
@@ -26,24 +26,38 @@
         <form [formGroup]="myform" (ngSubmit)="sendMessage(myform.value)" class="form-groups">
           <div class="row">
             <div class="col-6">
-              <div class="form-group pl-0">
+              <div class="form-group pl-0 tooltip-error" [ngClass]="{
+                'has-danger': name.invalid && name.touched,
+                'has-success': name.valid
+              }">
                 <label>Họ tên *</label>
-                <input type="text" class="form-control" formControlName="name" required>
+                <input type="text" class="form-control" formControlName="name">
+                <span class="tooltiptext" *ngIf="name.invalid && name.touched">Tên không được phép để trống</span>
               </div>
             </div>
             <div class="col-6">
-              <div class="form-group">
+              <div class="form-group tooltip-error" [ngClass]="{
+                'has-danger': email.invalid && email.touched,
+                'has-success': email.valid
+              }">
                 <label>Email *</label>
                 <input type="text" class="form-control" formControlName="email" required>
+                <span class="tooltiptext" *ngIf="email.invalid && email.touched">Email sai định dạng</span>
               </div>
             </div>
             <div class="col-12">
-              <label>Nội dung</label>
-              <textarea class="w-100 form-control" style="height:250px" formControlName="message" required></textarea>
+              <div class="form-group tooltip-error" [ngClass]="{
+                'has-danger': message.invalid && message.touched,
+                'has-success': message.valid
+              }">
+                <label>Nội dung</label>
+                <textarea class="w-100 form-control" style="height:248px" formControlName="message" required></textarea>
+                <span class="tooltiptext" *ngIf="message.invalid && message.touched">Nội dung không được phép để trống</span>
+              </div>
             </div>
           </div>
           <div class="pt-3">
-            <button class="btn btn-primary send-msg" (click)="sendMessage()">Gửi</button>
+            <button class="btn btn-primary send-msg" *ngIf="name.valid && email.valid && message.valid" (click)="sendMessage()">Gửi</button>
           </div>
         </form>
       </div>
