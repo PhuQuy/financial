@@ -8,7 +8,7 @@
     background-color: #cddc39;
 
     label {
-      font-size: 24px;
+      font-size: 16px;
       line-height: 30px;
       display: inline-block;
       margin-bottom: 0;
@@ -83,4 +83,12 @@
       color: #3e467b;
     }
   }
+  .news-img{
+    img{
+      width: 100%;
+    }
+  }
+  pagination-controls.pagination {
+    padding-right: 40px;
+}
 }

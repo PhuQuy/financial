@@ -1,12 +1,13 @@
 <div class="card news-list">
-  <div *ngFor="let blog of blogs">
+  <div *ngFor="let blog of blogs | paginate: config">
     <div class="row py-3">
       <div class="col-12 col-sm-1 col-lg-2 pr-md-0">
         <div class="top-left-menu">
           <div class="news-post-day text-center">
             <abbr title="{{blog.time | date}}">
-              <label>{{blog.time | date: 'dd'}}</label>
-              <label>{{blog.time | date: 'MMM'}}</label>
+              <label class="text-left">{{blog.time | date: 'dd'}}</label>
+              <br>
+              <label class="text-left">{{blog.time | monthpipe}}</label>
             </abbr>
           </div>
           <div class="news-like-comment">
@@ -27,12 +28,18 @@
         </div>
         <div class="news-content">
           <h4 class="pointer news-card-title">{{blog.title}}</h4>
-          <div class="news-post-by"><span class="posted-by">Đăng bởi </span> <a [routerLink]="['/contact-us']" >QUẢN TRỊ VIÊN</a> <span class="news-divider">|</span><a [routerLink]="['/']" >PAYDAY
+          <div class="news-post-by"><span class="posted-by">Đăng bởi </span> <a [routerLink]="['/contact-us']">QUẢN TRỊ
+              VIÊN</a> <span class="news-divider">|</span><a [routerLink]="['/']">PAYDAY
               LOANS</a></div>
           <p class="pt-3 news-card-short">{{blog.describe}}...</p>
           <a [routerLink]="['/news', blog.id]" class="read-more">Xem chi tiết</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12 md-0 d-flex justify-content-center">
+        <pagination-controls class="pagination" (pageChange)="config.currentPage = $event"></pagination-controls>
     </div>
   </div>
 </div>
