@@ -36,7 +36,7 @@
         </li>
         <li class="nav-item">
           <!--Adding Tooltip-->
-          <a class="nav-link" id="dropdownBasic1" matTooltip="Locations" >
+          <a class="nav-link" id="dropdownBasic1" >
             <i class="now-ui-icons location_world"></i>
             <p>
               <span class="d-lg-none d-md-block">Some Actions</span>
@@ -48,13 +48,11 @@
         <li class="nav-item" ngbDropdown>
           <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
             <i class="now-ui-icons users_single-02"></i>
-            
-            
             <p>
               <span class="d-lg-none d-md-block">Account</span>
             </p>
           </a>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic10">
+          <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic10">
                 <button class="dropdown-item">Action - 1</button>
                 <button class="dropdown-item">Another Action</button>
                 <button class="dropdown-item">Something else is here</button>
