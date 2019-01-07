@@ -25,7 +25,7 @@ export class AdminNavComponent implements OnInit {
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        this.toggleButton = navbar.getElementsByClassName('navbar-toggler');
         this.sidebarClose();
 
     }
@@ -35,7 +35,7 @@ export class AdminNavComponent implements OnInit {
         if (routerChange && routerChange != undefined) {
             routerChange.subscribe((event) => {
                 this.sidebarClose();
-                var $layer: any = document.getElementsByClassName('close-layer')[0];
+                var $layer: any = document.getElementsByClassName('close-layer');
                 if ($layer) {
                     $layer.remove();
                     this.mobile_menu_visible = 0;
