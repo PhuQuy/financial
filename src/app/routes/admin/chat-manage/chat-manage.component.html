@@ -4,46 +4,16 @@
   <div class="card chat-app">
     <div id="plist" class="people-list">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search...">
+        <input type="text" class="form-control" [(ngModel)]="term" placeholder="Tìm kiếm...">
         <span class="input-group-addon">
           <i class="fas fa-search"></i>
         </span>
       </div>
       <ul class="chat-list list-unstyled m-b-0">
-        <li class="clearfix">
-          <div class="about">
-            <div class="name">Vincent Porter</div>
+        <li class="clearfix" *ngFor="let chat of chats | filter:term">
+          <div class="about" (click)="setChat(chat.id)">
+            <div class="name">{{chat.name}}</div>
             <div class="status"> <i class="zmdi zmdi-circle offline"></i> left 7 mins ago </div>
-          </div>
-        </li>
-        <li class="clearfix active">
-          <div class="about">
-            <div class="name">Aiden Chavez</div>
-            <div class="status"> <i class="zmdi zmdi-circle online"></i> online </div>
-          </div>
-        </li>
-        <li class="clearfix">
-          <div class="about">
-            <div class="name">Mike Thomas</div>
-            <div class="status"> <i class="zmdi zmdi-circle online"></i> online </div>
-          </div>
-        </li>
-        <li class="clearfix">
-          <div class="about">
-            <div class="name">Christian Kelly</div>
-            <div class="status"> <i class="zmdi zmdi-circle offline"></i> left 10 hours ago </div>
-          </div>
-        </li>
-        <li class="clearfix">
-          <div class="about">
-            <div class="name">Monica Ward</div>
-            <div class="status"> <i class="zmdi zmdi-circle online"></i> online </div>
-          </div>
-        </li>
-        <li class="clearfix">
-          <div class="about">
-            <div class="name">Dean Henry</div>
-            <div class="status"> <i class="zmdi zmdi-circle offline"></i> offline since Oct 28 </div>
           </div>
         </li>
       </ul>
@@ -53,15 +23,15 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="chat-about">
-              <h6 class="m-b-0">Aiden Chavez</h6>
+              <h6 class="m-b-0">{{currentChat?.name}}</h6>
               <small>Last seen: 2 hours ago</small>
             </div>
           </div>
         </div>
       </div>
-      <div class="chat-history">
+      <div class="chat-history" #chatList>
         <ul class="m-b-0">
-          <li class="clearfix">
+          <!-- <li class="clearfix">
             <div class="message-data text-right">
               <span class="message-data-time">10:10 AM, Today</span>
             </div>
@@ -79,13 +49,24 @@
               <span class="message-data-time">10:15 AM, Today</span>
             </div>
             <div class="message my-message">Project has been already finished and I have results to show you.</div>
-          </li>
+          </li> -->
+          <li class="clearfix" *ngFor="let message of currentChat?.contents">
+                <div class="message-data" [class.text-right]="message.isAdmin">
+                  <span class="message-data-time">{{message.createdAt?.toDate() | date:'short'}}</span>
+                </div>
+                <div class="message" [ngClass]="{
+                    'other-message':message.isAdmin,
+                      'float-right':message.isAdmin,
+                      'my-message':(!message.isAdmin)
+                    }">
+                  {{message.value}}
+                </div>
         </ul>
       </div>
       <div class="chat-message clearfix">
         <div class="input-group m-b-0">
-          <input type="text" class="form-control" placeholder="Enter text here...">
-          <span class="input-group-addon"><i class="fa fa-send-o"></i></span>
+          <input type="text" class="form-control" (keydown.enter)="sendMessage()" [(ngModel)]="message"  placeholder="Enter text here...">
+          <span class="input-group-addon" (click)="sendMessage()"><i class="fa fa-send-o"></i></span>
         </div>
       </div>
     </div>

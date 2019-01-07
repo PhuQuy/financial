@@ -180,18 +180,17 @@ export class ContactUsComponent implements OnInit {
 
     sendMessage(value) {
         if(value) {
-            this.contactService.create(value);
             this.myform = this.fb.group({
                 'email': [null, Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)])],
                 'name': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
                 'message': ''
             });
+            this.contactService.create(value);
         }
 
         const modalRef = this.modalService.open(ConfirmNotSubmitComponent, { centered: true });
         modalRef.componentInstance.title = 'Gửi thành công';
         modalRef.componentInstance.question = 'Cám ơn bạn đã liên hệ với chúng tôi!';
-        
     }
 
 }
