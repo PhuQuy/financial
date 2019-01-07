@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class UserListingComponent implements OnInit {
     message;
-    users = new Observable<any[]>();
+    users = [];
     alls: any;
     id_delete;
     length: any;

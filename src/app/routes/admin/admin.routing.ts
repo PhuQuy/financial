@@ -5,7 +5,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { ChatManageComponent } from './chat-manage/chat-manage.component';
 
 const routes: Routes = [
     {
@@ -32,6 +32,10 @@ const routes: Routes = [
     {
         path: 'blogs/:id',
         component: BlogDetailComponent
+    },
+    {
+        path: 'chat',
+        component: ChatManageComponent
     }
 ];
 
