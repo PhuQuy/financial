@@ -13,6 +13,9 @@ import { ChatManageComponent } from './chat-manage/chat-manage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
+import { ContactComponent } from './contact/contact.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -20,7 +23,9 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
         ModalsModule,
         NgbModalModule,
         FormsModule,
-        FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+        FroalaEditorModule.forRoot(), 
+        FroalaViewModule.forRoot(),
+        Ng2SearchPipeModule
     ],
     declarations: [
         UserListingComponent,
@@ -29,7 +34,8 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
         BlogDetailComponent,
         BlogListComponent,
         DashboardComponent,
-        ChatManageComponent
+        ChatManageComponent,
+        ContactComponent
     ],
     providers: [MessagingService]
 })

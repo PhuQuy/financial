@@ -82,6 +82,9 @@ export class BaseService {
         if (id == null) {
             return null;
         }
+        console.log(id);
+        console.log(value);
+        
         const timestamp = this.timestamp;
         return this.angularFirestore.collection(this.basePath).doc(id).update(value);
     }

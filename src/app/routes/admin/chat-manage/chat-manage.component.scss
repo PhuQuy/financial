@@ -95,7 +95,7 @@
 }
 
 .chat .chat-history ul {
-  padding: 0
+  padding: 10px;
 }
 
 .chat .chat-history ul li {
@@ -197,7 +197,11 @@
 }
 
 .float-right {
-  float: right
+  float: right;
+
+  &::after {
+    margin-left: -25px !important;
+  }
 }
 
 .clearfix:after {
@@ -298,4 +302,15 @@
   -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.chat-history {
+  height: calc(100vh - 340px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.card {
+  box-shadow: none;
+  margin-bottom: 0px;
 }

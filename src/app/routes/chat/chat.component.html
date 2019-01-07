@@ -1,13 +1,45 @@
 <div class="container">
+  <div *ngIf="!chatId">
     <h3 class="text-center text-success">Xin nhập tên của bạn</h3>
     <form>
-            <div class="form-group row">
-                <div class="input-group col-sm-8 mx-auto">
-                  <input type="text" class="form-control" placeholder="Tên" aria-label="Username">
-                      <div class="input-group-prepend bg-white ">
-                        <span class="rounded-right bg-white border p-2"><i class="fa fa-paper-plane rgba-white-strong"></i></span>
-                      </div>
-                </div>
-            </div>
-        </form>
+      <div class="form-group row chat-content">
+        <div class="input-group col-sm-8 mx-auto">
+          <input type="text" class="form-control" placeholder="Tên" aria-label="Username" [(ngModel)]="customerName" name="customerName" />
+          <div class="input-group-prepend bg-white ">
+            <span class="rounded-right bg-white border p-2" (click)="createChat()"><i class="fa fa-paper-plane rgba-white-strong"></i></span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-12 col-xl-12" *ngIf="chatId">
+    <h1 class="text-center pt-5">Gửi tin nhắn với quản trị viên</h1>
+    <div class="card chat-app">
+      <div class="chat">
+        <div class="chat-history" #chatList>
+          <ul class="m-b-0">
+            <li class="clearfix" *ngFor="let message of chat?.contents">
+              <div class="message-data" [class.text-right]="message.isAdmin">
+                <span class="message-data-time">{{message.createdAt}}</span>
+              </div>
+              <div class="message" [ngClass]="{
+                  'other-message':message.isAdmin,
+                    'float-right':message.isAdmin,
+                    'my-message':(!message.isAdmin)
+                  }">
+                {{message.value}}
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="chat-message clearfix">
+          <div class="input-group m-b-0">
+            <input type="text" (keydown.enter)="sendMessage()" [(ngModel)]="message" class="form-control" placeholder="Enter text here...">
+            <span class="input-group-addon pointer" (click)="sendMessage()"><i class="fa fa-send-o"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

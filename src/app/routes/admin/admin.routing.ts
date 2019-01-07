@@ -6,6 +6,7 @@ import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChatManageComponent } from './chat-manage/chat-manage.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
     {
@@ -36,6 +37,10 @@ const routes: Routes = [
     {
         path: 'chat',
         component: ChatManageComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
     }
 ];
 
