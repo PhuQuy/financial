@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChatService } from '@app/services/chat.service';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-chat-manage',
@@ -12,6 +13,7 @@ export class ChatManageComponent implements OnInit {
     currentChat: any;
     message = '';
     term = '';
+    chatId;
     @ViewChild('chatList') chatList: ElementRef;
 
     constructor(protected chatService: ChatService) {
@@ -22,11 +24,12 @@ export class ChatManageComponent implements OnInit {
             }
         })
     }
-
+    
     ngOnInit() {
     }
-
+    
     setChat(id) {
+        this.chatId = id;
         this.chatService.getById(id).subscribe(chat => {
             this.currentChat = chat;
             setTimeout(() => {
@@ -39,11 +42,11 @@ export class ChatManageComponent implements OnInit {
         if (this.currentChat) {
             let messageContent = {
                 value: this.message,
-                createdAt: new Date(),
+                createdAt: moment(new Date()).format('YYYY-MMM-DD HH:mm:ss'),
                 isAdmin: true
             }
             this.currentChat.contents.push(messageContent);
-            this.chatService.updateElement(this.currentChat.id, this.currentChat);
+            this.chatService.updateElement(this.chatId, this.currentChat);
         }
         this.message = '';
 

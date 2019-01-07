@@ -52,7 +52,7 @@
           </li> -->
           <li class="clearfix" *ngFor="let message of currentChat?.contents">
                 <div class="message-data" [class.text-right]="message.isAdmin">
-                  <span class="message-data-time">{{message.createdAt?.toDate() | date:'short'}}</span>
+                  <span class="message-data-time">{{message.createdAt}}</span>
                 </div>
                 <div class="message" [ngClass]="{
                     'other-message':message.isAdmin,
