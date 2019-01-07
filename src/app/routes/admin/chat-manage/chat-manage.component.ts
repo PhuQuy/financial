@@ -32,6 +32,8 @@ export class ChatManageComponent implements OnInit {
         this.chatId = id;
         this.chatService.getById(id).subscribe(chat => {
             this.currentChat = chat;
+            console.log(this.getDiffDate(chat));
+        
             setTimeout(() => {
                 this.chatList.nativeElement.scrollTop = this.chatList.nativeElement.scrollHeight;
             }, 100);
@@ -50,5 +52,10 @@ export class ChatManageComponent implements OnInit {
         }
         this.message = '';
 
+    }
+
+    getDiffDate(chat) {
+        let latest = moment(chat.contents[chat.contents.length - 1]);
+        return moment(latest.diff(moment.now())).format("HH:mm:ss");
     }
 }
