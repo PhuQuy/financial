@@ -1,5 +1,18 @@
 <div class="container">
-  <div class="col-lg-12 col-xl-12">
+  <div *ngIf="!chatId">
+    <h3 class="text-center text-success">Xin nhập tên của bạn</h3>
+    <form>
+      <div class="form-group row chat-content">
+        <div class="input-group col-sm-8 mx-auto">
+          <input type="text" class="form-control" placeholder="Tên" aria-label="Username" [(ngModel)]="customerName" />
+          <div class="input-group-prepend bg-white ">
+            <span class="rounded-right bg-white border p-2" (click)="createChat()"><i class="fa fa-paper-plane rgba-white-strong"></i></span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-12 col-xl-12" *ngIf="chatId">
     <h1 class="text-center pt-5">Gửi tin nhắn với quản trị viên</h1>
     <div class="card chat-app">
       <div class="chat">
@@ -17,18 +30,6 @@
                 {{message.value}}
               </div>
             </li>
-            <!-- <li class="clearfix">
-                <div class="message-data">
-                  <span class="message-data-time">10:12 AM, Today</span>
-                </div>
-                <div class="message my-message">Are we meeting today?</div>
-              </li>
-              <li class="clearfix">
-                <div class="message-data">
-                  <span class="message-data-time">10:15 AM, Today</span>
-                </div>
-                <div class="message my-message">Project has been already finished and I have results to show you.</div>
-              </li> -->
           </ul>
         </div>
         <div class="chat-message clearfix">
@@ -40,4 +41,5 @@
       </div>
     </div>
   </div>
+
 </div>

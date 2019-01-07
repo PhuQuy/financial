@@ -8,8 +8,9 @@ import { ChatService } from '@app/services/chat.service';
 })
 export class ChatComponent implements OnInit {
     chat: any;
-    chatId = 'fifRIsgzkGS3tKfBkLiD';
+    chatId:string;
     message = '';
+    customerName = '';
     @ViewChild('chatList') chatList: ElementRef;
 
     constructor(private chatService: ChatService) {
@@ -28,13 +29,19 @@ export class ChatComponent implements OnInit {
     ngOnInit() {
     }
 
-    createChat(name) {
+    createChat() {
         let newChat = {
-            name: name,
+            name: this.customerName,
             contents: []
         }
         this.chatService.create(newChat).then(chat => {
             this.chatId = chat.id;
+            this.chatService.getById(this.chatId).subscribe(chat => {
+                this.chat = chat;
+                setTimeout(() => {
+                    this.chatList.nativeElement.scrollTop = this.chatList.nativeElement.scrollHeight;
+                }, 100);
+            })
         });
     }
 
