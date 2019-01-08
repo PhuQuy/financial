@@ -27,8 +27,7 @@ import { TagInputModule } from 'ngx-chips';
         FroalaEditorModule.forRoot(), 
         FroalaViewModule.forRoot(),
         Ng2SearchPipeModule,
-        TagInputModule,
-        ReactiveFormsModule
+        TagInputModule
     ],
     declarations: [
         UserListingComponent,
