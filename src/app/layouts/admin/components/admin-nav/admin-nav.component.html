@@ -9,7 +9,7 @@
         </button>
       </div>
     </div>
-    <button class="navbar-toggler" type="button" (click)="collapse()"  [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <button class="navbar-toggler" type="button" (click)="collapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
       <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -34,16 +34,21 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <!--Adding Tooltip-->
-          <a class="nav-link" id="dropdownBasic1" >
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
             <i class="now-ui-icons location_world"></i>
-            <p>
-              <span class="d-lg-none d-md-block">Some Actions</span>
-            </p>
             <!--Adding badge -->
-            <span class="badge rounded badge-danger text-white bg-danger font-weight-normal align-top p-1 mx-0" style="font-size: .5 em;">2</span>
+           <small> <span class="badge rounded badge-danger text-white bg-danger font-weight-normal align-top p-05 mx-0">1</span></small>
+
+            <p>
+              <span class="d-lg-none d-md-block">Account</span>
+            </p>
           </a>
+          <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic10">
+            <button class="dropdown-item">Action - 1</button>
+            <button class="dropdown-item">Another Action</button>
+            <button class="dropdown-item">Something else is here</button>
+          </div>
         </li>
         <li class="nav-item" ngbDropdown>
           <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
@@ -53,10 +58,10 @@
             </p>
           </a>
           <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic10">
-                <button class="dropdown-item">Action - 1</button>
-                <button class="dropdown-item">Another Action</button>
-                <button class="dropdown-item">Something else is here</button>
-              </div>
+            <button class="dropdown-item">Action - 1</button>
+            <button class="dropdown-item">Another Action</button>
+            <button class="dropdown-item">Something else is here</button>
+          </div>
         </li>
       </ul>
     </div>
