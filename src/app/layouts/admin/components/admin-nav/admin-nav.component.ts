@@ -26,7 +26,7 @@ export class AdminNavComponent implements OnInit {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler');
-        this.sidebarClose();
+        // this.sidebarClose();
 
     }
 

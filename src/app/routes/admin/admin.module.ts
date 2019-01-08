@@ -16,8 +16,6 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
 import { ContactComponent } from './contact/contact.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TagInputModule } from 'ngx-chips';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 @NgModule({
     imports: [
@@ -30,7 +28,6 @@ import { TagInputModule } from 'ngx-chips';
         FroalaViewModule.forRoot(),
         Ng2SearchPipeModule,
         TagInputModule,
-        // BrowserAnimationsModule,
         ReactiveFormsModule
     ],
     declarations: [

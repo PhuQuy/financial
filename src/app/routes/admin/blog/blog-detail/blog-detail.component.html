@@ -27,12 +27,31 @@
       </div>
     </div>
 
-
     <div class="row py-2">
       <div class="col-12 col-sm-12 col-lg-12">
         <label for="category" class="mr-sm-2">Chọn thể loại: </label>
+        <select class="form-control" id="category" [(ngModel)]="blog.category">
+          <option hidden>Please choose</option>
+          <option>Advices</option>
+          <option>Bad credit</option>
+          <option>Budgeting</option>
+          <option>Fast cash</option>
+          <option>Loans for students</option>
+          <option>Money hacks</option>
+          <option>Payday Loans</option>
+          <option>Quick cash</option>
+          <option>Supplement income</option>
+          <option>Unemployment</option>
+          <option>Сash loans</option>
+        </select>
+      </div>
+    </div>
 
-        <tag-input [theme]="'bootstrap bg-chips'" [ngModel]="['@item']" name="items">
+    <div class="row py-2">
+      <div class="col-12 col-sm-12 col-lg-12">
+        <label for="category" class="mr-sm-2">Key: </label>
+
+        <tag-input [theme]="'bootstrap bg-chips'" [(ngModel)]='blog.tags' name="items">
         </tag-input>
       </div>
     </div>

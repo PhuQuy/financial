@@ -17,8 +17,7 @@ export class BlogDetailComponent implements OnInit {
 
     people$1 = ['Soccer', 'Jackpack', 'Serial'];
     selectedPeople5 = [];
-    items = ['Pizza', 'Pasta', 'Parmesan'];
-
+    items = [];
 
     blog: any = new Object();
     time = new Date();
@@ -50,7 +49,6 @@ export class BlogDetailComponent implements OnInit {
     }
 
     createBlog() {
-
         if (this.id == null) {
             this.blog.time = this.time.getTime();
             this.blogService.create(this.blog);

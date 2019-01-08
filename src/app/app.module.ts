@@ -9,6 +9,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { AuthGuard } from './core/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { AuthGuard } from './core/auth.guard';
     ],
     imports: [
         CommonModule,
+        BrowserAnimationsModule,
         NgtUniversalModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
