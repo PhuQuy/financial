@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DecryptPhone } from '@app/core/decryptphone';
 import { ModalsModule } from '@app/modals/modals.module';
 import { MessagingService } from '@app/services/messaging.service';
@@ -15,6 +15,9 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
 import { ContactComponent } from './contact/contact.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TagInputModule } from 'ngx-chips';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
     imports: [
@@ -25,7 +28,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
         FormsModule,
         FroalaEditorModule.forRoot(), 
         FroalaViewModule.forRoot(),
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,
+        TagInputModule,
+        // BrowserAnimationsModule,
+        ReactiveFormsModule
     ],
     declarations: [
         UserListingComponent,
