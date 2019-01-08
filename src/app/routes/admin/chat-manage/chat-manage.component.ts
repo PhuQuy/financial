@@ -25,22 +25,23 @@ export class ChatManageComponent implements OnInit {
             })
             if (chats.length > 0) {
                 this.setChat(chats[0].id);
-            } 
+            }
         })
     }
-    
-    ngOnInit() { 
+
+    ngOnInit() {
     }
-    
+
     setChat(id) {
         this.chatId = id;
         this.chatService.getById(id).subscribe(chat => {
+            chat.time = this.getDiffDate(chat);
             this.currentChat = chat;
             setTimeout(() => {
                 this.chatList.nativeElement.scrollTop = this.chatList.nativeElement.scrollHeight;
             }, 100);
         })
-        
+
     }
 
     sendMessage() {
@@ -59,11 +60,9 @@ export class ChatManageComponent implements OnInit {
 
     getDiffDate(chat) {
         let latest = moment(chat.contents[chat.contents.length - 1].createdAt);
-        //console.log('Moment now:',moment.now() * 1000);
-        //console.log('Latest:',new Date(latest.unix() * 1000));
-        // let dateLeft = (moment.now() * 1000) - (latest.unix() * 1000);
-        // console.log(new Date(dateLeft));
-        // return  new Date(dateLeft);
-        return latest.diff(moment.now(), 'minutes');
+        let diff = -latest.diff(moment.now(), 'minutes');
+        let result = moment.duration({"minutes": diff}).humanize();
+        return result;
+
     }
 }
