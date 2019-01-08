@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagingService } from '@app/services/messaging.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+    message;
 
-  constructor() { }
+  constructor(private messagingService: MessagingService ) { }
 
   ngOnInit() {
+      try {
+          this.messagingService.getPermission();
+          this.messagingService.receiveMessage();
+          this.message = this.messagingService.currentMessage;
+      } catch(error) {
+
+      }
   }
 
 }

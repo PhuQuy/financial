@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MessagingService } from '@app/services/messaging.service';
+import { Router } from '@angular/router';
+import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 import { UserService } from '@app/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-user-listing',
@@ -13,28 +11,22 @@ import { Observable } from 'rxjs';
     providers: [UserService]
 })
 export class UserListingComponent implements OnInit {
-    message;
     users = [];
     alls: any;
     id_delete;
     length: any;
 
     //likes: FirebaseListObservable<number[]>;
-    constructor(private messagingService: MessagingService, private userService: UserService, private modalService: NgbModal, private router: Router) {
+    constructor(private userService: UserService, private modalService: NgbModal, private router: Router) {
         this.alls = this.userService.getAlls();
     }
 
     ngOnInit() {
-        this.messagingService.getPermission();
-        this.messagingService.receiveMessage();
-        this.message = this.messagingService.currentMessage;
         if (this.alls) {
             this.alls.subscribe(users => {
                 this.users = users;
             });
         }
-        console.log(this.alls);
-        
     }
 
     deleteUser(id) {
