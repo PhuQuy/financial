@@ -21,10 +21,11 @@ export class ChatManageComponent implements OnInit {
             this.chats = chats;
             this.chats.map(chat => {
                 chat.time = this.getDiffDate(chat);
+                chat.isHours = false;
             })
             if (chats.length > 0) {
                 this.setChat(chats[0].id);
-            }
+            } 
         })
     }
     
