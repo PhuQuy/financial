@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '@app/services/blog.service'
 import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '@app/services/blog.service';
 import { UploadService } from '@app/services/upload.service';
 
 @Component({
@@ -13,6 +13,13 @@ export class BlogDetailComponent implements OnInit {
     // selectedPhoto: any;
     // photoName: any;
     // currentUpload: any;
+
+
+    people$1 = ['Soccer', 'Jackpack', 'Serial'];
+    selectedPeople5 = [];
+    items = ['Pizza', 'Pasta', 'Parmesan'];
+
+
     blog: any = new Object();
     time = new Date();
     alls: any;
