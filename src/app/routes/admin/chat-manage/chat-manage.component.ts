@@ -19,7 +19,7 @@ export class ChatManageComponent implements OnInit {
     constructor(protected chatService: ChatService) {
         chatService.getAlls().subscribe(chats => {
             this.chats = chats;
-            if (chats.length > 0) {
+            if (!this.chatId && chats.length > 0) {
                 this.setChat(chats[0].id);
             }
         })
