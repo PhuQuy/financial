@@ -1,11 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy  } from '@angular/core';
-import { BlogService } from '@app/services/blog.service'
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '@app/services/blog.service';
 import { UploadService } from '@app/services/upload.service';
-import { Observable } from 'rxjs/Observable';
-import { text } from '@angular/core/src/render3/instructions';
-import { DataService } from '@app/services/data.service';
-import { from } from 'rxjs';
 
 @Component({
     selector: 'app-blog-detail',
@@ -17,8 +13,8 @@ export class BlogDetailComponent implements OnInit {
     // selectedPhoto: any;
     // photoName: any;
     // currentUpload: any;
-  
-    
+
+
     people$1 = ['Soccer', 'Jackpack', 'Serial'];
     selectedPeople5 = [];
     items = ['Pizza', 'Pasta', 'Parmesan'];
@@ -29,7 +25,7 @@ export class BlogDetailComponent implements OnInit {
     alls: any;
     id: any;
 
-    constructor(private blogService: BlogService, private route: ActivatedRoute, protected uploadService: UploadService, private dataService: DataService) {
+    constructor(private blogService: BlogService, private route: ActivatedRoute, protected uploadService: UploadService) {
         this.route.params.subscribe(params => {
             if (params['id'] != 'create') {
                 this.id = params['id'];
