@@ -42,10 +42,6 @@ export class BlogDetailComponent implements OnInit {
                 }
             });
         }
-
-        // this.dataService.getPeople().subscribe(res => {
-        //     this.people$1 = res
-        // });
     }
 
     createBlog() {
@@ -54,7 +50,7 @@ export class BlogDetailComponent implements OnInit {
             this.blogService.create(this.blog);
             this.blog = {};
         }
-        else {
+        else{
             this.blogService.updateWithId(this.blog, this.id);
             alert("Cập nhật thành công")
         }

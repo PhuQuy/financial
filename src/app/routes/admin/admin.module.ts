@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { DecryptPhone } from '@app/core/decryptphone';
 import { ModalsModule } from '@app/modals/modals.module';
 import { MessagingService } from '@app/services/messaging.service';

@@ -10,10 +10,11 @@
         </span>
       </div>
       <ul class="chat-list list-unstyled m-b-0">
-        <li class="clearfix" *ngFor="let chat of chats | filter:term" [class.active]="chat.id == chatId">
+        <li class="clearfix" *ngFor="let chat of chats | filter:term">
           <div class="about" (click)="setChat(chat.id)">
             <div class="name">{{chat.name}}</div>
-            <div class="status"> <i class="zmdi zmdi-circle offline"></i> left 7 mins ago </div>
+            <!--Show up the different time for the last chat-->
+            <div class="status"> <i class="zmdi zmdi-circle offline"></i> last see at {{chat.time * -1}} minutes ago </div><!--{{chat.createdAt.seconds * 1000 | date:'medium'}}-->
           </div>
         </li>
       </ul>
@@ -24,13 +25,32 @@
           <div class="col-lg-6">
             <div class="chat-about">
               <h6 class="m-b-0">{{currentChat?.name}}</h6>
-              <small>Last seen: 2 hours ago</small>
+              <small>Last seen: {{currentChat.time / 60}} hours ago</small>
             </div>
           </div>
         </div>
       </div>
       <div class="chat-history" #chatList>
         <ul class="m-b-0">
+          <!-- <li class="clearfix">
+            <div class="message-data text-right">
+              <span class="message-data-time">10:10 AM, Today</span>
+            </div>
+            <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along?
+            </div>
+          </li>
+          <li class="clearfix">
+            <div class="message-data">
+              <span class="message-data-time">10:12 AM, Today</span>
+            </div>
+            <div class="message my-message">Are we meeting today?</div>
+          </li>
+          <li class="clearfix">
+            <div class="message-data">
+              <span class="message-data-time">10:15 AM, Today</span>
+            </div>
+            <div class="message my-message">Project has been already finished and I have results to show you.</div>
+          </li> -->
           <li class="clearfix" *ngFor="let message of currentChat?.contents">
                 <div class="message-data" [class.text-right]="message.isAdmin">
                   <span class="message-data-time">{{message.createdAt}}</span>

@@ -308,9 +308,3 @@
   height: calc(100vh - 340px);
   overflow-y: auto;
 }
-
-@media screen and (max-width: 991px) {
-  .chat-title {
-    font-size: 22px;
-  }
-}

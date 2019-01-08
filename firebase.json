@@ -12,6 +12,10 @@
             "function": "http"
           },
           {
+            "source": "/contact-us/**",
+            "destination": "contact.html"
+          },
+          {
             "source": "**",
             "destination": "/index.html"
           }
