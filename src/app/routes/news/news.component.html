@@ -13,10 +13,10 @@
             Tin Tuc
           </a>
         </li>
-        <li *ngFor="let blog of blogs">
+        <li *ngIf="title">
           <i class="fas fa-angle-right"></i>
           <a [routerLink]="['/blog:id']">
-            {{blog.title}}
+            {{title}}
           </a>
         </li>
       </ul>

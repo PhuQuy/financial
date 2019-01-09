@@ -31,7 +31,7 @@
           <div class="news-post-by"><span class="posted-by">Đăng bởi </span> <a [routerLink]="['/contact-us']">QUẢN TRỊ
               VIÊN</a> <span class="news-divider">|</span><a [routerLink]="['/']">PAYDAY
               LOANS</a></div>
-          <p class="pt-3 news-card-short">{{blog.describe}}...</p>
+          <p class="pt-3 news-card-short"> {{((blog.describe | slice:0:150) + '...')}}</p>
           <a [routerLink]="['/news', blog.id]" class="read-more">Xem chi tiết</a>
         </div>
       </div>
