@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SharedService {
 
-  public title;
-  
-  constructor() { }
+    @Output() title: EventEmitter<any[]> = new EventEmitter();
+    changeTitle(title) {
+        this.title.emit(title);
+    }
+
+    constructor() { }
 }

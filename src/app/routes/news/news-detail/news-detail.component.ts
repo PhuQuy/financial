@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { BlogService } from '@app/services/blog.service';
 import { ActivatedRoute } from '@angular/router';
 import { stringCompare } from '@firebase/database/dist/src/core/util/util';
+import { SharedService } from '@app/services/shared.service';
 
 
 
@@ -16,8 +17,7 @@ export class NewsDetailComponent implements AfterViewInit {
 
     blog: any;
     id: any;
-    constructor(private blogService: BlogService, private route: ActivatedRoute) {
-
+    constructor(private blogService: BlogService, private route: ActivatedRoute, private sharedService: SharedService) {
 
     }
 
@@ -29,12 +29,10 @@ export class NewsDetailComponent implements AfterViewInit {
                     console.log(blog);
                     
                     this.blog = blog;
+                    this.sharedService.changeTitle(this.formatStringtoSlug(this.blog.title))
                 })
             }
         });
-
-        console.log(this.formatStringtoSlug('Chính Sách Vay Vốn Sinh Viên'));
-        
     }
     formatStringtoSlug(title: string): string{
             let formated = title.replace(/\s+/g, '-').toLowerCase();

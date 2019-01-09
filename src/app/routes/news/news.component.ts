@@ -16,10 +16,16 @@ export class NewsComponent implements OnInit {
     state;
     blogs = [];
     alls: any;
+    title;
     @ViewChild('appOutlet') outlet: RouterOutlet;
 
-    constructor(private router: Router, private seoService: SeoService, private blogService: BlogService, private shareService: SharedService) {
+    constructor(private router: Router, private seoService: SeoService, private blogService: BlogService, private sharedService: SharedService) {
         this.alls = this.blogService.getAlls();
+        sharedService.title.subscribe(title => {
+            this.title = title;
+            console.log(title);
+            
+        })
     }
 
     ngOnInit() {
