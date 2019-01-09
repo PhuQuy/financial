@@ -6,7 +6,8 @@
           <div class="news-post-day text-center">
             <abbr title="{{blog.time | date}}">
               <label>{{blog.time | date: 'dd'}}</label>
-              <label>{{blog.time | date: 'MMM'}}</label>
+              <br/>
+              <label>{{blog.time | monthpipe}}</label>
             </abbr>
           </div>
           <div class="news-like-comment">
