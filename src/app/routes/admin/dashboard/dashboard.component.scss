@@ -4,16 +4,129 @@
   strong {
     color: #6671ba;
   }
+
+  small {
+    font-size: 13px;
+    color: #757575;
+    line-height: 15px;
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-//   .chart-container {
-//     height: 70vh !important;
-//     width: 80vw;
-//   }
+  //   .chart-container {
+  //     height: 70vh !important;
+  //     width: 80vw;
+  //   }
 }
 
 .dashboard-content {
-    margin-left: 15px;
-    margin-right: 15px;
+  margin: 15px;
+}
+
+.card {
+  height: 100%;
+}
+
+.chat-widget li {
+  list-style: none;
+  width: 100%;
+}
+
+.m-l-10,
+.chat-widget li.left .chat-info,
+.contact .c_list .c_name {
+  margin-left: 10px;
+}
+
+.chat-widget li .chat-info {
+  width: calc(100% - 60px);
+}
+
+.chat-widget li .message {
+  padding: 10px 20px;
+  border-radius: 45px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  max-width: 270px;
+}
+
+.inlineblock,
+.footer nav,
+.footer ul li,
+.navbar-logo,
+.navbar-nav,
+.navbar-nav>li,
+.navbar-nav li.app_menu ul li,
+.navbar-nav>li>a,
+.sidebar,
+.sidebar.h_menu .menu li,
+.right-sidebar .theme-light-dark li,
+.choose-skin li,
+.choose-skin li div,
+.card,
+.card .header .header-dropdown li,
+.info-box-2 .icon,
+.info-box-2 .content,
+.dropdown-menu ul.menu .icon-circle,
+.dropdown-menu ul.menu .menu-info,
+.authentication .company_detail .social_link li,
+.chart,
+.team-info li,
+.chat-widget li .chat-info,
+.chat-widget li .message,
+.chat-widget li img,
+.follow_us .media .message,
+.follow_us .media .status,
+.social-links li,
+.social_icon,
+.contact .c_list .checkbox,
+.contact .c_list .c_name,
+.overlay_menu .social .icon {
+  display: inline-block;
+}
+
+
+.m-b-20,
+.visitors-chart .donut_chart,
+.media,
+.authentication .card-plain .header,
+.chart,
+.chat-widget li {
+  margin-bottom: 20px;
+}
+
+.align-right,
+.media.mright .media-body,
+.chat-widget li.right {
+  text-align: right;
+}
+
+.chat-widget li.right {
+  float: right;
+}
+
+.chat-widget li.right img {
+  float: right;
+}
+
+.chat-widget li img {
+  height: 38px;
+  width: 38px;
+  vertical-align: top;
+}
+
+.card .body {
+  font-size: 14px;
+  color: #424242;
+  padding: 20px;
+  font-weight: 400;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+    font-size: 9px;
 }
