@@ -16,6 +16,7 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
 import { ContactComponent } from './contact/contact.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TagInputModule } from 'ngx-chips';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { TagInputModule } from 'ngx-chips';
         FroalaEditorModule.forRoot(), 
         FroalaViewModule.forRoot(),
         Ng2SearchPipeModule,
-        TagInputModule
+        TagInputModule,
+        HttpClientModule
     ],
     declarations: [
         UserListingComponent,

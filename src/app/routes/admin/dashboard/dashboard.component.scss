@@ -1,0 +1,19 @@
+.card .header h2 {
+  font-size: 15px;
+
+  strong {
+    color: #6671ba;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+//   .chart-container {
+//     height: 70vh !important;
+//     width: 80vw;
+//   }
+}
+
+.dashboard-content {
+    margin-left: 15px;
+    margin-right: 15px;
+}
