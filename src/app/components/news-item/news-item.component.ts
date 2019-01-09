@@ -10,6 +10,8 @@ export class NewsItemComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
+        console.log('Blog content',this.blog);
+        
     }
 
 }
