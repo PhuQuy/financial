@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { AuthGuard } from './core/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedService } from './services/shared.service';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule
     ],
-    providers: [AngularFireDatabase, AngularFireAuth, AuthGuard]
+    providers: [AngularFireDatabase, AngularFireAuth, AuthGuard,SharedService]
 })
 export class AppModule { }

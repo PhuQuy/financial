@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { SeoService } from '@app/services/seo.service';
 import { BlogService } from '@app/services/blog.service';
+import { SharedService } from '@app/services/shared.service';
 
 @Component({
     selector: 'app-news',
@@ -17,7 +18,7 @@ export class NewsComponent implements OnInit {
     alls: any;
     @ViewChild('appOutlet') outlet: RouterOutlet;
 
-    constructor(private router: Router, private seoService: SeoService, private blogService: BlogService) {
+    constructor(private router: Router, private seoService: SeoService, private blogService: BlogService, private shareService: SharedService) {
         this.alls = this.blogService.getAlls();
     }
 
