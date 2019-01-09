@@ -30,15 +30,15 @@
           <div class="news-post-by"><span class="posted-by">POSTED BY </span> <a>CMSMASTERS</a> <span class="news-divider">|</span>
             <a>BAD CREDIT</a>, <a>PAYDAY
               LOANS</a></div>
-          <p class="pt-3 news-card-short">{{blog.describe}}...</p>
+          <p class="pt-3 news-card-short" ng-show="text.length > limit">{{blog.describe}}...</p>
           <p [innerHtml]="blog.content"></p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="row">
+<!-- <news-item></news-item> -->
+ <!-- <div class="row">
   <div class="col-12">
     <h3 class="share_posts_title mb-2">Like this post?</h3>
     <ul class="like-share">
@@ -53,17 +53,17 @@
       </li>
     </ul>
   </div>
-
+  
   <div class="col-12">
     <h3 class="mb-2">More posts</h3>
     <div class="custom1 owl-carousel  mt-5 custom-news">
       <div *ngFor=" let data of [1,2,3,4,5]; let i =index">
-        <news-item></news-item>
+      
       </div>
     </div>
-  </div>
+  </div> 
 
-  <div class="col-12">
+   <div class="col-12">
     <h3 class="mb-2">Leave a Reply</h3>
     <p class="comment-notes">Your email address will not be published.</p>
     <form class="form" method="" action="">
@@ -96,4 +96,4 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->

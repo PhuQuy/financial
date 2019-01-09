@@ -33,8 +33,11 @@ export class NewsComponent implements OnInit {
         if (this.alls) {
             this.alls.subscribe(blogs => {
                 this.blogs = blogs;
+                console.log(this.blogs);
+                
             });
         }
+        
     }
 
         search() {
