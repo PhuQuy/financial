@@ -13,10 +13,10 @@
             Tin Tức
           </a>
         </li>
-        <li>
+        <li *ngFor="let blog of blogs">
           <i class="fas fa-angle-right"></i>
-          <a >
-            {{blog.name}}
+          <a [routerLink]="['/blog:id']">
+            {{blog.title}}
           </a>
         </li>
       </ul>
