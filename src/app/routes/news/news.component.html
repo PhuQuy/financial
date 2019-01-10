@@ -1,5 +1,5 @@
-<div class="news-header">
-  <div class="breadcums" [hidden]="state != 'detail'">
+<div class=" container news-header">
+  <div class="breadcums" ([hidden])="state != detail">
     <div class="container text-right">
       <ul class="breadcums-items mb-0">
         <li>
@@ -15,7 +15,7 @@
         </li>
         <li *ngIf="title">
           <i class="fas fa-angle-right"></i>
-          <a [routerLink]="['/blog:id']">
+          <a>
             {{title}}
           </a>
         </li>
