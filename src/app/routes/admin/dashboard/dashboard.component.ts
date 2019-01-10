@@ -133,24 +133,34 @@ export class DashboardComponent implements AfterViewInit {
 						this.randomScalingFactor(),
 					],
 					backgroundColor: [
-						'red',
-						'orange',
-						'yellow',
-						'green',
-						'blue',
+						'rgb(120, 104, 218)',
+						'rgb(251, 67, 100)',
+						'rgb(58, 170, 236)',
+						'#49c5b6',
+						'#50d38a',
 					],
 					label: 'Dataset 1'
 				}],
 				labels: [
-					'Red',
-					'Orange',
-					'Yellow',
-					'Green',
-					'Blue'
+					'Twitter',
+					'Facebook',
+					'Mailchimp',
+					'Google',
+					'Other'
 				]
             },
             options: {
-                responsive: true
+                responsive: true,
+                title: {
+                    display: false
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                }
             }
         });
     }
@@ -170,6 +180,6 @@ export class DashboardComponent implements AfterViewInit {
     }
 
     randomScalingFactor() {
-        return Math.abs(Math.random() * 100);
+        return Math.floor(Math.random() * 100);
     }
 }

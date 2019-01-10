@@ -1,3 +1,27 @@
-.p-05{
-    padding: 0.05rem !important;
+.p-05 {
+  padding: 0.05rem !important;
+}
+
+.navbar-content {
+  background-color: white;
+
+  nav {
+    box-shadow: none;
   }
+
+  .navbar-cs {
+    height: 150px;
+    max-height: none;
+    display: block;
+  }
+}
+
+.child-navbar {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
