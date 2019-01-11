@@ -462,3 +462,70 @@ app-contact-us {
     }
   }
 }
+
+app-admin {
+  .card .body {
+    font-size: 14px;
+    color: #424242;
+    padding: 20px;
+    font-weight: 400;
+  }
+
+  .table th,
+  .table td {
+    vertical-align: middle;
+  }
+
+  .badge {
+    font-size: 9px;
+  }
+
+  .card .header h2 {
+    font-size: 15px;
+
+    strong {
+      color: #6671ba;
+    }
+
+    small {
+      font-size: 13px;
+      color: #757575;
+      line-height: 15px;
+      display: block;
+    }
+  }
+
+  .card .header h2::before {
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    left: 15px;
+    top: 0px;
+    content: '';
+    background: #6671ba
+  }
+
+  .card .header .header-dropdown {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    list-style: none;
+    display: inline-block;
+
+    li a {
+      padding: 5px;
+      border-radius: 50%;
+
+      &:hover {
+        color: white;
+        background: #6671ba82;
+      }
+    }
+  }
+
+  .hide-dropdown-button {
+    .dropdown-toggle::after {
+      display: none !important;
+    }
+  }
+}

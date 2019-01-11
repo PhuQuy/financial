@@ -3,6 +3,7 @@ import { SeoService } from '@app/services/seo.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from "@angular/router";
 import { AngularFirestore } from 'angularfire2/firestore';
+import { LocalStorageService } from '@app/services/local-storage.service';
 interface User {
     uid: string;
     email: string;
@@ -35,7 +36,7 @@ export class LogInComponent implements OnInit {
     password = '';
     error;
     loading;
-    constructor(private afAuth: AngularFireAuth, public router: Router, private afs: AngularFirestore, private seoService: SeoService) { }
+    constructor(private afAuth: AngularFireAuth, public router: Router, private localStored: LocalStorageService, private seoService: SeoService) { }
 
     validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -49,6 +50,9 @@ export class LogInComponent implements OnInit {
         return this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password)
             .then((user) => {
                 this.loading = false;
+                console.log(user);
+                
+                // this.localStored.setItem('user', user);
                 this.router.navigate(['/admin']);
 
             })

@@ -1,29 +1,32 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AdminGuard } from '@app/core/admin.guard';
 import { DecryptPhone } from '@app/core/decryptphone';
 import { ModalsModule } from '@app/modals/modals.module';
 import { MessagingService } from '@app/services/messaging.service';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TagInputModule } from 'ngx-chips';
 import { AdminRoutingModule } from './admin.routing';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { ChatManageComponent } from './chat-manage/chat-manage.component';
+import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
-import { ContactComponent } from './contact/contact.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { TagInputModule } from 'ngx-chips';
-import { HttpClientModule } from '@angular/common/http';
+import { UserManagementDetailComponent } from './user-management/user-management-detail/user-management-detail.component';
 
 @NgModule({
     imports: [
         CommonModule,
         AdminRoutingModule,
         ModalsModule,
-        NgbModalModule,
+        NgbModule,
         FormsModule,
         FroalaEditorModule.forRoot(), 
         FroalaViewModule.forRoot(),
@@ -39,8 +42,10 @@ import { HttpClientModule } from '@angular/common/http';
         BlogListComponent,
         DashboardComponent,
         ChatManageComponent,
-        ContactComponent
+        ContactComponent,
+        UserManagementComponent,
+        UserManagementDetailComponent
     ],
-    providers: [MessagingService]
+    providers: [MessagingService, AdminGuard]
 })
 export class AdminModule { }

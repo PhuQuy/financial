@@ -1,0 +1,84 @@
+<div class="col-12">
+  <div class="card user-account mt-4">
+    <div class="header pt-3 pl-3 mb-0">
+      <h2><strong>User</strong> Accounts</h2>
+      <ul class="header-dropdown">
+        <li ngbDropdown placement="bottom-right" class="hide-dropdown-button">
+          <a id="dropdownBasic109" ngbDropdownToggle>
+            <i class="fas fa-ellipsis-h"></i>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic109">
+            <button class="dropdown-item" [routerLink]="['/admin/create-user-management']">Create</button>
+            <button class="dropdown-item">Reload</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="body">
+      <div class="table-responsive">
+        <table class="table m-b-0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Profile</th>
+              <th>User ID</th>
+              <th class="hidden-xs">Email Address</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 25px;">1</td>
+              <td style="width: 60px;"><img src="../assets/images/xs/avatar1.jpg" alt="" class="rounded"></td>
+              <td>jacob</td>
+              <td class="hidden-xs">jacob@gnail.com</td>
+              <td><span class="badge badge-success">Approved</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img src="../assets/images/xs/avatar2.jpg" alt="" class="rounded"></td>
+              <td>charlotte</td>
+              <td class="hidden-xs">a.charlotte@gnail.com</td>
+              <td><span class="badge badge-warning">Suspended</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img src="../assets/images/xs/avatar3.jpg" alt="" class="rounded"></td>
+              <td>grayson</td>
+              <td class="hidden-xs">grayson@yahoo.com</td>
+              <td><span class="badge badge-danger">Blocked</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img src="../assets/images/xs/avatar4.jpg" alt="" class="rounded"></td>
+              <td>jacob</td>
+              <td class="hidden-xs">jacob@gnail.com</td>
+              <td><span class="badge badge-success">Approved</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><img src="../assets/images/xs/avatar5.jpg" alt="" class="rounded"></td>
+              <td>amelia</td>
+              <td class="hidden-xs">amelia@gnail.com</td>
+              <td><span class="badge badge-success">Approved</span></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><img src="../assets/images/xs/avatar6.jpg" alt="" class="rounded"></td>
+              <td>michael</td>
+              <td class="hidden-xs">michael@gmail.com</td>
+              <td><span class="badge badge-info">Pending</span></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><img src="../assets/images/xs/avatar8.jpg" alt="" class="rounded"></td>
+              <td>jacob</td>
+              <td class="hidden-xs">jacob@gnail.com</td>
+              <td><span class="badge badge-success">Approved</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

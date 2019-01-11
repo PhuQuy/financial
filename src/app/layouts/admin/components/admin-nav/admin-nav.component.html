@@ -16,29 +16,7 @@
         <span class="navbar-toggler-bar navbar-kebab"></span>
         <span class="navbar-toggler-bar navbar-kebab"></span>
       </button>
-      <img [routerLink]="['/']" class="mh-100 d-none d-md-none d-sm-block" src="/assets/images/logo1-2.png" alt="">
-      <div class="navbar-translate">
-        <a class="navbar-brand" [routerLink]="['/']" placement="bottom" style="height:69px">
-          <img class="mh-100 d-block d-sm-none d-md-block" src="/assets/images/logo1-2.png" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02"
-          aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
-        </button>
-      </div>
       <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
-        <form>
-          <div class="input-group no-border">
-            <input type="text" value="" class="form-control" placeholder="Search...">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <i class="now-ui-icons ui-1_zoom-bold"></i>
-              </div>
-            </div>
-          </div>
-        </form>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" (click)="sidebarClose()">
@@ -48,7 +26,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item" ngbDropdown>
+          <li class="nav-item notification" ngbDropdown placement="bottom-right">
             <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
               <i class="now-ui-icons location_world"></i>
               <!--Adding badge -->
@@ -64,7 +42,7 @@
               <button class="dropdown-item">Something else is here</button>
             </div>
           </li>
-          <li class="nav-item" ngbDropdown>
+          <li class="nav-item" ngbDropdown placement="bottom-right">
             <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
               <i class="now-ui-icons users_single-02"></i>
               <p>

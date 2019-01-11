@@ -7,6 +7,9 @@ import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChatManageComponent } from './chat-manage/chat-manage.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminGuard } from '@app/core/admin.guard';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserManagementDetailComponent } from './user-management/user-management-detail/user-management-detail.component';
 
 const routes: Routes = [
     {
@@ -16,7 +19,8 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        // canActivate: [AdminGuard]
     },
     {
         path: 'users',
@@ -41,6 +45,18 @@ const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        path: 'user-management',
+        component: UserManagementComponent
+    },
+    {
+        path: 'user-management/:id',
+        component: UserManagementDetailComponent
+    },
+    {
+        path: 'create-user-management',
+        component: UserManagementDetailComponent
     }
 ];
 
