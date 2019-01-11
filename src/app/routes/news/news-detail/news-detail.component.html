@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-12 col-sm-1 col-lg-2 pr-md-0">
         <div class="top-left-menu">
-          <div class="news-post-day text-center">
+          <div class="news-post-day text-center ">
             <abbr title="{{blog.time | date}}">
-              <label>{{blog.time | date: 'dd'}}</label>
+              <label><small>{{blog.time | date: 'dd'}}</small></label>
               <br/>
-              <label>{{blog.time | monthpipe}}</label>
+              <label><small>{{blog.time | monthpipe}}</small></label>
             </abbr>
           </div>
           <div class="news-like-comment">

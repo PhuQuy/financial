@@ -26,7 +26,7 @@ export class NewsDetailComponent implements AfterViewInit {
             if (params['id'] != 'create') {
                 this.id = params['id'];
                 this.blogService.getById(this.id).subscribe(blog => {
-                    console.log(blog);
+                   // console.log(blog);
                     
                     this.blog = blog;
                     this.sharedService.changeTitle(this.formatStringtoSlug(this.blog.title))
