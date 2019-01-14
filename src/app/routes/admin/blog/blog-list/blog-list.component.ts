@@ -4,6 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 import { Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { PaginationInstance } from 'ngx-pagination';
+
 
 @Component({
     selector: 'app-blog-list',
@@ -15,6 +17,12 @@ export class BlogListComponent implements OnInit {
     blogs = [];
     alls: any;
     breadcrumbs;
+    managers = [];
+    config: PaginationInstance = {
+        id: 'comment',
+        itemsPerPage: 10,
+        currentPage: 1
+    };
     constructor(private blogService: BlogService, private modalService: NgbModal, private router: Router) {
         this.alls = this.blogService.getAlls();
     }
@@ -54,7 +62,7 @@ export class BlogListComponent implements OnInit {
 
         }, () => { })
     }
-
+    
     openBlog(id)
     {
         this.router.navigate(['/admin/blogs', id])

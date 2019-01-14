@@ -1,83 +1,102 @@
-<div class="container-fluid">
+<div class="col-lg-12 col-xl-12">
   <div class="pt-4">
     <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
   </div>
-  <div class="card">
-    <div class="card-header">
+  <div class="pt-4">
+    <div class="row ">
+      <div class="card mx-3">
+          <div class="header pt-3 pl-3 mb-0">
+              <h2><strong>Blogs</strong> List</h2>
+              <ul class="header-dropdown">
+                <li ngbDropdown placement="bottom-right" class="hide-dropdown-button">
+                  <a id="dropdownBasic109" ngbDropdownToggle>
+                    <i class="fas fa-ellipsis-h"></i>
+                  </a>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic109">
+                    <button class="dropdown-item pointer" [routerLink]="['/admin/blogs', 'create']">Create</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
-      <div class="card row mx-2">
+            <div class="row mx-2">
+                <div class="col-sm-12 col-md-6">
+                  <div class="dataTables_length">
+                    <label>Show
+                      <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm" (change)="setItemPerpage($event.target.value)">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                      </select> entries
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div class="dataTables_filter text-right">
+                    <label>Search:
+                      <input type="search" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="term">
+                    </label>
+                  </div>
+                </div>
+              </div>
+        <div class="table-responsive" >
+          <table class="table m-b-0">
+            <thead class="text-primary">
+              <tr>
+                <th class="text-center">
+                  #
+                </th>
+                <th>
+                  Hình minh họa
+                </th>
+                <th>
+                  Tiêu đề
+                </th>
+                <th style="max-width: 200px;">
+                  Tóm tắt
+                </th>
+                <th class="text-center">
+                  Ngày tạo
+                </th>
+                <th class="text-right " style="min-width: 100px;">
+                  Thao tác
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tr-body" *ngFor="let blog of blogs | paginate: config  | filter:term; let i = index; let odd=odd;" [class.odd]="odd" [attr.data-index]="i">
+                <td class="text-center">
+                  {{i+1}}
+                </td>
+                <td>
+                  <img [src]="blog?.picture" height="100px" width="150px">
+                </td>
+                <td>
+                  {{blog.title}}
+                </td>
+                <td style="max-width: 300px;">
+                  {{blog.describe}}
+                </td>
+                <td class="text-center">
+                  {{blog.time | date}}
+                </td>
+                <td class="text-right">
+                  <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title=""
+                    title="">
+                    <i class="now-ui-icons ui-2_settings-90" (click)="openBlog(blog.id)"></i>
+                  </button>
+                  <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title=""
+                    title="">
+                    <i (click)="open(blog.id); $event.stopPropagation();" class="now-ui-icons ui-1_simple-remove"></i>
+                  </button>
+                </td>
+              </tr>
 
-        <div class="col-sm-8">
-
-          <div class="header pt-3 mb-0">
-            <h2 class="mb-2"><strong>Blogs</strong> List</h2>
-          </div>
+            </tbody>
+          </table>
         </div>
-        <div class="col-sm-4" style="text-align: right">
-          <a class="btn btn-primary btn-round btn-icon" [routerLink]="['/admin/blogs/create']">
-            <i class="now-ui-icons ui-1_simple-add"></i>
-          </a>
-        </div>
+        <pagination [config]="config"></pagination>
       </div>
-    </div>
-    <div class="card table-responsive" style="overflow: auto">
-      <table class="table table-striped">
-        <thead class="text-primary">
-          <tr>
-            <th class="text-center">
-              #
-            </th>
-            <th>
-              Hình minh họa
-            </th>
-            <th>
-              Tiêu đề
-            </th>
-            <th style="max-width: 200px;">
-              Tóm tắt
-            </th>
-            <th class="text-center">
-              Ngày tạo
-            </th>
-            <th class="text-right " style="min-width: 100px;">
-              Thao tác
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="tr-body" *ngFor="let blog of blogs; let i = index" [attr.data-index]="i">
-            <td class="text-center">
-              {{i+1}}
-            </td>
-            <td>
-              <img [src]="blog?.picture" height="100px" width="150px">
-            </td>
-            <td>
-              {{blog.title}}
-            </td>
-            <td style="max-width: 300px;">
-              {{blog.describe}}
-            </td>
-            <td class="text-center">
-              {{blog.time | date}}
-            </td>
-            <td class="text-right">
-              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
-                <i class="now-ui-icons ui-2_settings-90" (click)="openBlog(blog.id)"></i>
-              </button>
-              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
-                <i (click)="open(blog.id); $event.stopPropagation();" class="now-ui-icons ui-1_simple-remove"></i>
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td colspan="4"></td>
-            <td class="td-total text-center">Số bài viết</td>
-            <td class="td-price text-center">{{blogs.length}}</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>
