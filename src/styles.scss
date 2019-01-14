@@ -474,6 +474,11 @@ app-admin {
   .table th,
   .table td {
     vertical-align: middle;
+    border-top: none;
+  }
+
+  .table tr.odd {
+    background: #e9ecef;
   }
 
   .badge {
@@ -527,5 +532,23 @@ app-admin {
     .dropdown-toggle::after {
       display: none !important;
     }
+  }
+
+  .dataTables_length label,
+  .dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .dataTables_length select {
+    width: 75px;
+    display: inline-block;
+  }
+
+  .dataTables_filter input {
+    margin-left: 0.5em;
+    display: inline-block;
+    width: auto;
   }
 }

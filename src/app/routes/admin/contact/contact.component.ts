@@ -11,13 +11,32 @@ import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 })
 export class ContactComponent implements OnInit {
     contacts = [];
-    constructor(protected contactService: ContactService, private modalService: NgbModal) {
-        contactService.getAlls().subscribe(contacts => {
+    breadcrumbs;
+    constructor(protected contactService: ContactService, private modalService: NgbModal) { }
+
+    ngOnInit() {
+        this.breadcrumbs = [
+            {
+                router: '/admin',
+                title: 'Home'
+            },
+            {
+                router: '/admin/contact',
+                title: 'Contact Management'
+            }
+        ];
+        this.loadContacts();
+    }
+
+    loadContacts() {
+        this.contactService.getAlls().subscribe(contacts => {
             this.contacts = contacts;
         })
     }
 
-    ngOnInit() {
+    seen(contact) {
+        contact.seen = true;
+        this.contactService.update(contact);
     }
 
     delete(id) {
@@ -29,7 +48,6 @@ export class ContactComponent implements OnInit {
 
         modalRef.result.then((id) => {
             this.contactService.deleteById(id);
-
         }, () => { })
     }
 

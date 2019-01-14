@@ -53,10 +53,6 @@ const routes: Routes = [
     {
         path: 'user-management/:id',
         component: UserManagementDetailComponent
-    },
-    {
-        path: 'create-user-management',
-        component: UserManagementDetailComponent
     }
 ];
 

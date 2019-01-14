@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminGuard } from '@app/core/admin.guard';
 import { DecryptPhone } from '@app/core/decryptphone';
 import { ModalsModule } from '@app/modals/modals.module';
@@ -20,6 +20,8 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
 import { UserManagementDetailComponent } from './user-management/user-management-detail/user-management-detail.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { LoadingModule } from '@app/components/loading/loading.module';
 
 @NgModule({
     imports: [
@@ -28,11 +30,13 @@ import { UserManagementDetailComponent } from './user-management/user-management
         ModalsModule,
         NgbModule,
         FormsModule,
+        ReactiveFormsModule,
         FroalaEditorModule.forRoot(), 
         FroalaViewModule.forRoot(),
         Ng2SearchPipeModule,
         TagInputModule,
-        HttpClientModule
+        HttpClientModule,
+        LoadingModule
     ],
     declarations: [
         UserListingComponent,
@@ -44,7 +48,8 @@ import { UserManagementDetailComponent } from './user-management/user-management
         ChatManageComponent,
         ContactComponent,
         UserManagementComponent,
-        UserManagementDetailComponent
+        UserManagementDetailComponent,
+        BreadcrumbsComponent
     ],
     providers: [MessagingService, AdminGuard]
 })

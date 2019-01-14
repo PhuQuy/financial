@@ -11,6 +11,7 @@ export class ConfirmComponent implements OnInit {
     question;
     confirmText;
     id;
+    cancelText = 'Cancel';
     constructor(public activeModal: NgbActiveModal) { }
 
     ngOnInit() {

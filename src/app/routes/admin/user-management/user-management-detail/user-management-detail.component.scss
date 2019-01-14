@@ -18,3 +18,20 @@
 .dropzone * {
   box-sizing: border-box;
 }
+
+textarea.form-control {
+  border: 1px solid #E3E3E3;
+}
+
+.has-success:after,
+.has-danger:after {
+  bottom: 7px;
+}
+
+.img-user-management {
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+}
