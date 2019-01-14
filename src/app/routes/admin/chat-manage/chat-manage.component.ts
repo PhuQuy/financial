@@ -14,6 +14,7 @@ export class ChatManageComponent implements OnInit {
     message = "";
     term = '';
     chatId;
+    breadcrumbs;
     @ViewChild('chatList') chatList: ElementRef;
 
     constructor(protected chatService: ChatService) {
@@ -30,6 +31,16 @@ export class ChatManageComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.breadcrumbs = [
+            {
+                router: '/admin',
+                title: 'Home'
+            },
+            {
+                router: '/admin/chat',
+                title: 'Chat'
+            }
+        ]
     }
 
     setChat(id) {
