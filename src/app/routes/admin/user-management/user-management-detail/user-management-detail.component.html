@@ -1,0 +1,103 @@
+<div class="col-12">
+  <div class="pt-4">
+    <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
+  </div>
+  <div class="card user-account mt-4">
+    <div class="header pt-3 pl-3 mb-0">
+      <h2><strong>Manage</strong> Accounts</h2>
+
+    </div>
+    <div class="body">
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3 mb-md-0 pl-0 pl-md-4">
+          <div class="row dropzone h-100">
+            <div class="col-12 my-auto">
+              <form id="frmFileUpload" class="dropzone dz-clickable" (click)="openFileInput()" method="post" enctype="multipart/form-data"
+                (drop)="drop($event)" (dragover)="allowDrop($event)">
+                <div class="dz-message">
+                  <div class="drag-icon-cph text-center p-4"> <i [hidden]="photoURL || loadingImage" class="fas fa-hand-point-up"
+                      style="font-size: 65px;"></i>
+                    <div [hidden]="!photoURL" class="img-user-management" [ngStyle]="{'background-image': 'url(' + photoURL + ')'}"></div>
+                    <div [hidden]="!loadingImage">
+                      <img src="/assets/images/index.equalizer-bars-loader.gif" />
+                    </div>
+                  </div>
+                  <h4 class="text-center">Drop files here or click to upload.</h4>
+                  <input class="form-control" hidden #fileInput type="file" accept="image/png, image/jpeg, image/gif"
+                    (change)="detectFiles($event)" name="picture">
+                  <div class="text-center">
+                    <em class="text-center">(This is just a demo dropzone. Selected files are <strong>not</strong>
+                      actually
+                      uploaded.)</em>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6" *ngIf="myform">
+          <form id="form_validation" [formGroup]="myform" (ngSubmit)="submit(myform.value)">
+            <div class="form-group form-float" [ngClass]="{
+                'has-danger': name?.invalid && name?.touched,
+                'has-success': name?.valid
+              }">
+              <input type="text" class="form-control" placeholder="Name" formControlName="name" required=""
+                aria-required="true">
+            </div>
+            <div class="form-group form-float" [ngClass]="{
+                'has-danger': address?.invalid && address?.touched,
+                'has-success': address?.valid
+              }">
+              <input type="text" class="form-control" placeholder="Address" formControlName="address" required=""
+                aria-required="true">
+            </div>
+            <div class="form-group form-float" [ngClass]="{'has-danger': email?.invalid && email?.touched,'has-success': email?.valid}">
+              <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+            </div>
+            <div class="form-group" [ngClass]="{
+                'has-danger': exampleRadios?.invalid && exampleRadios?.touched,
+                'has-success': exampleRadios?.valid
+              }">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-check form-check-radio pl-0">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" formControlName="role" id="exampleRadios1" value="admin">
+                      Admin
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check form-check-radio pl-0">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" formControlName="role" id="exampleRadios2" value="manager"
+                        checked>
+                      Manager
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-float">
+              <textarea formControlName="description" cols="30" rows="5" placeholder="Description" class="form-control no-resize"></textarea>
+            </div>
+            <div class="form-group form-float" [ngClass]="{'has-danger': password?.invalid && password?.touched,'has-success': password?.valid}">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password" required=""
+                aria-required="true">
+            </div>
+
+            <div class="alert alert-danger rounded" role="alert" *ngIf="error">
+              {{error.message}}
+            </div>
+
+            <button class="btn btn-raised btn-primary btn-round waves-effect" type="submit" [disabled]="!myform.valid">SUBMIT</button>
+            <loading *ngIf="loading"></loading>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
