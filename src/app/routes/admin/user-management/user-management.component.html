@@ -22,7 +22,8 @@
         <div class="col-sm-12 col-md-6">
           <div class="dataTables_length">
             <label>Show
-              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm" (change)="setItemPerpage($event.target.value)">
+              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm"
+                (change)="setItemPerpage($event.target.value)">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -51,7 +52,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let manager of managers  | paginate: config  | filter:term; let i = index; let odd=odd;" [class.odd]="odd">
+            <tr *ngFor="let manager of managers  | paginate: config  | filter:term; let i = index; let odd=odd;"
+              [class.odd]="odd">
               <td style="width: 25px;">{{i + 1}}</td>
               <td style="width: 60px;" class="text-center"><img [src]="manager.photoURL" alt="" class="rounded" *ngIf="manager.photoURL">
                 <i *ngIf="!manager.photoURL" class="fas fa-user"></i>
@@ -72,7 +74,7 @@
           </tbody>
         </table>
       </div>
-      <pagination [config]="config" ></pagination>
+      <pagination [config]="config"></pagination>
     </div>
   </div>
 </div>

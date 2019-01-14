@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 import { UserService } from '@app/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PaginationInstance } from 'ngx-pagination';
 
 @Component({
     selector: 'app-user-listing',
@@ -16,6 +17,11 @@ export class UserListingComponent implements OnInit {
     id_delete;
     length: any;
     breadcrumbs;
+    config: PaginationInstance = {
+        id: 'comment',
+        itemsPerPage: 10,
+        currentPage: 1
+    };
     //likes: FirebaseListObservable<number[]>;
     constructor(private userService: UserService, private modalService: NgbModal, private router: Router) {
         this.alls = this.userService.getAlls();
