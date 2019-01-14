@@ -31,7 +31,7 @@
           <div class="news-post-by"><span class="posted-by">POSTED BY </span> <a>CMSMASTERS</a> <span class="news-divider">|</span>
             <a>BAD CREDIT</a>, <a>PAYDAY
               LOANS</a></div>
-          <p class="pt-3 news-card-short"> {{((blog.describe | slice:0:100) + '...') }}</p>
+          <p class="pt-3 news-card-short"> {{blog.describe}}</p>
           <p [innerHtml]="blog.content"></p>
         </div>
       </div>
