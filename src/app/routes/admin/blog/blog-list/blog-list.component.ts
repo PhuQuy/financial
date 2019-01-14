@@ -53,8 +53,6 @@ export class BlogListComponent implements OnInit {
             this.blogService.deleteById(id);
 
         }, () => { })
-        // this.modalService.open(content);
-        // this.id_delete = id
     }
 
     openBlog(id)

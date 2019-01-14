@@ -32,12 +32,14 @@ export class SidebarComponent implements OnInit {
 
     ngOnInit() {
         let user = this.localStorageService.getItem('user');
-        if (user && user.role == 'admin') {
-            this.menuItems = ROUTES.filter(menuItem => menuItem);
-        } else {
-            this.menuItems = ROUTES.filter(menuItem => menuItem.isAdmin == false);
+        this.menuItems = ROUTES.filter(menuItem => menuItem);
 
-        }
+        // if (user && user.role == 'admin') {
+        //     this.menuItems = ROUTES.filter(menuItem => menuItem);
+        // } else {
+        //     this.menuItems = ROUTES.filter(menuItem => menuItem.isAdmin == false);
+
+        // }
 
     }
     isMobileMenu() {

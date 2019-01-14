@@ -92,7 +92,23 @@ function sendEmail(email, displayName) {
   });
 }
 
+const deleteUser = functions.firestore
+  .document('/manager/{value}').onUpdate((snap, context) => {
+    const data = snap.data.data();
+    if(data.deleted) {
+        let uid = data.uid;
+        admin.auth().deleteUser(uid)
+          .then(function () {
+            console.log("Successfully deleted user");
+          })
+          .catch(function (error) {
+            console.log("Error deleting user:", error);
+          });
+    }
+  });
+
 module.exports = {
   http,
-  sendNotification
+  sendNotification,
+  deleteUser
 }
