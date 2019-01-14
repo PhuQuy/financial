@@ -40,7 +40,7 @@ export class BaseService {
     }
 
     public update(data) {
-        this.angularFirestore.collection(this.basePath).doc(data.id)
+        this.angularFireDatabase.object(this.basePath)
             .update(data);
     }
 

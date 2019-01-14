@@ -5,10 +5,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PaginationInstance } from 'ngx-pagination';
 
 @Component({
-    selector: 'app-user-management',
-    templateUrl: './user-management.component.html',
-    styleUrls: ['./user-management.component.scss'],
-    providers: [ManagerService]
+  selector: 'app-user-management',
+  templateUrl: './user-management.component.html',
+  styleUrls: ['./user-management.component.scss']
 })
 export class UserManagementComponent implements OnInit {
     managers = [];

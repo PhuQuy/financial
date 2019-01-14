@@ -1,7 +1,4 @@
 <div class="col-12">
-  <div class="pt-4">
-    <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
-  </div>
   <div class="card user-account mt-4">
     <div class="header pt-3 pl-3 mb-0">
       <h2><strong>User</strong> Accounts</h2>
@@ -11,8 +8,8 @@
             <i class="fas fa-ellipsis-h"></i>
           </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic109">
-            <button class="dropdown-item pointer" [routerLink]="['/admin/user-management', 'create']">Create</button>
-            <button class="dropdown-item pointer" (click)="loadManagers()">Reload</button>
+            <button class="dropdown-item" [routerLink]="['/admin/create-user-management']">Create</button>
+            <button class="dropdown-item">Reload</button>
           </div>
         </li>
       </ul>
@@ -22,7 +19,8 @@
         <div class="col-sm-12 col-md-6">
           <div class="dataTables_length">
             <label>Show
-              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm" (change)="setItemPerpage($event.target.value)">
+              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm"
+                (change)="setItemPerpage($event.target.value)">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -46,12 +44,12 @@
               <th>Profile</th>
               <th>User ID</th>
               <th class="hidden-xs">Email Address</th>
-              <th>Role</th>
-              <th class="text-right">Thao tác</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let manager of managers  | paginate: config  | filter:term; let i = index; let odd=odd;" [class.odd]="odd">
+            <tr *ngFor="let manager of managers  | paginate: config  | filter:term; let i = index; let odd=odd;"
+              [class.odd]="odd">
               <td style="width: 25px;">{{i + 1}}</td>
               <td style="width: 60px;" class="text-center"><img [src]="manager.photoURL" alt="" class="rounded" *ngIf="manager.photoURL">
                 <i *ngIf="!manager.photoURL" class="fas fa-user"></i>
@@ -72,7 +70,7 @@
           </tbody>
         </table>
       </div>
-      <pagination [config]="config" ></pagination>
+      <pagination [config]="config"></pagination>
     </div>
   </div>
 </div>

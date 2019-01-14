@@ -31,14 +31,11 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
         ModalsModule,
         NgbModule,
         FormsModule,
-        ReactiveFormsModule,
         FroalaEditorModule.forRoot(), 
         FroalaViewModule.forRoot(),
         Ng2SearchPipeModule,
         TagInputModule,
-        HttpClientModule,
-        LoadingModule,
-        PaginationModule
+        HttpClientModule
     ],
     declarations: [
         UserListingComponent,
@@ -50,8 +47,7 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
         ChatManageComponent,
         ContactComponent,
         UserManagementComponent,
-        UserManagementDetailComponent,
-        BreadcrumbsComponent
+        UserManagementDetailComponent
     ],
     providers: [MessagingService, AdminGuard]
 })
