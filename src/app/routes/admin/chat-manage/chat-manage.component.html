@@ -1,11 +1,14 @@
 <div class="col-lg-12 col-xl-12">
-    <div class="pt-4">
-        <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
-      </div>
-  <h1 class="text-center">Message</h1>
-  
+  <div class="pt-4">
+    <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
+  </div>
+  <!-- <h1 class="text-center">Message</h1> -->
+
   <div class="card-deck">
     <div id="plist" class="col-lg-3 card people-list">
+      <div class="header pt-3 mb-0">
+        <h2 class="mb-2"><strong>Chat</strong> List</h2>
+      </div>
       <div class="input-group p-3">
         <input type="text" class="form-control" [(ngModel)]="term" placeholder="Tìm kiếm...">
         <span class="input-group-addon">
@@ -16,12 +19,15 @@
         <li class="clearfix" *ngFor="let chat of chats | filter:term" [class.active]="chat.id == chatId">
           <div class="about" (click)="setChat(chat.id)">
             <div class="name">{{chat.name}}</div>
-            <div class="status"> <i class="zmdi zmdi-circle offline"></i>  {{chat?.time}} ago </div>
+            <div class="status"> <i class="zmdi zmdi-circle offline"></i> {{chat?.time}} ago </div>
           </div>
         </li>
       </ul>
     </div>
-    <div class="card chat col-lg-9">
+    <div class="card chat col-lg-9 px-md-2 px-0">
+      <div class="header pt-3 pl-2 mb-0">
+        <h2 class="mb-2"><strong>Message</strong> Content</h2>
+      </div>
       <div class="chat-header clearfix">
         <div class="row">
           <div class="col-lg-6">
@@ -35,21 +41,21 @@
       <div class="chat-history" #chatList>
         <ul class="m-b-0">
           <li class="clearfix" *ngFor="let message of currentChat?.contents">
-                <div class="message-data" [class.text-right]="message.isAdmin">
-                  <span class="message-data-time">{{message.createdAt}}</span>
-                </div>
-                <div class="message" [ngClass]="{
+            <div class="message-data" [class.text-right]="message.isAdmin">
+              <span class="message-data-time">{{message.createdAt}}</span>
+            </div>
+            <div class="message" [ngClass]="{
                     'other-message':message.isAdmin,
                       'float-right':message.isAdmin,
                       'my-message':(!message.isAdmin)
                     }">
-                  {{message.value}}
-                </div>
+              {{message.value}}
+            </div>
         </ul>
       </div>
       <div class="chat-message clearfix">
         <div class="input-group m-b-0">
-          <input type="text" class="form-control" (keydown.enter)="sendMessage()" [(ngModel)]="message"  placeholder="Enter text here...">
+          <input type="text" class="form-control" (keydown.enter)="sendMessage()" [(ngModel)]="message" placeholder="Enter text here...">
           <span class="input-group-addon" (click)="sendMessage()"><i class="fa fa-send-o"></i></span>
         </div>
       </div>
