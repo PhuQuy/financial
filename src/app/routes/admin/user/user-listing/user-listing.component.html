@@ -1,15 +1,18 @@
 <div class="col-md-12">
+  <div class="pt-4">
+    <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
+  </div>
   <div class="card mt-3">
     <div class="card-header border-bottom-0">
-        <div class="pt-4">
-            <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
-          </div>
-      <h4 class="card-title">Quản lý khách hàng</h4>
+      <div class="header pt-3 mb-0">
+        <h2 class="mb-2"><strong>User</strong> Profile</h2>
+      </div>
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <div class="dataTables_length">
             <label>Show
-              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm" (change)="setItemPerpage($event.target.value)">
+              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm"
+                (change)="setItemPerpage($event.target.value)">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -39,7 +42,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users | paginate: config  | filter:term; let i = index; let odd=odd;" (click)="openDetail(user.id);checkSeen(user)" [class.checked]="user.checked">
+            <tr *ngFor="let user of users | paginate: config  | filter:term; let i = index; let odd=odd;" (click)="openDetail(user.id);checkSeen(user)"
+              [class.checked]="user.checked">
               <td>{{user.name}}</td>
               <td>{{user.long}}</td>
               <td>{{user.phone | decrypt}}</td>
