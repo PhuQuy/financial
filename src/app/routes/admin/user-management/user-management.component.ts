@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ManagerService } from '@app/services/manager.service';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
+import { ManagerService } from '@app/services/manager.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
+import { PaginationInstance } from 'ngx-pagination';
 
 @Component({
     selector: 'app-user-management',
@@ -14,7 +13,13 @@ import * as firebase from 'firebase';
 export class UserManagementComponent implements OnInit {
     managers = [];
     breadcrumbs;
-    constructor(private managerService: ManagerService, private modalService: NgbModal, private angularFireAuth: AngularFireAuth) { }
+    term;
+    config: PaginationInstance = {
+        id: 'comment',
+        itemsPerPage: 10,
+        currentPage: 1
+    };
+    constructor(private managerService: ManagerService, private modalService: NgbModal) { }
 
     ngOnInit() {
         this.loadManagers();
@@ -49,5 +54,9 @@ export class UserManagementComponent implements OnInit {
                 this.managerService.deleteById(id);
             })
         }, () => { })
+    }
+
+    setItemPerpage(page) {
+        this.config.itemsPerPage = page;
     }
 }
