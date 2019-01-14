@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div *ngIf="!chatId">
     <h3 class="text-center text-success">Xin nhập tên của bạn</h3>
     <form>
@@ -12,10 +12,10 @@
       </div>
     </form>
   </div>
-  <div class="col-lg-12 col-xl-12" *ngIf="chatId">
+  <div class="container" *ngIf="chatId">
     <h1 class="text-center pt-5">Gửi tin nhắn với quản trị viên</h1>
-    <div class="card chat-app">
-      <div class="chat">
+    <div class="row">
+      <div class="chat col-lg-4 mx-1">
         <div class="chat-history" #chatList>
           <ul class="m-b-0">
             <li class="clearfix" *ngFor="let message of chat?.contents">
