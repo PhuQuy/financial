@@ -32,7 +32,7 @@ export class BlogListComponent implements OnInit {
                 title: 'Home'
             },
             {
-                router: '/admin/users',
+                router: '/admin/blogs',
                 title: 'Users'
             }
         ]
