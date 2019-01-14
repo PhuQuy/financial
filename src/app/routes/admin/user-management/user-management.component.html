@@ -1,4 +1,7 @@
 <div class="col-12">
+  <div class="pt-4">
+    <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
+  </div>
   <div class="card user-account mt-4">
     <div class="header pt-3 pl-3 mb-0">
       <h2><strong>User</strong> Accounts</h2>
@@ -8,13 +11,33 @@
             <i class="fas fa-ellipsis-h"></i>
           </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic109">
-            <button class="dropdown-item" [routerLink]="['/admin/create-user-management']">Create</button>
-            <button class="dropdown-item">Reload</button>
+            <button class="dropdown-item pointer" [routerLink]="['/admin/user-management', 'create']">Create</button>
+            <button class="dropdown-item pointer" (click)="loadManagers()">Reload</button>
           </div>
         </li>
       </ul>
     </div>
     <div class="body">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="dataTables_length">
+            <label>Show
+              <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm" (change)="setItemPerpage($event.target.value)">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select> entries
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <div class="dataTables_filter text-right">
+            <label>Search:
+              <input type="search" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="term">
+            </label>
+          </div>
+        </div>
+      </div>
       <div class="table-responsive">
         <table class="table m-b-0">
           <thead>
@@ -23,62 +46,33 @@
               <th>Profile</th>
               <th>User ID</th>
               <th class="hidden-xs">Email Address</th>
-              <th>Status</th>
+              <th>Role</th>
+              <th class="text-right">Thao tác</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style="width: 25px;">1</td>
-              <td style="width: 60px;"><img src="../assets/images/xs/avatar1.jpg" alt="" class="rounded"></td>
-              <td>jacob</td>
-              <td class="hidden-xs">jacob@gnail.com</td>
-              <td><span class="badge badge-success">Approved</span></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><img src="../assets/images/xs/avatar2.jpg" alt="" class="rounded"></td>
-              <td>charlotte</td>
-              <td class="hidden-xs">a.charlotte@gnail.com</td>
-              <td><span class="badge badge-warning">Suspended</span></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><img src="../assets/images/xs/avatar3.jpg" alt="" class="rounded"></td>
-              <td>grayson</td>
-              <td class="hidden-xs">grayson@yahoo.com</td>
-              <td><span class="badge badge-danger">Blocked</span></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><img src="../assets/images/xs/avatar4.jpg" alt="" class="rounded"></td>
-              <td>jacob</td>
-              <td class="hidden-xs">jacob@gnail.com</td>
-              <td><span class="badge badge-success">Approved</span></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td><img src="../assets/images/xs/avatar5.jpg" alt="" class="rounded"></td>
-              <td>amelia</td>
-              <td class="hidden-xs">amelia@gnail.com</td>
-              <td><span class="badge badge-success">Approved</span></td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td><img src="../assets/images/xs/avatar6.jpg" alt="" class="rounded"></td>
-              <td>michael</td>
-              <td class="hidden-xs">michael@gmail.com</td>
-              <td><span class="badge badge-info">Pending</span></td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td><img src="../assets/images/xs/avatar8.jpg" alt="" class="rounded"></td>
-              <td>jacob</td>
-              <td class="hidden-xs">jacob@gnail.com</td>
-              <td><span class="badge badge-success">Approved</span></td>
+            <tr *ngFor="let manager of managers  | paginate: config  | filter:term; let i = index; let odd=odd;" [class.odd]="odd">
+              <td style="width: 25px;">{{i + 1}}</td>
+              <td style="width: 60px;" class="text-center"><img [src]="manager.photoURL" alt="" class="rounded" *ngIf="manager.photoURL">
+                <i *ngIf="!manager.photoURL" class="fas fa-user"></i>
+              </td>
+              <td>{{manager.name}}</td>
+              <td class="hidden-xs">{{manager.email}}</td>
+              <td><span class="badge" [class.badge-success]="manager.role == 'admin'" [class.badge-warning]="manager.role == 'manager'">{{manager.role}}</span></td>
+              <td class="text-right">
+                <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " [routerLink]="['/admin/user-management', manager.id]">
+                  <i class="now-ui-icons ui-2_settings-90"></i>
+                </button>
+                <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title=""
+                  title="">
+                  <i (click)="open(manager.id); $event.stopPropagation();" class="now-ui-icons ui-1_simple-remove"></i>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <pagination [config]="config" ></pagination>
     </div>
   </div>
 </div>

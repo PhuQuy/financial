@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; let i = index" [class.active]="i == (breadcrumbs.length - 1)">
+      <a *ngIf="i != (breadcrumbs.length - 1)" [routerLink]="[breadcrumb.router]"><i *ngIf="i == 0" style="margin-right: 10px" class="fas fa-home"> </i>{{breadcrumb.title}}</a>
+      <a *ngIf="i == (breadcrumbs.length - 1)">{{breadcrumb.title}}</a>
+    </li>
+  </ol>
+</nav>

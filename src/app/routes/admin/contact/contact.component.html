@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<!-- <div class="col-md-12">
   <div class="card mt-3">
     <div class="card-header border-bottom-0">
       <h4 class="card-title">Quản lý khách hàng</h4>
@@ -27,7 +27,61 @@
             </tr>
           </tbody>
         </table>
-        <!-- <span>{{(users | async)?.length}}</span> -->
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="col-12">
+  <div class="pt-4">
+    <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
+  </div>
+  <div class="card user-account mt-4">
+    <div class="header pt-3 pl-3 mb-0">
+      <h2><strong>Contact</strong> Management</h2>
+      <ul class="header-dropdown">
+        <li ngbDropdown placement="bottom-right" class="hide-dropdown-button">
+          <a id="dropdownBasic109" ngbDropdownToggle>
+            <i class="fas fa-ellipsis-h"></i>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic109">
+            <button class="dropdown-item pointer" (click)="loadManagers()">Reload</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="body">
+      <div class="table-responsive">
+        <table class="table m-b-0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>Tên</th>
+              <th>Nội dung</th>
+              <th>Ngày tạo</th>
+              <th class="text-right">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contacts; let i = index; let odd=odd;" [class.odd]="odd">
+              <td style="width: 25px;">{{i + 1}}</td>
+              <td>{{contact.email}}</td>
+              <td class="hidden-xs">{{contact.name}}</td>
+              <td>{{contact.message}}</td>
+              <td>{{contact.createdAt.toDate() | date:'short'}}</td>
+              <td class="text-right">
+                <button *ngIf="!contact.seen" (click)="seen(contact)" type="button" rel="tooltip" class="btn btn-success  btn-icon btn-sm "
+                  data-original-title="" title="">
+                  <i class="fas fa-check"></i>
+                </button>
+                <button type="button" (click)="delete(contact.id); $event.stopPropagation();" class="btn btn-danger btn-icon btn-sm "
+                  data-original-title="" title="">
+                  <i class="fas fa-times"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
