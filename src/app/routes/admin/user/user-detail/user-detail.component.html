@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="pt-4">
+        <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
+      </div>
   <form class="py-4">
     <label for="exampleInputEmail1">Ông (bà):</label>
     <input type="text" name="user-name" [(ngModel)]="user.name" class="form-control" id="user-name" disabled>

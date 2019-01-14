@@ -15,6 +15,7 @@ export class UserDetailComponent implements OnInit {
   id: any;
   alls: any;
   encrypt;
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute
@@ -34,6 +35,7 @@ export class UserDetailComponent implements OnInit {
           this.user = user;
           this.user.phone = this.encrypt.decrypt(this.user.phone);
       });
+      
     }
     
     

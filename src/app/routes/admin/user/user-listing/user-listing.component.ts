@@ -15,7 +15,7 @@ export class UserListingComponent implements OnInit {
     alls: any;
     id_delete;
     length: any;
-
+    breadcrumbs;
     //likes: FirebaseListObservable<number[]>;
     constructor(private userService: UserService, private modalService: NgbModal, private router: Router) {
         this.alls = this.userService.getAlls();
@@ -27,6 +27,16 @@ export class UserListingComponent implements OnInit {
                 this.users = users;
             });
         }
+        this.breadcrumbs = [
+            {
+                router: '/admin',
+                title: 'Home'
+            },
+            {
+                router: '/admin/users',
+                title: 'Users'
+            }
+        ]
     }
 
     deleteUser(id) {

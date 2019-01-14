@@ -14,6 +14,7 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 export class BlogListComponent implements OnInit {
     blogs = [];
     alls: any;
+    breadcrumbs;
     constructor(private blogService: BlogService, private modalService: NgbModal, private router: Router) {
         this.alls = this.blogService.getAlls();
     }
@@ -25,6 +26,16 @@ export class BlogListComponent implements OnInit {
                 console.log(blogs);
             });
         }
+        this.breadcrumbs = [
+            {
+                router: '/admin',
+                title: 'Home'
+            },
+            {
+                router: '/admin/users',
+                title: 'Users'
+            }
+        ]
     }
 
     deleteUser(id) {
