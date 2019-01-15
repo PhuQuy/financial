@@ -551,4 +551,9 @@ app-admin {
     display: inline-block;
     width: auto;
   }
+
+  .dropdown-menu[x-placement="bottom-right"]:before {
+    right: 10px;
+    left: auto;
+  }
 }

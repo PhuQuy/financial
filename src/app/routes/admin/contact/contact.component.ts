@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '@app/services/contact.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
+import { PaginationInstance } from 'ngx-pagination';
 
 @Component({
     selector: 'app-contact',
@@ -12,6 +13,13 @@ import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 export class ContactComponent implements OnInit {
     contacts = [];
     breadcrumbs;
+    term;
+
+    config: PaginationInstance = {
+        id: 'comment',
+        itemsPerPage: 10,
+        currentPage: 1
+    };
     constructor(protected contactService: ContactService, private modalService: NgbModal) { }
 
     ngOnInit() {
@@ -49,6 +57,10 @@ export class ContactComponent implements OnInit {
         modalRef.result.then((id) => {
             this.contactService.deleteById(id);
         }, () => { })
+    }
+
+    setItemPerpage(page) {
+        this.config.itemsPerPage = page;
     }
 
 }

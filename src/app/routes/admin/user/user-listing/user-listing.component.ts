@@ -22,17 +22,11 @@ export class UserListingComponent implements OnInit {
         itemsPerPage: 10,
         currentPage: 1
     };
-    //likes: FirebaseListObservable<number[]>;
     constructor(private userService: UserService, private modalService: NgbModal, private router: Router) {
-        this.alls = this.userService.getAlls();
     }
 
     ngOnInit() {
-        if (this.alls) {
-            this.alls.subscribe(users => {
-                this.users = users;
-            });
-        }
+        this.loadClient();
         this.breadcrumbs = [
             {
                 router: '/admin',
@@ -43,6 +37,15 @@ export class UserListingComponent implements OnInit {
                 title: 'Users'
             }
         ]
+    }
+
+    loadClient() {
+        this.alls = this.userService.getAlls();
+        if (this.alls) {
+            this.alls.subscribe(users => {
+                this.users = users;
+            });
+        }
     }
 
     deleteUser(id) {
@@ -58,7 +61,7 @@ export class UserListingComponent implements OnInit {
 
         modalRef.result.then((id) => {
             this.userService.deleteById(id);
-            
+
         }, () => { })
         // this.modalService.open(content);
         // this.id_delete = id
@@ -68,8 +71,8 @@ export class UserListingComponent implements OnInit {
         this.router.navigate(['/admin/users', id]);
     }
 
-    checkSeen(user){
-        user.checked=true;
+    checkSeen(user) {
+        user.checked = true;
         this.userService.updateElement(user.id, user);
     }
     setItemPerpage(page) {
