@@ -1,7 +1,11 @@
 input {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
+
+  &:disabled {
+    cursor: copy;
+  }
 }
 
 label {
-    margin-bottom: 1px;
+  margin-bottom: 1px;
 }
