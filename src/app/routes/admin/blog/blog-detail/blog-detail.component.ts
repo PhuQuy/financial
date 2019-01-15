@@ -18,7 +18,7 @@ export class BlogDetailComponent implements OnInit {
     people$1 = ['Soccer', 'Jackpack', 'Serial'];
     selectedPeople5 = [];
     items = [];
-
+    breadcrumbs;
     blog: any = new Object();
     time = new Date();
     alls: any;
@@ -28,7 +28,21 @@ export class BlogDetailComponent implements OnInit {
         this.route.params.subscribe(params => {
             if (params['id'] != 'create') {
                 this.id = params['id'];
-
+            } else {
+                this.breadcrumbs = [
+                    {
+                        router: '/admin',
+                        title: 'Home'
+                    },
+                    {
+                        router: '/admin/blogs',
+                        title: 'Blogs'
+                    },
+                    {
+                        router: '/admin/blogs',
+                        title: 'Create'
+                    }
+                ]
             }
         });
         this.alls = this.blogService.getById(this.id);
@@ -39,6 +53,20 @@ export class BlogDetailComponent implements OnInit {
             this.alls.subscribe(blog => {
                 if (blog) {
                     this.blog = blog;
+                    this.breadcrumbs = [
+                        {
+                            router: '/admin',
+                            title: 'Home'
+                        },
+                        {
+                            router: '/admin/blogs',
+                            title: 'Blogs'
+                        },
+                        {
+                            router: '/admin/blogs',
+                            title: blog.title
+                        }
+                    ]
                 }
             });
         }
@@ -50,7 +78,7 @@ export class BlogDetailComponent implements OnInit {
             this.blogService.create(this.blog);
             this.blog = {};
         }
-        else{
+        else {
             this.blogService.updateWithId(this.blog, this.id);
             alert("Cập nhật thành công")
         }
