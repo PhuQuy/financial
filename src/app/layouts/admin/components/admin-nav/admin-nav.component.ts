@@ -65,8 +65,7 @@ export class AdminNavComponent implements OnInit {
     }
 
 
-    ngAf
-    terViewInit() {
+    ngAfterViewInit() {
         let routerChange = this.router.events;
         if (routerChange && routerChange != undefined) {
             routerChange.subscribe((event) => {
