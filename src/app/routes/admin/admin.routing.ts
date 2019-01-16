@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminGuard } from '@app/core/admin.guard';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserManagementDetailComponent } from './user-management/user-management-detail/user-management-detail.component';
+import { SystemComponent } from './system/system.component';
 
 const routes: Routes = [
     {
@@ -53,6 +54,10 @@ const routes: Routes = [
     {
         path: 'user-management/:id',
         component: UserManagementDetailComponent
+    },
+    {
+        path: 'system',
+        component: SystemComponent
     }
 ];
 

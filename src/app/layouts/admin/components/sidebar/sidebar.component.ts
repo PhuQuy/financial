@@ -12,12 +12,12 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/admin/dashboard', title: 'Dashboard', icon: 'design_app', class: '', isAdmin: true },
     { path: '/admin/contact', title: 'Contact List', icon: 'education_atom', class: '', isAdmin: false },
-    { path: '/admin/user-management', title: 'User Management',  icon:'location_map-big', class: '' , isAdmin: false},
+    { path: '/admin/user-management', title: 'User Management',  icon:'location_map-big', class: '' , isAdmin: true},
     { path: '/admin/chat', title: 'Chat', icon: 'ui-1_bell-53', class: '', isAdmin: false },
 
     { path: '/admin/users', title: 'User Profile', icon: 'users_single-02', class: '', isAdmin: false },
     { path: '/admin/blogs', title: 'Blog', icon: 'design_bullet-list-67', class: '', isAdmin: false },
-    // { path: '/a', title: 'Typography',  icon:'text_caps-small', class: '' }
+    { path: '/admin/system', title: 'System',  icon:'text_caps-small', class: '', isAdmin: true  }
 ];
 
 @Component({

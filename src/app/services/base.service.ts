@@ -14,7 +14,7 @@ export class BaseService {
     }
 
     public getAlls(): Observable<any> {
-        let alls =  this.angularFirestore.collection<any>(this.basePath).snapshotChanges().pipe(
+        let alls = this.angularFirestore.collection<any>(this.basePath).snapshotChanges().pipe(
             map(actions => actions.map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;
@@ -22,7 +22,7 @@ export class BaseService {
             }))
         );
 
-        if(alls) {
+        if (alls) {
             return alls;
         } else {
             return Observable.create();
@@ -33,6 +33,8 @@ export class BaseService {
         if (id == null) {
             return null;
         }
+        this.checkLog(this.basePath, 'update');
+
         const timestamp = this.timestamp;
         return this.angularFirestore.collection(this.basePath).doc(id).set({
             ...data, createdAt: timestamp
@@ -40,6 +42,8 @@ export class BaseService {
     }
 
     public update(data) {
+        this.checkLog(this.basePath, 'update');
+
         this.angularFirestore.collection(this.basePath).doc(data.id)
             .update(data);
     }
@@ -52,11 +56,13 @@ export class BaseService {
 
     public deleteById(id) {
         let itemPath = `${this.basePath}/${id}`;
+        this.checkLog(this.basePath, 'delete');
         return this.angularFirestore.doc<any>(itemPath).delete();
     }
 
     public create(data: any): any {
         const timestamp = this.timestamp;
+        this.checkLog(this.basePath, 'create');
         return this.angularFirestore.collection(this.basePath).add({
             ...data, createdAt: timestamp
         });
@@ -69,10 +75,13 @@ export class BaseService {
     public updateOrCreate(data: any): any {
         const timestamp = this.timestamp;
         if (data.id == null) {
+            this.checkLog(this.basePath, 'create');
             return this.angularFirestore.collection(this.basePath).add({
                 ...data, createdAt: timestamp
             });
         }
+        this.checkLog(this.basePath, 'update');
+
         return this.angularFirestore.collection(this.basePath).doc(data.id).set({
             ...data, createdAt: timestamp
         });
@@ -82,11 +91,14 @@ export class BaseService {
         if (id == null) {
             return null;
         }
-        console.log(id);
-        console.log(value);
-        
-        const timestamp = this.timestamp;
+        this.checkLog(this.basePath, 'update');
         return this.angularFirestore.collection(this.basePath).doc(id).update(value);
     }
 
+    checkLog(path, type) {
+        const timestamp = this.timestamp;
+        this.angularFirestore.collection('system').add({
+            collection: path, type: type, createdAt: timestamp
+        });
+    }
 }

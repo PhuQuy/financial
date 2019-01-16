@@ -23,6 +23,7 @@ import { UserManagementDetailComponent } from './user-management/user-management
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserListingComponent } from './user/user-listing/user-listing.component';
+import { SystemComponent } from './system/system.component';
 
 @NgModule({
     imports: [
@@ -51,7 +52,8 @@ import { UserListingComponent } from './user/user-listing/user-listing.component
         ContactComponent,
         UserManagementComponent,
         UserManagementDetailComponent,
-        BreadcrumbsComponent
+        BreadcrumbsComponent,
+        SystemComponent
     ],
     providers: [MessagingService, AdminGuard]
 })
