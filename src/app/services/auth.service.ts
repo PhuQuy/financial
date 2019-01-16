@@ -3,23 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User } from '../components/redux/models/user.model';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
 
-  private BASE_URL = 'http://localhost:4200';
-  constructor(private http: HttpClient) {}
+    private BASE_URL = 'http://localhost:4200';
+    constructor(private http: HttpClient, private afAuth: AngularFireAuth) { }
 
 
-  logIn(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/login`;
-    return this.http.post<User>(url, {email, password});
-  }
+    logIn(email: string, password: string) {
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password);      
+    }
 
-  signUp(email: string, password: string): Observable<User> {
-    const url = `${this.BASE_URL}/register`;
-    return this.http.post<User>(url, {email, password});
-  }
+    signUp(email: string, password: string): Observable<User> {
+        const url = `${this.BASE_URL}/register`;
+        return this.http.post<User>(url, { email, password });
+    }
+
+    logout() {
+        this.afAuth.auth.signOut();
+    }
 }
