@@ -19,7 +19,7 @@
     </div>
     <div class="body">
       <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 d-none d-sm-block">
           <div class="dataTables_length">
             <label>Show
               <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm" (change)="setItemPerpage($event.target.value)">
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="col-sm-12 col-md-6">
-          <div class="dataTables_filter text-right">
+          <div class="dataTables_filter ">
             <label>Search:
               <input type="search" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="term">
             </label>
@@ -56,7 +56,7 @@
               <td style="width: 60px;" class="text-center"><img [src]="manager.photoURL" alt="" class="rounded" *ngIf="manager.photoURL">
                 <i *ngIf="!manager.photoURL" class="fas fa-user"></i>
               </td>
-              <td>{{manager.name}}</td>
+              <td class="user-option">{{manager.name}}</td>
               <td class="hidden-xs">{{manager.email}}</td>
               <td><span class="badge" [class.badge-success]="manager.role == 'admin'" [class.badge-warning]="manager.role == 'manager'">{{manager.role}}</span></td>
               <td class="text-right">
