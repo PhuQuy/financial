@@ -1,15 +1,20 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location } from '@angular/common';
+import { ManagerService } from '@app/services/manager.service';
+import { UserService } from '@app/services/user.service';
+import { LocalStorageService } from '@app/services/local-storage.service';
 import { AuthService } from '@app/services/auth.service';
+
+
 
 
 @Component({
     selector: 'app-admin-nav',
     templateUrl: './admin-nav.component.html',
     styleUrls: ['./admin-nav.component.scss'],
-    providers:[AuthService]
+    providers: [ManagerService, UserService]
 })
 export class AdminNavComponent implements OnInit {
     private listTitles: any[];
@@ -18,12 +23,37 @@ export class AdminNavComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public isCollapsed = true;
-    
-    
-    constructor(location: Location, private element: ElementRef, private router: Router,private auth: AuthService) {
+
+    currentImg = true;
+    userLogo = 'https://www.duracelldirect.co.uk/i/products/vpns/bpxx74-alt1.jpg';
+
+
+
+    constructor(location: Location, private element: ElementRef, private router: Router, private localStorageService: LocalStorageService, private managerService: ManagerService, private auth: AuthService) {
         this.location = location;
         this.sidebarVisible = false;
+
+        let user = this.localStorageService.getItem('user');
+        console.log(user);
+
+        if(user) {
+
+            this.managerService.getById(user.uid).subscribe(user => {
+                console.log(user);
+    
+            })
+        }
+        console.log(user.user.photoURL);
+
+        this.userLogo = user.user.photoURL;
+        
+        if (this.userLogo == null){
+            this.currentImg = !this.currentImg;
+            console.log(this.currentImg);
+        }
     }
+
+
 
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
@@ -34,7 +64,9 @@ export class AdminNavComponent implements OnInit {
         
     }
 
-    ngAfterViewInit() {
+
+    ngAf
+    terViewInit() {
         let routerChange = this.router.events;
         if (routerChange && routerChange != undefined) {
             routerChange.subscribe((event) => {

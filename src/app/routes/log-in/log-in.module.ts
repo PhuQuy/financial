@@ -10,7 +10,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({
+      authState: authReducer
+  })
   ],
   declarations: [LogInComponent]
 })
