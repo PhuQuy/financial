@@ -16,6 +16,7 @@ import { authReducer } from './components/redux/reducers/auth.reducer';
 import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './components/redux/effects/auth.effect';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { AuthEffects } from './components/redux/effects/auth.effect';
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule,
+        HttpClientModule,
         EffectsModule.forRoot([AuthEffects]),
         StoreModule.forRoot({
             authState: authReducer
