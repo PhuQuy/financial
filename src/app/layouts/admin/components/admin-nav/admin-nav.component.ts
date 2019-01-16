@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { ManagerService } from '@app/services/manager.service';
 import { UserService } from '@app/services/user.service';
 import { LocalStorageService } from '@app/services/local-storage.service';
+import { Url } from 'url';
+import { currentId } from 'async_hooks';
 
 
 
@@ -23,9 +25,8 @@ export class AdminNavComponent implements OnInit {
     private sidebarVisible: boolean;
     public isCollapsed = true;
 
-    userManage: [];
-    currentUser: any;
-    userLogo: any;
+    currentImg = true;
+    userLogo = 'https://www.duracelldirect.co.uk/i/products/vpns/bpxx74-alt1.jpg';
 
 
 
@@ -43,18 +44,14 @@ export class AdminNavComponent implements OnInit {
     
             })
         }
+        console.log(user.user.photoURL);
 
-
-        // this.localUser.getAlls().subscribe(managers => {
-        //     this.userManage = managers;
-        // });
-
-        // this.currentUser = this.currentLocalUser.getAlls().subscribe (user => {
-        //     this.currentUser = user;
-        //     console.log('123',this.currentUser)
-        // });
-
-
+        this.userLogo = user.user.photoURL;
+        
+        if (this.userLogo == null){
+            this.currentImg = !this.currentImg;
+            console.log(this.currentImg);
+        }
     }
 
 
