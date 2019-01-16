@@ -10,8 +10,7 @@ const defautState: User = {
     photoURL: '',
     displayName: '',
     favoriteColor: '',
-    isLogin: false,
-    error: ''
+    isLogin: false
 }
 
 //Help function create new state
