@@ -17,6 +17,7 @@ export class UserListingComponent implements OnInit {
     id_delete;
     length: any;
     breadcrumbs;
+    term;
     config: PaginationInstance = {
         id: 'comment',
         itemsPerPage: 10,

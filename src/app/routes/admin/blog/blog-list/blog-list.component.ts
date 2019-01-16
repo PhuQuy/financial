@@ -18,6 +18,7 @@ export class BlogListComponent implements OnInit {
     alls: any;
     breadcrumbs;
     managers = [];
+    term;
     config: PaginationInstance = {
         id: 'comment',
         itemsPerPage: 10,
@@ -62,9 +63,12 @@ export class BlogListComponent implements OnInit {
 
         }, () => { })
     }
-    
-    openBlog(id)
-    {
+
+    openBlog(id) {
         this.router.navigate(['/admin/blogs', id])
+    }
+
+    setItemPerpage(page) {
+        this.config.itemsPerPage = page;
     }
 }
