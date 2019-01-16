@@ -11,7 +11,10 @@ import { authReducer } from '../../components/redux/reducers/auth.reducer';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({
+      authState: authReducer
+  })
   ],
   declarations: [LogInComponent]
 })

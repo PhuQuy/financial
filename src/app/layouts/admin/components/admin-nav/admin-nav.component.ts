@@ -1,13 +1,19 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location } from '@angular/common';
+import { ManagerService } from '@app/services/manager.service';
+import { UserService } from '@app/services/user.service';
+import { LocalStorageService } from '@app/services/local-storage.service';
+
+
 
 
 @Component({
     selector: 'app-admin-nav',
     templateUrl: './admin-nav.component.html',
-    styleUrls: ['./admin-nav.component.scss']
+    styleUrls: ['./admin-nav.component.scss'],
+    providers: [ManagerService, UserService]
 })
 export class AdminNavComponent implements OnInit {
     private listTitles: any[];
@@ -17,10 +23,41 @@ export class AdminNavComponent implements OnInit {
     private sidebarVisible: boolean;
     public isCollapsed = true;
 
-    constructor(location: Location, private element: ElementRef, private router: Router) {
+    userManage: [];
+    currentUser: any;
+    userLogo: any;
+
+
+
+    constructor(location: Location, private element: ElementRef, private router: Router, private localStorageService: LocalStorageService, private managerService: ManagerService) {
         this.location = location;
         this.sidebarVisible = false;
+
+        let user = this.localStorageService.getItem('user');
+        console.log(user);
+
+        if(user) {
+
+            this.managerService.getById(user.uid).subscribe(user => {
+                console.log(user);
+    
+            })
+        }
+
+
+        // this.localUser.getAlls().subscribe(managers => {
+        //     this.userManage = managers;
+        // });
+
+        // this.currentUser = this.currentLocalUser.getAlls().subscribe (user => {
+        //     this.currentUser = user;
+        //     console.log('123',this.currentUser)
+        // });
+
+
     }
+
+
 
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
@@ -29,7 +66,9 @@ export class AdminNavComponent implements OnInit {
         this.sidebarClose();
     }
 
-    ngAfterViewInit() {
+
+    ngAf
+    terViewInit() {
         let routerChange = this.router.events;
         if (routerChange && routerChange != undefined) {
             routerChange.subscribe((event) => {
