@@ -18,6 +18,7 @@
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 
+
   &:focus+span {
     background-color: rgba(205, 220, 57, 0.4) !important;
     border-right: 1px solid #3e467b;
@@ -26,6 +27,12 @@
     box-shadow: none;
     outline: 0 !important;
     color: #2c2c2c;
+  }
+}
+
+.input-group-prepend {
+  span {
+    border-radius: 30px;
   }
 }
 
