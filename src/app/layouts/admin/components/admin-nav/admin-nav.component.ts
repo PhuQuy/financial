@@ -23,8 +23,8 @@ export class AdminNavComponent implements OnInit {
     private sidebarVisible: boolean;
     public isCollapsed = true;
 
-    currentImg = true;
-    userLogo = 'https://www.duracelldirect.co.uk/i/products/vpns/bpxx74-alt1.jpg';
+    currentImg;
+    userLogo;
 
 
 
@@ -33,22 +33,14 @@ export class AdminNavComponent implements OnInit {
         this.sidebarVisible = false;
 
         let user = this.localStorageService.getItem('user');
-        console.log(user);
-
-        if(user) {
-
-            this.managerService.getById(user.uid).subscribe(user => {
-                console.log(user);
-    
-            })
-        }
-        console.log(user.user.photoURL);
-
-        this.userLogo = user.user.photoURL;
         
-        if (this.userLogo == null){
-            this.currentImg = !this.currentImg;
-            console.log(this.currentImg);
+        if (user) {
+            console.log(user.user.uid);
+            this.managerService.getByUid(user.user.uid).subscribe(user => {
+                this.userLogo = user[0]['photoURL'];
+                console.log(user);
+                
+            })
         }
     }
 

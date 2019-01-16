@@ -26,7 +26,8 @@ export class UserManagementDetailComponent implements OnInit {
         'description': null,
         'password': [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(500)])],
         'role': 'manager',
-        'photoURL': ''
+        'photoURL': '',
+        'uid': ''
     };
     managerID;
     constructor(private fb: FormBuilder, private managerService: ManagerService, private route: ActivatedRoute,
@@ -108,6 +109,7 @@ export class UserManagementDetailComponent implements OnInit {
                     this.error = e;
                     console.log(e);
 
+                    this.loading = false;
                 });
         } else {
             value.id = this.managerID;

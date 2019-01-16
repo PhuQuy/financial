@@ -14,4 +14,16 @@ export class ManagerService extends BaseService {
         "deleted": true
     });
   }
+
+  public getByUid(id) {
+    let itemsCollection = this.angularFirestore.collection('manager', ref => ref.where('uid', '==', id));
+    return itemsCollection.snapshotChanges().map(changes => {
+        return changes.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+        });
+    });
+
+}
 }

@@ -5,7 +5,7 @@ import { BaseService } from './base.service';
 
 @Injectable()
 export class UserService extends BaseService {
-  constructor(protected angularFireDatabase: AngularFireDatabase, protected angularFirestore: AngularFirestore) {
-    super(angularFireDatabase, angularFirestore, 'user');
-  }
+    constructor(protected angularFireDatabase: AngularFireDatabase, protected angularFirestore: AngularFirestore) {
+        super(angularFireDatabase, angularFirestore, 'user');
+    }
 }
