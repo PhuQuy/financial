@@ -11,6 +11,11 @@ import { AppRoutingModule } from './app.routing';
 import { AuthGuard } from './core/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedService } from './services/shared.service';
+import { StoreRootModule, StoreModule } from '@ngrx/store';
+import { authReducer } from './components/redux/reducers/auth.reducer';
+import { AuthService } from './services/auth.service';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './components/redux/effects/auth.effect';
 
 @NgModule({
     declarations: [
@@ -22,8 +27,12 @@ import { SharedService } from './services/shared.service';
         NgtUniversalModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFirestoreModule
+        AngularFirestoreModule,
+        EffectsModule.forRoot([AuthEffects]),
+        StoreModule.forRoot({
+            authState: authReducer
+        })
     ],
-    providers: [AngularFireDatabase, AngularFireAuth, AuthGuard,SharedService]
+    providers: [AngularFireDatabase, AngularFireAuth, AuthGuard,SharedService, AuthService]
 })
 export class AppModule { }

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
 import { SeoService } from '@app/services/seo.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from "@angular/router";
 import { AngularFirestore } from 'angularfire2/firestore';
 import { LocalStorageService } from '@app/services/local-storage.service';
+
 interface User {
     uid: string;
     email: string;
@@ -36,7 +39,13 @@ export class LogInComponent implements OnInit {
     password = '';
     error;
     loading;
-    constructor(private afAuth: AngularFireAuth, public router: Router, private localStored: LocalStorageService, private seoService: SeoService) { }
+    constructor(
+        private afAuth: AngularFireAuth, 
+        public router: Router, 
+        private localStored: LocalStorageService, 
+        private seoService: SeoService,
+        private store: Store<User>
+        ) { }
 
     validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,6 +55,10 @@ export class LogInComponent implements OnInit {
     }
 
     emailLogin() {
+        const payload = {
+            email: this.email,
+            password: this.password
+          };
         this.loading = true;
         return this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password)
             .then((user) => {
