@@ -15,7 +15,7 @@ import { StoreRootModule, StoreModule } from '@ngrx/store';
 import { authReducer } from './components/redux/reducers/auth.reducer';
 import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
-//import { AuthEffects } from './components/redux/effects/auth.effect';
+import { AuthEffects } from './components/redux/effects/auth.effect';
 
 @NgModule({
     declarations: [
@@ -28,7 +28,7 @@ import { EffectsModule } from '@ngrx/effects';
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule,
-       // EffectsModule.forRoot([AuthEffects]),
+        EffectsModule.forRoot([AuthEffects]),
         StoreModule.forRoot({
             authState: authReducer
         })
