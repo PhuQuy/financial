@@ -20,7 +20,7 @@ const newState = (state, newDate) => {
 }
 
 export function authReducer(state: User = defautState, action: Action ){
-    console.log(action.type, state);
+    console.log('Reducers',action.type, state);
 
     switch(action.type){
         case StateActions.LOGIN:

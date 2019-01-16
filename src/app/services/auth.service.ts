@@ -4,12 +4,15 @@ import { Observable } from 'rxjs';
 
 import { User } from '../components/redux/models/user.model';
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
 
+    private currentUser: firebase.User = null;
     private BASE_URL = 'http://localhost:4200';
     constructor(private http: HttpClient, private afAuth: AngularFireAuth) { }
 
@@ -26,4 +29,5 @@ export class AuthService {
     logout() {
         this.afAuth.auth.signOut();
     }
+   
 }

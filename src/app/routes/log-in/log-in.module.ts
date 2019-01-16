@@ -4,8 +4,8 @@ import { LogInComponent } from './log-in.component';
 import { LoginRoutingModule } from './log-in.routing';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { StoreRootModule, StoreModule } from '@ngrx/store';
-import { authReducer } from '../../components/redux/reducers/auth.reducer';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from '@app/components/redux/reducers/auth.reducer';
 
 @NgModule({
   imports: [

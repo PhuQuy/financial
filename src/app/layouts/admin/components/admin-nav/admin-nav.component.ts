@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { ManagerService } from '@app/services/manager.service';
 import { UserService } from '@app/services/user.service';
 import { LocalStorageService } from '@app/services/local-storage.service';
+import { AuthService } from '@app/services/auth.service';
 
 
 
@@ -28,7 +29,7 @@ export class AdminNavComponent implements OnInit {
 
 
 
-    constructor(location: Location, private element: ElementRef, private router: Router, private localStorageService: LocalStorageService, private managerService: ManagerService) {
+    constructor(location: Location, private element: ElementRef, private router: Router, private localStorageService: LocalStorageService, private managerService: ManagerService, private auth: AuthService) {
         this.location = location;
         this.sidebarVisible = false;
 
@@ -51,11 +52,12 @@ export class AdminNavComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
         this.sidebarClose();
+        //this.logOut();
+        
     }
 
 
-    ngAf
-    terViewInit() {
+    ngAfterViewInit() {
         let routerChange = this.router.events;
         if (routerChange && routerChange != undefined) {
             routerChange.subscribe((event) => {
@@ -69,6 +71,10 @@ export class AdminNavComponent implements OnInit {
         }
     }
 
+    logOut() {
+       this.auth.logout();
+       this.router.navigate(['/login']);
+    }
 
     collapse() {
         this.isCollapsed = !this.isCollapsed;

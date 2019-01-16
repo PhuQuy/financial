@@ -12,4 +12,5 @@ export class AuthEffects {
     private authService: AuthService,
     private router: Router,
   ) {}
+
   }
