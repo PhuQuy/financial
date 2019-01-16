@@ -2,12 +2,14 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location } from '@angular/common';
+import { AuthService } from '@app/services/auth.service';
 
 
 @Component({
     selector: 'app-admin-nav',
     templateUrl: './admin-nav.component.html',
-    styleUrls: ['./admin-nav.component.scss']
+    styleUrls: ['./admin-nav.component.scss'],
+    providers:[AuthService]
 })
 export class AdminNavComponent implements OnInit {
     private listTitles: any[];
@@ -16,8 +18,9 @@ export class AdminNavComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public isCollapsed = true;
-
-    constructor(location: Location, private element: ElementRef, private router: Router) {
+    
+    
+    constructor(location: Location, private element: ElementRef, private router: Router,private auth: AuthService) {
         this.location = location;
         this.sidebarVisible = false;
     }
@@ -27,6 +30,8 @@ export class AdminNavComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
         this.sidebarClose();
+        //this.logOut();
+        
     }
 
     ngAfterViewInit() {
@@ -43,6 +48,10 @@ export class AdminNavComponent implements OnInit {
         }
     }
 
+    logOut() {
+       this.auth.logout();
+       this.router.navigate(['/login']);
+    }
 
     collapse() {
         this.isCollapsed = !this.isCollapsed;

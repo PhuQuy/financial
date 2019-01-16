@@ -67,7 +67,7 @@ export class LogInComponent implements OnInit {
                 this.loading = false;
                 console.log(user);
 
-                // this.localStored.setItem('user', user);
+                this.localStored.setItem('user', user);
                 this.router.navigate(['/admin']);
 
             })
