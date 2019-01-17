@@ -54,7 +54,10 @@ export class ChatManageComponent implements OnInit {
         })
 
     }
-
+    deleteChat(id){
+        this.chatId = id;
+        this.chatService.deleteById(id);
+    }
     sendMessage() {
         if (this.currentChat) {
             let messageContent = {
