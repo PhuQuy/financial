@@ -18,7 +18,7 @@
       <ul class="chat-list list-unstyled m-b-0">
         <li class="clearfix" *ngFor="let chat of chats | filter:term" [class.active]="chat.id == chatId">
           <div class="about" (click)="setChat(chat.id)">
-            <div class="name">{{chat.name}}</div>
+            <div class="name" [class.need-to-reply]="!chat.contents[chat.contents.length -1]?.isAdmin">{{chat.name}}</div>
             <div class="status"> <i class="zmdi zmdi-circle offline"></i> {{chat?.time}} ago </div>
           </div>
         </li>
@@ -42,7 +42,7 @@
         <ul class="m-b-0">
           <li class="clearfix" *ngFor="let message of currentChat?.contents">
             <div class="message-data" [class.text-right]="message.isAdmin">
-              <span class="message-data-time">{{message.createdAt}}</span>
+              <span class="message-data-time">{{message?.createdAt}}</span>
             </div>
             <div class="message" [ngClass]="{
                     'other-message':message.isAdmin,

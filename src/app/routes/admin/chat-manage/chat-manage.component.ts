@@ -73,6 +73,8 @@ export class ChatManageComponent implements OnInit {
         let latest = moment(chat.contents[chat.contents.length - 1].createdAt);
         let diff = -latest.diff(moment.now(), 'minutes');
         let result = moment.duration({"minutes": diff}).humanize();
+        console.log(latest);
+        
         return result;
 
     }
