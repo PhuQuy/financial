@@ -55,12 +55,12 @@ export class ChatManageComponent implements OnInit {
 
     }
 
-    deleteChat(id){
+    deleteChat(id) {
         const index = this.chats.indexOf(id);
-        if ( index > -1 ){
-            this.chats.splice(index,1);
+        if (index > -1) {
+            this.chats.splice(index, 1);
         }
-        this.chatService.deleteById(id);   
+        this.chatService.deleteById(id);
     }
     sendMessage() {
         if (this.currentChat) {
@@ -79,9 +79,7 @@ export class ChatManageComponent implements OnInit {
     getDiffDate(chat) {
         let latest = moment(chat.contents[chat.contents.length - 1].createdAt);
         let diff = -latest.diff(moment.now(), 'minutes');
-        let result = moment.duration({"minutes": diff}).humanize();
-        console.log(latest);
-        
+        let result = moment.duration({ "minutes": diff }).humanize();
         return result;
 
     }
