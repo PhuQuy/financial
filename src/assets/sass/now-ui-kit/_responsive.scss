@@ -335,6 +335,25 @@
       }
     }
   }
+
+  .dataTables_filter {
+    label {
+      float: left;
+      text-align: unset !important;
+      width: 100%;
+
+      input {
+        width: 78%;
+        height: 35px;
+      }
+    }
+  }
+
+  app-user-management {
+    .user-option {
+      min-width: 120px !important;
+    }
+  }
 }
 
 @media screen and (min-width: 576px) {
