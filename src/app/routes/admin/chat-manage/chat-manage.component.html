@@ -1,11 +1,11 @@
 <div class="col-lg-12 col-xl-12">
-  <div class="pt-4">
+  <div class="pt-4" [hidden]="component">
     <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
   </div>
   <!-- <h1 class="text-center">Message</h1> -->
 
-  <div class="card-deck">
-    <div id="plist" class="col-lg-3 card people-list">
+  <div class="card-deck" [class.mt-3]="component">
+    <div id="plist" class="col-lg-3 card people-list" style="height: calc(100vh - 190px);"  [hidden]="component">
       <div class="header pt-3 mb-0">
         <h2 class="mb-2"><strong>Chat</strong> List</h2>
       </div>
@@ -15,7 +15,8 @@
           <i class="fas fa-search"></i>
         </span>
       </div>
-      <ul class="chat-list list-unstyled m-b-0">
+      <ul class="chat-list list-unstyled m-b-0" style="height: 100%;
+      overflow-y: auto;">
         <li class="clearfix" *ngFor="let chat of chats | filter:term" [class.active]="chat.id == chatId">
           <div class="about" (click)="setChat(chat.id)">
             <div class="name" [class.need-to-reply]="!chat.contents[chat.contents.length -1]?.isAdmin">{{chat.name}}</div>
@@ -24,9 +25,10 @@
         </li>
       </ul>
     </div>
-    <div class="card chat col-lg-9 px-md-2 px-0">
+    <div class="card chat px-md-2 px-0" [class.mx-0]="component" [class.col-lg-12]="component" [class.col-lg-9]="!component">
       <div class="header pt-3 pl-2 mb-0">
-        <h2 class="mb-2"><strong>Message</strong> Content</h2>
+        <h2 class="mb-2"  [hidden]="!component"><strong>Message</strong> Content</h2>
+        <h2 class="mb-2 mt-3" [hidden]="component"><strong>Recent</strong> Chat</h2>
       </div>
       <div class="chat-header clearfix">
         <div class="row">

@@ -107,7 +107,6 @@ export class UserManagementDetailComponent implements OnInit {
                 })
                 .catch((e) => {
                     this.error = e;
-                    console.log(e);
 
                     this.loading = false;
                 });

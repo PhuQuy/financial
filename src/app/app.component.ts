@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,6 @@ import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angul
 })
 export class AppComponent {
     loading;
-    // @ViewChild('animateChild') animateChild: any;
     constructor(private router: Router, @Inject(PLATFORM_ID) public platformId: string) {
     }
 

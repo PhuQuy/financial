@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { SeoService } from '@app/services/seo.service';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from "@angular/router";
-import { AngularFirestore } from 'angularfire2/firestore';
-import { LocalStorageService } from '@app/services/local-storage.service';
-import { AuthService } from '@app/services/auth.service';
+import { Login } from '@app/components/redux/actions/auth.action';
+import { selectAuthState } from '@app/components/redux/app.states';
+import { SeoService } from '@app/services/seo.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
 
 interface User {
     uid: string;
@@ -24,6 +23,22 @@ interface User {
 })
 export class LogInComponent implements OnInit {
 
+
+    isEmailValidated: boolean = false;
+    email = '';
+    password = '';
+    error;
+    loading;
+    getState: Observable<any>;
+
+    constructor(
+        public router: Router,
+        private seoService: SeoService,
+        private store: Store<User>
+    ) {
+        this.getState = this.store.select(selectAuthState);
+    }
+
     ngOnInit() {
         setTimeout(() => {
             this.seoService.generateTags({
@@ -33,21 +48,20 @@ export class LogInComponent implements OnInit {
                 keywords: 'admin page'
             });
         }, 2000);
-    }
 
-    isEmailValidated: boolean = false;
-    email = '';
-    password = '';
-    error;
-    loading;
-    constructor(
-        private afAuth: AngularFireAuth,
-        public router: Router,
-        private authService: AuthService,
-        private localStored: LocalStorageService,
-        private seoService: SeoService,
-        private store: Store<User>
-    ) { }
+        this.getState.subscribe((state) => {
+            this.loading = false;
+            if (state && state.isAuthenticated) {
+                this.router.navigate(['/admin']);
+            } else {
+                if (this.error == null) {
+                    this.error = '';
+                } else {
+                    this.error = state.errorMessage;
+                }
+            }
+        });
+    }
 
     validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -62,19 +76,20 @@ export class LogInComponent implements OnInit {
             password: this.password
         };
         this.loading = true;
-        return this.authService.logIn(this.email, this.password)
-            .then((user) => {
-                this.loading = false;
-                console.log(user);
+        this.store.dispatch(new Login(payload));
+        // return this.authService.logIn(this.email, this.password)
+        //     .then((user) => {
+        //         this.loading = false;
+        //         console.log(user);
 
-                this.localStored.setItem('user', user);
-                this.router.navigate(['/admin']);
+        //         this.localStored.setItem('user', user);
+        //         this.router.navigate(['/admin']);
 
-            })
-            .catch(error => {
-                this.loading = false;
-                console.log(error);
-                this.error = error.message;
-            });
+        //     })
+        //     .catch(error => {
+        //         this.loading = false;
+        //         console.log(error);
+        //         this.error = error.message;
+        //     });
     }
 }

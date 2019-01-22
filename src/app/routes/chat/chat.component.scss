@@ -312,11 +312,29 @@
 }
 
 .chat-history {
-  height: calc(60vh - 340px);
+  height: calc(100vh - 440px);
   overflow-y: auto;
 }
-.now-ui-icons{
+
+.now-ui-icons {
   color: orange;
   zoom: 300%;
   margin-top: 5rem;
+}
+
+.input-group input {
+  &:focus+.input-group-prepend span {
+    background-color: rgba(205, 220, 57, 0.4) !important;
+    border-right: 1px solid #3e467b;
+    border-top: 1px solid #3e467b;
+    border-left: 1px solid #3e467b;;
+    border-bottom: 1px solid #3e467b;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c;
+  }
+}
+
+.input-group-prepend span {
+  border: 1px solid #E3E3E3;
 }

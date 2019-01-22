@@ -42,7 +42,7 @@ export class SystemComponent implements OnInit {
         })
     }
 
-    
+
     open(id) {
         const modalRef = this.modalService.open(ConfirmComponent, { centered: true });
         modalRef.componentInstance.title = 'Xác nhận xóa';
@@ -55,5 +55,7 @@ export class SystemComponent implements OnInit {
         }, () => { })
     }
 
-
+    setItemPerpage(page) {
+        this.config.itemsPerPage = page;
+    }
 }

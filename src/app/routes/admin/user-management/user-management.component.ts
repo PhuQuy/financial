@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 import { ManagerService } from '@app/services/manager.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +11,7 @@ import { PaginationInstance } from 'ngx-pagination';
     providers: [ManagerService]
 })
 export class UserManagementComponent implements OnInit {
+    @Input() component = false;
     managers = [];
     breadcrumbs;
     term;

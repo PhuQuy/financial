@@ -1,11 +1,14 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { ROUTES } from '../sidebar/sidebar.component';
 import { Location } from '@angular/common';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '@app/services/auth.service';
+import { LocalStorageService } from '@app/services/local-storage.service';
 import { ManagerService } from '@app/services/manager.service';
 import { UserService } from '@app/services/user.service';
-import { LocalStorageService } from '@app/services/local-storage.service';
-import { AuthService } from '@app/services/auth.service';
+import { ROUTES } from '../sidebar/sidebar.component';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectAuthState } from '@app/components/redux/app.states';
 
 
 
@@ -23,29 +26,22 @@ export class AdminNavComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public isCollapsed = true;
-
     currentImg;
     userLogo;
+    getState: Observable<any>;
+    user;
 
-
-
-    constructor(location: Location, private element: ElementRef, private router: Router, private localStorageService: LocalStorageService, private managerService: ManagerService, private auth: AuthService) {
+    constructor(location: Location, private element: ElementRef, private router: Router, private store: Store<any>, private auth: AuthService) {
         this.location = location;
+        this.getState = this.store.select(selectAuthState);
+
         this.sidebarVisible = false;
-
-        let user = this.localStorageService.getItem('user');
-        
-        if (user) {
-            console.log(user.user.uid);
-            this.managerService.getByUid(user.user.uid).subscribe(user => {
-                this.userLogo = user[0]['photoURL'];
-                console.log(user);
-                
-            })
-        }
+        this.getState.subscribe((state) => {
+            if (state && state.isAuthenticated) {
+                this.user = state.user;
+            }
+        });
     }
-
-
 
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
@@ -53,7 +49,7 @@ export class AdminNavComponent implements OnInit {
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
         this.sidebarClose();
         //this.logOut();
-        
+
     }
 
 
@@ -72,14 +68,12 @@ export class AdminNavComponent implements OnInit {
     }
 
     logOut() {
-       this.auth.logout();
-       this.router.navigate(['/login']);
+        this.auth.logout();
+        this.router.navigate(['/login']);
     }
 
     collapse() {
         this.isCollapsed = !this.isCollapsed;
-        console.log(this.isCollapsed);
-
         const navbar = document.getElementsByTagName('nav')[0];
         if (!this.isCollapsed) {
             navbar.classList.remove('navbar-transparent');

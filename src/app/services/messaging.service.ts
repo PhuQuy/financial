@@ -18,8 +18,6 @@ export class MessagingService {
             user.subscribe(user => {
                 if (!user) return;
                 // const data = { [user.uid]: token }
-                console.log(user);
-
                 const data = { userID: user.uid, token: token }
                 var tokens = this.angularFirestore.doc('fcmTokens/' + user.uid).set(data);
             })

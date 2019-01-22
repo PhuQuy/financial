@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { ChatService } from '@app/services/chat.service';
 import * as moment from 'moment';
 
@@ -9,6 +9,7 @@ import * as moment from 'moment';
     providers: [ChatService]
 })
 export class ChatManageComponent implements OnInit {
+    @Input() component = false;
     chats = [];
     currentChat: any;
     message = "";
@@ -73,8 +74,6 @@ export class ChatManageComponent implements OnInit {
         let latest = moment(chat.contents[chat.contents.length - 1].createdAt);
         let diff = -latest.diff(moment.now(), 'minutes');
         let result = moment.duration({"minutes": diff}).humanize();
-        console.log(latest);
-        
         return result;
 
     }

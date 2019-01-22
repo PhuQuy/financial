@@ -33,8 +33,6 @@ export class UserDetailComponent implements OnInit {
         if (this.alls) {
             this.alls.subscribe(user => {
                 this.user = user;
-                console.log(this.user);
-
                 this.user.phone = this.encrypt.decrypt(this.user.phone);
                 this.breadcrumbs = [
                     {

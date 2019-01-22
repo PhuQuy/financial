@@ -131,7 +131,6 @@ export class HomeComponent implements AfterViewInit {
         this.user.phone = encrypted;
         this.userService.create(this.user);
         this.user = {};
-        console.log(encrypted);
 
     }
 
@@ -145,8 +144,6 @@ export class HomeComponent implements AfterViewInit {
 
         this.blogService.getAlls().subscribe(blogs => {
             this.blogs = blogs;
-            console.log(blogs);
-
         })
     }
 

@@ -6,7 +6,6 @@ import { User } from '../components/redux/models/user.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-
 @Injectable({
     providedIn: 'root'
 })
@@ -18,7 +17,7 @@ export class AuthService {
 
 
     logIn(email: string, password: string) {
-        return this.afAuth.auth.signInWithEmailAndPassword(email, password);      
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     }
 
     signUp(email: string, password: string): Observable<User> {
@@ -26,8 +25,19 @@ export class AuthService {
         return this.http.post<User>(url, { email, password });
     }
 
+    // public getByUid(id) {
+    //     let itemsCollection = this.angularFirestore.collection('manager', ref => ref.where('uid', '==', id));
+    //     return itemsCollection.snapshotChanges().map(changes => {
+    //         return changes.map(a => {
+    //             const data = a.payload.doc.data();
+    //             const id = a.payload.doc.id;
+    //             return { id, ...data };
+    //         });
+    //     });
+    // }
+
     logout() {
         this.afAuth.auth.signOut();
     }
-   
+
 }

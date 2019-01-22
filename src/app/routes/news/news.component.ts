@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
 import { BlogService } from '@app/services/blog.service';
 import { SeoService } from '@app/services/seo.service';
 import { SharedService } from '@app/services/shared.service';
@@ -24,14 +24,10 @@ export class NewsComponent implements OnInit {
         this.alls = this.blogService.getAlls();
         sharedService.title.subscribe(title => {
             this.title = title;
-            console.log(title);
-
         })
     }
 
     ngOnInit() {
-        this.state = this.outlet.activatedRouteData['routing'];
-        console.log(this.state);
         this.seoService.generateTags({
             title: ' Liên hệ vay vốn sinh viên',
             description: 'Liên hệ Vay vốn sinh viên',
@@ -41,8 +37,6 @@ export class NewsComponent implements OnInit {
         if (this.alls) {
             this.alls.subscribe(blogs => {
                 this.blogs = blogs;
-                console.log(this.blogs);
-
             });
         }
 
@@ -53,19 +47,21 @@ export class NewsComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        // this.router.events
-        //     .subscribe((event) => {
-        //         if (event instanceof NavigationStart) {
+        if(this.state) {
+            this.state = this.outlet.activatedRouteData['routing'];
+        }
 
-        //         }
-        //         else if (
-        //             event instanceof NavigationEnd ||
-        //             event instanceof NavigationCancel
-        //         ) {
-        //             this.state = this.outlet.activatedRouteData['routing'];
-        //             console.log(this.state);
+        this.router.events
+            .subscribe((event) => {
+                if (event instanceof NavigationStart) {
 
-        //         }
-        //     });
+                }
+                else if (
+                    event instanceof NavigationEnd ||
+                    event instanceof NavigationCancel
+                ) {
+                    this.state = this.outlet.activatedRouteData['routing'];
+                }
+            });
     }
 }
