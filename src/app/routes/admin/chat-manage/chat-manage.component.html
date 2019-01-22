@@ -22,6 +22,9 @@
             <div class="name" [class.need-to-reply]="!chat.contents[chat.contents.length -1]?.isAdmin">{{chat.name}}</div>
             <div class="status"> <i class="zmdi zmdi-circle offline"></i> {{chat?.time}} ago </div>
           </div>
+          <button type="button" class="close" aria-label="Close" (click)="deleteChat(chat.id)">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </li>
       </ul>
     </div>
