@@ -3,6 +3,10 @@ import { User } from '../models/user.model';
 
 export type Action = StateActions.All;
 
+export interface ConfigurationState {
+    configuration: any;
+}
+
 export interface State {
     // is a user authenticated?
     isAuthenticated: boolean;
@@ -41,6 +45,16 @@ export function reducer(state = initialState, action: StateActions.All): any {
         default:
             return state;
     }
+}
 
 
+export function configurationReducer(state, action: StateActions.AllConfiguration): any {
+    switch (action.type) {
+        case StateActions.CONFIGURATION_LOAD_SUCCESS:
+            return { ...action.payload };
+        case StateActions.CONFIGURATION_LOAD_FAILED:
+            return { state };
+        default:
+            return state;
+    }
 }

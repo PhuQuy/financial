@@ -20,6 +20,7 @@ import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './services/auth.service';
 import { SharedService } from './services/shared.service';
 import { ManagerService } from './services/manager.service';
+import { ConfigurationService } from './services/configuration.service';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
     return localStorageSync(
@@ -46,6 +47,6 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
         !environment.production ? StoreDevtoolsModule.instrument() : [],
         EffectsModule.forRoot([AuthEffects])
     ],
-    providers: [AngularFireDatabase, AngularFireAuth, AuthGuard,SharedService, AuthService,  ManagerService]
+    providers: [AngularFireDatabase, AngularFireAuth, AuthGuard,SharedService, AuthService,  ManagerService, ConfigurationService]
 })
 export class AppModule { }

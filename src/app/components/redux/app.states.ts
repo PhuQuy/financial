@@ -6,8 +6,15 @@ export interface AppState {
 }
 
 export const reducers = {
-  auth: auth.reducer
+  auth: auth.reducer,
+  configuration : auth.configurationReducer
 };
 
+export interface ConfigurationState {
+    state: auth.ConfigurationState;
+}
+
 export const selectAuthState = createFeatureSelector<AppState>('auth');
+export const configurationState = createFeatureSelector<ConfigurationState>('configuration');
+
 

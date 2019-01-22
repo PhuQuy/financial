@@ -3,59 +3,53 @@
     <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
   </div>
   <div class="row clearfix">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card info-box-2">
-                <div class="body">
-                    <div class="icon">
-                        <div class="chart chart-pie"><canvas width="50" height="50" style="display: inline-block; width: 50px; height: 50px; vertical-align: top;"></canvas></div>
-                    </div>
-                    <div class="content">
-                        <div class="text">USAGE</div>
-                        <div class="number"><span class="number count-to" data-from="0" data-to="98" data-speed="2000" data-fresh-interval="700">98</span>%</div>
-                    </div>
-                </div>
-            </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card info-box-2">
+        <div class="body">
+          <div class="content">
+            <h3 class="text-center mb-3">Status</h3>
+            <!-- <div class="number"><span class="number count-to" data-from="0" data-to="98" data-speed="2000"
+                data-fresh-interval="700">98</span>%</div> -->
+            <select class="form-control text-center" id="status" [(ngModel)]="user.status" (change)="updateStatus($event.target.value)">
+              <option class="text-center" value="pending">Pending</option>
+              <option class="text-center" value="completed">Completed</option>
+            </select>
+          </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card info-box-2">
-                <div class="body">
-                    <div class="icon">
-                        <div class="chart chart-bar"><canvas width="54" height="45" style="display: inline-block; width: 54px; height: 45px; vertical-align: top;"></canvas></div>
-                    </div>
-                    <div class="content">
-                        <div class="text">IMPRESSIONS</div>
-                        <div class="number count-to" data-from="0" data-to="457512" data-speed="2000" data-fresh-interval="700">457512</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card info-box-2">
-                <div class="body">
-                    <div class="icon">
-                        <span class="chart chart-line"><canvas width="60" height="45" style="display: inline-block; width: 60px; height: 45px; vertical-align: top;"></canvas></span>
-                    </div>
-                    <div class="content">
-                        <div class="text">TOTAL SALES</div>                            
-                        <div class="number">$<span class="number count-to" data-from="0" data-to="125543" data-speed="2000" data-fresh-interval="700">125543</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card info-box-2">
-                <div class="body">
-                    <div class="icon">
-                        <div class="chart chart-bar"><canvas width="59" height="45" style="display: inline-block; width: 59px; height: 45px; vertical-align: top;"></canvas></div>
-                    </div>
-                    <div class="content">
-                        <div class="text">CURRENCY</div>
-                        <div class="number">$<span class="number count-to" data-from="0" data-to="1063" data-speed="2000" data-fresh-interval="700">1063</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card info-box-2">
+        <div class="body">
+          <div class="content">
+            <h3 class="text-center">Số tiền vay</h3>
+            <div class="number">$<span class="number count-to">{{user.money}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card info-box-2">
+        <div class="body">
+          <div class="content">
+            <h3 class="text-center">Thời hạn trả</h3>
+            <div class="number"><span class="number count-to">{{user?.long}} tháng</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card info-box-2">
+        <div class="body">
+          <div class="content">
+            <h3 class="text-center">Tổng lãi dự kiến</h3>
+            <div class="number">$<span class="number count-to" data-from="0" data-to="1063" data-speed="2000"
+                data-fresh-interval="700">{{loinhuan}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <!-- <div class="col-md-12">
       <div class="card mt-3">
@@ -75,7 +69,13 @@
           <div class="header mb-0">
             <h2 class="mb-0"><strong>Basic</strong> Informations</h2>
             <ul class="header-dropdown">
-              <li ngbDropdown placement="bottom-right" class="hide-dropdown-button">
+              <li class="dropdown-button" [hidden]="basicDisabled">
+                <button class="btn btn-raised btn-primary btn-round waves-effect" (click)="updateBasic()" type="button">Update</button>
+              </li>
+              <li class="dropdown-button" [hidden]="basicDisabled">
+                <button class="btn btn-raised btn-warning btn-round waves-effect" (click)="cancelBasic()" type="button">Cancel</button>
+              </li>
+              <li ngbDropdown placement="bottom-right" class="hide-dropdown-button" [hidden]="!basicDisabled">
                 <a id="dropdownBasic109" ngbDropdownToggle>
                   <i class="fas fa-ellipsis-h"></i>
                 </a>
@@ -94,32 +94,32 @@
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">SĐT:</label>
                 <input type="text" name="user-phone" [(ngModel)]="user.phone" class="form-control" id="user-phone"
-                [disabled]="basicDisabled">
+                  [disabled]="basicDisabled">
               </div>
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Chứng minh nhân dân:</label>
                 <input type="text" name="user-cmnd" [(ngModel)]="user.cmnd" class="form-control" id="user-cmnd"
-                [disabled]="basicDisabled">
+                  [disabled]="basicDisabled">
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Ngày cấp:</label>
                 <input type="text" name="user-cmnd_date" [(ngModel)]="user.cmnd_date" class="form-control" id="user-cmnd_date"
-                [disabled]="basicDisabled">
+                  [disabled]="basicDisabled">
               </div>
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Công an:</label>
                 <input type="text" name="user-cmnd_ca" [(ngModel)]="user.cmnd_ca" class="form-control" id="user-cmnd_ca"
-                [disabled]="basicDisabled">
+                  [disabled]="basicDisabled">
               </div>
             </div>
             <label for="exampleInputEmail1">Địa chỉ thường trú:</label>
             <input type="text" name="user-address" [(ngModel)]="user.address" class="form-control" id="user-address"
-            [disabled]="basicDisabled">
+              [disabled]="basicDisabled">
             <label for="exampleInputEmail1">Hiện là sinh viên trường:</label>
             <input type="text" name="user-university" [(ngModel)]="user.university" class="form-control" id="user-university"
-            [disabled]="basicDisabled">
+              [disabled]="basicDisabled">
             <div class="row">
               <div class="col-sm-4">
                 <label for="exampleInputEmail1">Khóa:</label>
@@ -128,12 +128,12 @@
               <div class="col-sm-4">
                 <label for="exampleInputEmail1">Khoa:</label>
                 <input type="text" name="user-khoa" [(ngModel)]="user.khoa" class="form-control" id="date_khoa"
-                [disabled]="basicDisabled">
+                  [disabled]="basicDisabled">
               </div>
               <div class="col-sm-4">
                 <label for="exampleInputEmail1">Lớp:</label>
                 <input type="text" name="user-class" [(ngModel)]="user.class" class="form-control" id="user-class"
-                [disabled]="basicDisabled">
+                  [disabled]="basicDisabled">
               </div>
             </div>
           </form>
@@ -146,12 +146,18 @@
           <div class="header mb-0">
             <h2 class="mb-0"><strong>Other</strong> Informations</h2>
             <ul class="header-dropdown">
-              <li ngbDropdown placement="bottom-right" class="hide-dropdown-button">
+              <li class="dropdown-button" [hidden]="otherDisabled">
+                <button class="btn btn-raised btn-primary btn-round waves-effect" (click)="updateOther()" type="button">Update</button>
+              </li>
+              <li class="dropdown-button" [hidden]="otherDisabled">
+                <button class="btn btn-raised btn-warning btn-round waves-effect" (click)="cancelOther()" type="button">Cancel</button>
+              </li>
+              <li ngbDropdown placement="bottom-right" class="hide-dropdown-button" [hidden]="!otherDisabled">
                 <a id="dropdownBasic109" ngbDropdownToggle>
                   <i class="fas fa-ellipsis-h"></i>
                 </a>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic109">
-                  <button class="dropdown-item pointer">Edit</button>
+                  <button class="dropdown-item pointer" (click)="otherEdit()">Edit</button>
                 </div>
               </li>
             </ul>
@@ -164,49 +170,49 @@
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Zalo:</label>
                 <input type="text" name="user-zalo" [(ngModel)]="user.zalo" class="form-control" id="user-zalo"
-                  disabled>
+                  [disabled]="otherDisabled">
               </div>
             </div>
 
             <label for="exampleInputEmail1">Họ tên cha:</label>
             <input type="text" name="user-father" [(ngModel)]="user.father" class="form-control" id="user-father"
-              disabled>
+              [disabled]="otherDisabled">
             <div class="row">
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">SĐT:</label>
                 <input type="text" name="user-father_phone" [(ngModel)]="user.father_phone" class="form-control" id="user-father_phone"
-                  disabled>
+                  [disabled]="otherDisabled">
               </div>
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Nghề nghiệp:</label>
                 <input type="text" name="user-father_job" [(ngModel)]="user.father_job" class="form-control" id="user-father_job"
-                  disabled>
+                  [disabled]="otherDisabled">
               </div>
             </div>
             <label for="exampleInputEmail1">Họ tên mẹ:</label>
             <input type="text" name="user-mother" [(ngModel)]="user.mother" class="form-control" id="user-mother"
-              disabled>
+              [disabled]="otherDisabled">
             <div class="row">
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">SĐT:</label>
                 <input type="text" name="user-mother_phone" [(ngModel)]="user.mother_phone" class="form-control" id="user-mother_phone"
-                  disabled>
+                  [disabled]="otherDisabled">
               </div>
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Nghề nghiệp:</label>
                 <input type="text" name="user-mother_job" [(ngModel)]="user.mother_job" class="form-control" id="user-mother_job"
-                  disabled>
+                  [disabled]="otherDisabled">
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">Họ và tên AC (nếu có):</label>
-                <input type="text" name="user-ace" [(ngModel)]="user.ace" class="form-control" id="user-ace" disabled>
+                <input type="text" name="user-ace" [(ngModel)]="user.ace" class="form-control" id="user-ace" [disabled]="otherDisabled">
               </div>
               <div class="col-sm-6">
                 <label for="exampleInputEmail1">SĐT:</label>
                 <input type="text" name="user-ace_phone" [(ngModel)]="user.ace_phone" class="form-control" id="user-ace_phone"
-                  disabled>
+                  [disabled]="otherDisabled">
               </div>
             </div>
           </form>

@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { RequestOptions, Headers } from '@angular/http';
+import { catchError, map } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Injectable()
 export class GoogleAnalyticService {
     private BASE_URL = 'https://www.googleapis.com/oauth2/v4/token';
     private ANALYTIC_URL = 'https://content.googleapis.com/analytics/v3/data/ga?start-date=30daysAgo&end-date=2019-01-08&_src=embed-api%3Av1&ids=ga%3A187442357&metrics=ga%3Asessions&dimensions=ga%3Acity&output=dataTable';
     constructor(private http: HttpClient) {
-
+        let today = moment(new Date()).format('YYYY-MM-DD');
+        this.ANALYTIC_URL = `https://content.googleapis.com/analytics/v3/data/ga?start-date=30daysAgo&end-date=${today}&_src=embed-api%3Av1&ids=ga%3A187442357&metrics=ga%3Asessions&dimensions=ga%3Acity&output=dataTable`
     }
 
     getAuthorizationCode() {

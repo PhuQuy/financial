@@ -9,8 +9,9 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
-import { GetUser, GETUSER, Login, LOGIN, LogInFailure, LogInSuccess } from '../actions/auth.action';
+import { GetUser, GETUSER, Login, LOGIN, LogInFailure, LogInSuccess, CONFIGURATION, Configuration, ConfigurationSuccess, ConfigurationFailed } from '../actions/auth.action';
 import { Action } from '../reducers/auth.reducer';
+import { ConfigurationService } from '@app/services/configuration.service';
 
 @Injectable()
 export class AuthEffects {
@@ -18,7 +19,8 @@ export class AuthEffects {
         private actions: Actions,
         private authService: AuthService,
         private router: Router,
-        private managerService: ManagerService
+        private managerService: ManagerService,
+        private configurationService: ConfigurationService
     ) { }
 
     @Effect()
@@ -52,28 +54,35 @@ export class AuthEffects {
                 const id = a.payload.doc.id;
                 user.push({ id, ...data });
             });
-            if(user[0]) {
+            if (user[0]) {
                 return new LogInSuccess({ ...user[0] })
             } else {
-                return new LogInFailure({error: 'User not found'})
+                return new LogInFailure({ error: 'User not found' })
             }
         })
         .catch(err => of(new LogInFailure({ error: err.message })));
 
 
-    // @Effect()
-    // GetUser: Observable<any> = this.actions.ofType(GETUSER).pipe(
-    //     map((action: GETUSER) => action.payload),
-    //     switchMap(payload => {
-    //         console.log(payload)
-    //         return this.managerService.getByUid(payload['user'].uid);
-    //     }),
-    //     mergeMap(actions => actions),
-    //     map(action => {
-    //         return {
-    //             type: `[Pizza] ${action.type}`,
-    //             payload: { id: action.payload.doc.id, ...action.payload.doc.data() }
-    //         };
-    //     })
-    // )
+    @Effect()
+    Configuration = this.actions.ofType(CONFIGURATION)
+        .map((action: Configuration) => action)
+        .switchMap(() => {
+            return this.configurationService.getAllConfiguration();
+        })
+        .map((configurations) => {
+            let configuration = [];
+            configurations.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                configuration.push({ id, ...data });
+            });
+            if (configuration[0]) {
+                console.log(configuration[0]);
+                
+                return new ConfigurationSuccess({ ...configuration[0] })
+            } else {
+                return new ConfigurationFailed({});
+            }
+        })
+        .catch(err => of('Configuration Load Fail'));
 }

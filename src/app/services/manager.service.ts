@@ -17,13 +17,6 @@ export class ManagerService extends BaseService {
 
     public getByUid(id) {
         return this.angularFirestore.collection('manager', ref => ref.where('uid', '==', id)).stateChanges();
-        // return itemsCollection.snapshotChanges().map(changes => {
-        //     return changes.map(a => {
-        //         const data = a.payload.doc.data();
-        //         const id = a.payload.doc.id;
-        //         return { id, ...data };
-        //     });
-        // });
     }
 
     public getUserByUID(uid) {

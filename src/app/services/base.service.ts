@@ -14,7 +14,7 @@ export class BaseService {
     }
 
     public getAlls(): Observable<any> {
-        let alls = this.angularFirestore.collection<any>(this.basePath).snapshotChanges().pipe(
+        let alls = this.angularFirestore.collection<any>(this.basePath, ref => ref.orderBy('createdAt', 'desc')).snapshotChanges().pipe(
             map(actions => actions.map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;
@@ -33,8 +33,6 @@ export class BaseService {
         if (id == null) {
             return null;
         }
-        this.checkLog(this.basePath, 'update');
-
         const timestamp = this.timestamp;
         return this.angularFirestore.collection(this.basePath).doc(id).set({
             ...data, createdAt: timestamp

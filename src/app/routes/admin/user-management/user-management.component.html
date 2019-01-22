@@ -47,6 +47,7 @@
               <th>User ID</th>
               <th class="hidden-xs">Email Address</th>
               <th>Role</th>
+              <th>Ngày tạo</th>
               <th class="text-right">Thao tác</th>
             </tr>
           </thead>
@@ -59,6 +60,7 @@
               <td class="user-option">{{manager.name}}</td>
               <td class="hidden-xs">{{manager.email}}</td>
               <td><span class="badge" [class.badge-success]="manager.role == 'admin'" [class.badge-warning]="manager.role == 'manager'">{{manager.role}}</span></td>
+              <td>{{manager.createdAt.toDate() | date:'short'}}</td>
               <td class="text-right">
                 <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " [routerLink]="['/admin/user-management', manager.id]">
                   <i class="now-ui-icons ui-2_settings-90"></i>
