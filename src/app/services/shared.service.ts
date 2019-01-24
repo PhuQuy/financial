@@ -10,5 +10,10 @@ export class SharedService {
         this.title.emit(title);
     }
 
+    @Output() user: EventEmitter<any[]> = new EventEmitter();
+    newUser(user) {
+        this.user.emit(user);
+    }
+
     constructor() { }
 }

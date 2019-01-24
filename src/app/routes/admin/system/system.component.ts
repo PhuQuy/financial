@@ -3,23 +3,26 @@ import { PaginationInstance } from 'ngx-pagination';
 import { SystemService } from '@app/services/system.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
+import { ConfigurationService } from '@app/services/configuration.service';
 
 @Component({
     selector: 'app-system',
     templateUrl: './system.component.html',
     styleUrls: ['./system.component.scss'],
-    providers: [SystemService]
+    providers: [SystemService, ConfigurationService]
 })
 export class SystemComponent implements OnInit {
     systems = [];
     breadcrumbs;
     term;
+    configuration;
     config: PaginationInstance = {
         id: 'comment',
         itemsPerPage: 10,
         currentPage: 1
     };
-    constructor(private systemService: SystemService, private modalService: NgbModal) { }
+    constructor(private systemService: SystemService, private modalService: NgbModal, private configurationService: ConfigurationService) { 
+    }
 
     ngOnInit() {
         this.breadcrumbs = [
@@ -34,6 +37,7 @@ export class SystemComponent implements OnInit {
         ];
 
         this.loadSystems();
+        this.loadConfiguration();
     }
 
     loadSystems() {
@@ -42,7 +46,22 @@ export class SystemComponent implements OnInit {
         })
     }
 
-    
+    loadConfiguration() {
+        this.configurationService.getAlls().subscribe(configurations => {
+            if (configurations && configurations.length > 0) {
+                this.configuration = configurations[0];
+                console.log(this.configuration);
+                
+            } else {
+                this.configuration = new Object();
+            }
+        })
+    }
+
+    saveConfiguration() {
+        this.configurationService.updateOrCreate(this.configuration);
+    }
+
     open(id) {
         const modalRef = this.modalService.open(ConfirmComponent, { centered: true });
         modalRef.componentInstance.title = 'Xác nhận xóa';
@@ -55,5 +74,7 @@ export class SystemComponent implements OnInit {
         }, () => { })
     }
 
-
+    setItemPerpage(page) {
+        this.config.itemsPerPage = page;
+    }
 }

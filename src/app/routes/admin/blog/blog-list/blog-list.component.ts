@@ -32,7 +32,6 @@ export class BlogListComponent implements OnInit {
         if (this.alls) {
             this.alls.subscribe(blogs => {
                 this.blogs = blogs;
-                console.log(blogs);
             });
         }
         this.breadcrumbs = [

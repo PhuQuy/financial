@@ -12,21 +12,21 @@
           </div>
           <div class="row text-center">
             <div class="col-sm-3 col-6">
-              <h4 class="margin-0">$113 <i class="zmdi zmdi-caret-up col-green"></i></h4>
-              <p class="text-muted m-b-0"> Today's Sales</p>
+              <h4 class="margin-0">${{totalCost}} <i class="zmdi zmdi-caret-up col-green"></i></h4>
+              <p class="text-muted m-b-0"> Tổng chi phí</p>
             </div>
             <div class="col-sm-3 col-6">
-              <h4 class="margin-0">$814 <i class="zmdi zmdi-caret-down col-red"></i></h4>
-              <p class="text-muted m-b-0">This Week's Sales</p>
+              <h4 class="margin-0">${{totalProfit}} <i class="zmdi zmdi-caret-down col-red"></i></h4>
+              <p class="text-muted m-b-0">Tổng thu nhập</p>
             </div>
-            <div class="col-sm-3 col-6">
+            <!-- <div class="col-sm-3 col-6">
               <h4 class="margin-0">$3251 <i class="zmdi zmdi-caret-up col-green"></i></h4>
               <p class="text-muted m-b-0">This Month's Sales</p>
             </div>
             <div class="col-sm-3 col-6">
               <h4 class="margin-0">$51,254 <i class="zmdi zmdi-caret-up col-green"></i></h4>
               <p class="text-muted m-b-0">This Year's Sales</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -40,8 +40,8 @@
         <div class="body">
           <div class="row">
             <div class="col-md-6 text-center my-auto">
-              <h2 class="m-b-0">2,921</h2>
-              <p>External Records</p>
+              <h2 class="m-b-0">{{total}}</h2>
+              <p>Lượt truy cập</p>
             </div>
             <div class="col-md-6">
               <div [hidden]="!pieChart" class="my-3">
@@ -52,35 +52,11 @@
           <div class="table-responsive">
             <table class="table table-hover m-b-0">
               <tbody>
-                <tr>
-                  <th><i class="fas fa-circle text-success"></i></th>
-                  <td>Twitter</td>
-                  <td style="min-width: 110px;"><span>862 Records</span></td>
-                  <td>35% <i class="zmdi zmdi-caret-up"></i></td>
-                </tr>
-                <tr class="odd">
-                  <th><i class="fas fa-circle text-info"></i></th>
-                  <td>Facebook</td>
-                  <td><span>451 Records</span></td>
-                  <td>15% <i class="zmdi zmdi-caret-up"></i></td>
-                </tr>
-                <tr>
-                  <th><i class="fas fa-circle text-warning"></i></th>
-                  <td>Mailchimp</td>
-                  <td><span>502 Records</span></td>
-                  <td>20% <i class="zmdi zmdi-caret-down"></i></td>
-                </tr>
-                <tr class="odd">
-                  <th><i class="fas fa-circle text-danger"></i></th>
-                  <td>Google</td>
-                  <td><span>502 Records</span></td>
-                  <td>20% <i class="zmdi zmdi-caret-up"></i></td>
-                </tr>
-                <tr>
-                  <th><i class="fas fa-circle"></i></th>
-                  <td>Other</td>
-                  <td><span>237 Records</span></td>
-                  <td>10% <i class="zmdi zmdi-caret-down"></i></td>
+                <tr *ngFor="let item of data">
+                  <th><i class="fas fa-circle" [style.color]="item.color"></i></th>
+                  <td>{{item.location}}</td>
+                  <td style="min-width: 110px;"><span>{{item.visit}} visits</span></td>
+                  <td>{{item.percent}} % <i class="zmdi zmdi-caret-up"></i></td>
                 </tr>
               </tbody>
             </table>
@@ -89,123 +65,13 @@
       </div>
     </div>
 
-    <div class="col-sm-2 col-12 col-lg-4 mt-3">
-            <div class="card">
-                <div class="header pt-3 pl-3">
-                    <h2><strong>Resent</strong> Chat<small>Design Team</small></h2>                       
-                </div>
-                <div class="body">
-                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 306px;"><div class="cwidget-scroll" style="overflow: hidden; width: auto; height: 306px;">
-                        <ul class="chat-widget m-r-5 clearfix">
-                            <li class="left float-left">
-                                <img src="../assets/images/xs/avatar6.jpg" class="rounded-circle" alt="">
-                                <div class="chat-info">
-                                    <span class="message">Hello Messi, myself playing together what is ur thought!</span>
-                                </div>
-                            </li>
-                            <li class="right">
-                                <img src="../assets/images/xs/avatar2.jpg" class="rounded-circle" alt="">
-                                <div class="chat-info">
-                                    <span class="message">Ya but not sure</span>
-                                </div>
-                            </li>
-                            <li class="left float-left">
-                                <img src="../assets/images/xs/avatar6.jpg" class="rounded-circle" alt="">
-                                <div class="chat-info">
-                                    <span class="message">Could able to play together!</span>
-                                </div>
-                            </li>
-                            <li class="right">
-                                <img src="../assets/images/xs/avatar2.jpg" class="rounded-circle" alt="">
-                                <div class="chat-info">
-                                    <span class="message">Yes, its alright</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.4); width: 2px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 3px; z-index: 99; right: 1px; height: 306px;"></div><div class="slimScrollRail" style="width: 2px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 2px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                    <div class="input-group p-t-15">
-                        <input type="text" class="form-control" placeholder="Enter text here...">
-                        <span class="input-group-addon">
-                            <i class="zmdi zmdi-mail-send"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-sm-2 col-12 col-lg-4 mt-3 pr-0 pl-md-3 pl-0">
+        <app-chat-manage [component]="true"></app-chat-manage>
+    </div>
 
-    <div class="col-sm-10 col-12 col-lg-8 mt-3">
-            <div class="card user-account">
-                <div class="header pt-3 pl-3">
-                    <h2><strong>User</strong> Accounts</h2>               
-                </div>
-                <div class="body">
-                    <div class="table-responsive">
-                        <table class="table m-b-0">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Profile</th>
-                                    <th>User ID</th>
-                                    <th class="hidden-xs">Email Address</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="width: 25px;">1</td>
-                                    <td style="width: 60px;"><img src="../assets/images/xs/avatar1.jpg" alt="" class="rounded"></td>
-                                    <td>jacob</td>
-                                    <td class="hidden-xs">jacob@gnail.com</td>
-                                    <td><span class="badge badge-success">Approved</span></td>
-                                </tr>
-                                <tr class="odd">
-                                    <td>2</td>
-                                    <td><img src="../assets/images/xs/avatar2.jpg" alt="" class="rounded"></td>
-                                    <td>charlotte</td>
-                                    <td class="hidden-xs">a.charlotte@gnail.com</td>
-                                    <td><span class="badge badge-warning">Suspended</span></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td><img src="../assets/images/xs/avatar3.jpg" alt="" class="rounded"></td>
-                                    <td>grayson</td>
-                                    <td class="hidden-xs">grayson@yahoo.com</td>
-                                    <td><span class="badge badge-danger">Blocked</span></td>
-                                </tr>
-                                <tr class="odd">
-                                    <td>4</td>
-                                    <td><img src="../assets/images/xs/avatar4.jpg" alt="" class="rounded"></td>
-                                    <td>jacob</td>
-                                    <td class="hidden-xs">jacob@gnail.com</td>
-                                    <td><span class="badge badge-success">Approved</span></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><img src="../assets/images/xs/avatar5.jpg" alt="" class="rounded"></td>
-                                    <td>amelia</td>
-                                    <td class="hidden-xs">amelia@gnail.com</td>
-                                    <td><span class="badge badge-success">Approved</span></td>
-                                </tr>
-                                <tr class="odd">
-                                    <td>6</td>
-                                    <td><img src="../assets/images/xs/avatar6.jpg" alt="" class="rounded"></td>
-                                    <td>michael</td>
-                                    <td class="hidden-xs">michael@gmail.com</td>
-                                    <td><span class="badge badge-info">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td><img src="../assets/images/xs/avatar8.jpg" alt="" class="rounded"></td>
-                                    <td>jacob</td>
-                                    <td class="hidden-xs">jacob@gnail.com</td>
-                                    <td><span class="badge badge-success">Approved</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-sm-10 col-12 col-lg-8 mt-3 pr-0 pl-md-3 pl-0">
+      <app-user-listing [component]="true"></app-user-listing>
+    </div>
 
   </div>
 </div>

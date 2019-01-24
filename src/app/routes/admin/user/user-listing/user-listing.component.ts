@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmComponent } from '@app/modals/confirm/confirm.component';
 import { UserService } from '@app/services/user.service';
@@ -12,6 +12,7 @@ import { PaginationInstance } from 'ngx-pagination';
     providers: [UserService]
 })
 export class UserListingComponent implements OnInit {
+    @Input() component = false;
     users = [];
     alls: any;
     id_delete;

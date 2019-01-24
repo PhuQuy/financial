@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="min-height: 60vh">
   <div *ngIf="!chatId" class="text-center">
       <div class="info info-hover mx-auto p-3 col-lg-4 ">
           <div class="icon">
@@ -12,8 +12,8 @@
         <div class="input-group col-sm-8 mx-auto">
           <input type="text" class="form-control" placeholder="Tên" aria-label="Username" [(ngModel)]="customerName"
             name="customerName" />
-          <div class="input-group-prepend bg-white ">
-            <span class="rounded-left bg-white border pt-2 pb-2 pl-4 pr-4" (click)="createChat()"><i class="fa fa-paper-plane rgba-white-strong"></i></span>
+          <div class="input-group-prepend bg-white pointer">
+            <span class="rounded-left bg-white pt-2 pb-2 pl-4 pr-4" (click)="createChat()"><i class="fa fa-paper-plane rgba-white-strong"></i></span>
           </div>
         </div>
       </div>

@@ -9,3 +9,25 @@ input {
 label {
   margin-bottom: 1px;
 }
+
+.number {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #6671ba !important
+}
+
+.header-dropdown {
+  display: inline-flex !important;
+}
+
+.dropdown-button {
+  margin-top: -15px;
+
+  button {
+    padding: 7px 15px;
+    text-transform: none;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+}

@@ -12,7 +12,6 @@ export class ClientComponent implements AfterViewInit {
     }
 
     ngOnInit() {
-        console.log('ahihi');
         
     }
 

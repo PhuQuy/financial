@@ -41,15 +41,15 @@
         </li>
         <li class="nav-item" ngbDropdown placement="bottom-right">
           <a class="nav-link" (click)="sidebarClose()" id="dropdownBasic10" ngbDropdownToggle>
-            <i class="now-ui-icons users_single-02" [hidden]="!!userLogo"></i>
-            <img class="user-img mr-2" [src]="userLogo" alt="">
+            <i class="now-ui-icons users_single-02" [hidden]="!!(user?.photoURL)"></i>
+            <img class="user-img mr-2" [src]="user?.photoURL" alt="">
             <p>
               <span class="d-lg-none d-md-block">Account</span>
             </p>
           </a>
           <!--Add function create account and log out-->
           <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic10">
-            <button class="dropdown-item">Account</button>
+            <button class="dropdown-item" [routerLink]="['/admin/user-management', user?.id]">Account</button>
             <button class="dropdown-item" (click)="logOut()">Log out</button>
           </div>
         </li>

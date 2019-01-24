@@ -1,9 +1,9 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { UserService } from '@app/services/user.service';
-import { SeoService } from '@app/services/seo.service';
-import * as JsEncryptModule from 'jsencrypt';
-import { environment } from '@env/environment.prod';
 import { BlogService } from '@app/services/blog.service';
+import { SeoService } from '@app/services/seo.service';
+import { UserService } from '@app/services/user.service';
+import { SharedService } from '@app/services/shared.service';
+import { LocalStorageService } from '@app/services/local-storage.service';
 
 @Component({
     selector: 'app-home',
@@ -63,76 +63,25 @@ export class HomeComponent implements AfterViewInit {
         }
     };
 
-    constructor(private seoService: SeoService, private userService: UserService, private blogService: BlogService) {
-        this.encrypt = new JsEncryptModule.JSEncrypt();
-        this.encrypt.setPublicKey(environment.publishSSHRASKey);
-
-        this.moneySelected = 500000;
-        this.user.money = this.moneySelected;
-        this.longSelected = 3;
-        this.user.long = this.longSelected;
-        console.log(typeof this.user.name);
-
-
-        const hasName = (name) => {
-            return { name };
-        }
-
-        const canSayHi = (name) => {
-            return {
-                sayHi: () => `Hello, ${name}`
-            }
-        }
-
-        // const Person = (name) => {
-        //     return {
-        //         ...hasName(name),
-        //         ...canSayHi(name)
-        //     }
-        // }
-
-        // const person = Person('Quy');
-        // console.log(person.sayHi());
-
-
-        // const orders = [500, 30, 99, 15, 223];
-        // let ahihi = orders.reduce((acc, cur) => {
-        //     console.log(acc);
-        //     console.log(cur);
-
-        //     return acc;
-        // });
-
+    constructor(private seoService: SeoService, private userService: UserService, private blogService: BlogService, private shareService: SharedService, private localStoredService: LocalStorageService) {
     }
 
-    selectChange() {
-        this.user.money = this.moneySelected;
-        this.user.long = this.longSelected;
+    changeMoney(moneySelected) {
+        this.user.money = moneySelected;
+    }
+
+    changeTime(longSelected) {
+        this.user.long = longSelected;
     }
 
     saveUserLocal() {
-        //console.log(this.user);
-        if (typeof this.user.name === "undefined") {
-            localStorage.name = '';
-        } else {
-            localStorage.name = this.user.name;
-        }
-        if (typeof this.user.phone === "undefined") {
-            localStorage.phone = '';
-        } else {
-            localStorage.phone = this.user.phone;
-        }
+        this.localStoredService.setItem('currentUser', this.user);
     }
 
 
     createUser() {
-        // console.log(this.user);
-        var encrypted = this.encrypt.encrypt(this.user.phone + '');
-        this.user.phone = encrypted;
-        this.userService.create(this.user);
+        this.userService.createUser(this.user);
         this.user = {};
-        console.log(encrypted);
-
     }
 
     ngOnInit() {
@@ -145,8 +94,6 @@ export class HomeComponent implements AfterViewInit {
 
         this.blogService.getAlls().subscribe(blogs => {
             this.blogs = blogs;
-            console.log(blogs);
-
         })
     }
 

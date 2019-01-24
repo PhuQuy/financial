@@ -1,5 +1,5 @@
 <div class="col-md-12">
-  <div class="pt-4">
+  <div class="pt-4" [hidden]="component">
     <breadcrumbs [breadcrumbs]="breadcrumbs"></breadcrumbs>
   </div>
   <div class="card mt-3">
@@ -51,18 +51,20 @@
               <th>Điện thoại</th>
               <th>Số tiền</th>
               <th>Status</th>
+              <th>Ngày tạo</th>
               <th class="text-right">Thao tác</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let user of users | paginate: config  | filter:term; let i = index; let odd=odd;"
-              [class.checked]="user.checked" [class.odd]="odd">
+              [class.checked]="user.checked" [class.odd]="odd" [class.bold]="!user.checked">
               <td style="width: 25px;">{{i + 1}}</td>
               <td>{{user.name}}</td>
-              <td>{{user.long}}</td>
+              <td>{{user.long}} tháng</td>
               <td>{{user.phone | decrypt}}</td>
               <td>{{user.money}}</td>
-              <td><span class="badge badge-warning">Pending</span></td>
+              <td><span class="badge badge-warning" [ngClass]="user.status">{{user.status ? user.status :  'pending'}}</span></td>
+              <td>{{user.createdAt.toDate() | date:'short'}}</td>
               <td class="text-right">
                 <button (click)="openDetail(user.id);checkSeen(user)" type="button" rel="tooltip" class="btn btn-success  btn-icon btn-sm "
                   data-original-title="" title="">

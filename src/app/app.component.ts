@@ -1,6 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Configuration } from './components/redux/actions/auth.action';
 
 @Component({
     selector: 'app-root',
@@ -9,8 +11,8 @@ import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angul
 })
 export class AppComponent {
     loading;
-    // @ViewChild('animateChild') animateChild: any;
-    constructor(private router: Router, @Inject(PLATFORM_ID) public platformId: string) {
+    constructor(private router: Router, @Inject(PLATFORM_ID) public platformId: string, private store: Store<any>) {
+        this.store.dispatch(new Configuration());
     }
 
     ngAfterViewInit() {

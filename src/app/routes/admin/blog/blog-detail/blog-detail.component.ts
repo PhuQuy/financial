@@ -89,7 +89,6 @@ export class BlogDetailComponent implements OnInit {
         // this.selectedPhoto = event.target.files;
         // if (event.target.files) {
         let file = event.target.files.item(0);
-        console.log(file);
         if (file) {
 
 
@@ -98,7 +97,6 @@ export class BlogDetailComponent implements OnInit {
             //     });
             this.uploadService.pushUpload(file).subscribe(res => {
                 this.blog.picture = res;
-                console.log(res);
 
             });
         }
