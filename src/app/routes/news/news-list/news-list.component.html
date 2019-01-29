@@ -1,7 +1,7 @@
 <div class="card news-list">
   <div *ngFor="let blog of blogs | paginate: config">
     <div class="row py-3">
-      <div class="col-12 col-sm-1 col-lg-2 pr-md-0">
+      <div class="col-12 col-sm-12 col-lg-2 pr-md-0">
         <div class="top-left-menu">
           <div class="news-post-day text-center">
             <abbr title="{{blog.time | date}}">
@@ -22,11 +22,11 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-10 col-sm-11 col-12 pl-md-0">
+      <div class="col-lg-10 col-sm-12 col-12 pl-0">
         <div class="news-img">
           <img src="{{blog.picture}}">
         </div>
-        <div class="news-content">
+        <div class="news-content pl-3">
           <h4 class="pointer news-card-title">{{blog.title}}</h4>
           <div class="news-post-by"><span class="posted-by">Đăng bởi </span> <a [routerLink]="['/contact-us']">QUẢN TRỊ
               VIÊN</a> <span class="news-divider">|</span><a [routerLink]="['/']">PAYDAY
